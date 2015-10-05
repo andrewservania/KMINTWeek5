@@ -1,0 +1,10 @@
+Week 4 Tasks
+
+- Remove Graph class DONE
+- Remove Nodes DONE
+- Create Arena DONE
+- Clear dashboard DONE
+
+Task for today 2 October 2015
++ DONE Move the different behaviors and vehicle-related implementation to the Cow and rabbit class, respectively. Basically.
++ DONE Steering behaviors must be moved to state classes for the cow and rabbit.
