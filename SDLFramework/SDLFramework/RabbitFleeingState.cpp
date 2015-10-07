@@ -40,14 +40,16 @@ void RabbitFleeingState::Start(Rabbit* rabbit)
 {
 	//rabbit->Steering()->FleeOn();
 	rabbit->SetMaxSpeed(100000.0);
-	rabbit->Steering()->EvadeOn(Arena::Instance()->cow);
+	//rabbit->Steering()->EvadeOn(Arena::Instance()->cow);
 }
 
 bool RabbitFleeingState::NoThreat(Rabbit* rabbit)
 {
-	float distanceBetweenCowAndRabbit = rabbit->DistanceTo(Arena::Instance()->cow);
-	if (distanceBetweenCowAndRabbit >= 600.0)
-		return true; 
-	else 
-		return false;
+	//float distanceBetweenCowAndRabbit = rabbit->DistanceTo(Arena::Instance()->cow);
+	//if (distanceBetweenCowAndRabbit >= 600.0)
+	//	return true; 
+	//else 
+	//	return false;
+
+	return false;
 }

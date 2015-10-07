@@ -3,16 +3,15 @@
 
 CowPursuitState::CowPursuitState()
 {
-	
-//	Arena::Instance()->cow->Steering()->PursuitOn(Arena::Instance()->rabbit);
-
-//	Arena::Instance()->cow->Steering()->CreateRandomPath(3, 200, 200, 300, 300);
-//	Arena::Instance()->cow->Steering()->FollowPathOn();
+	//Arena::Instance()->cow->Steering()->PursuitOn(Arena::Instance()->rabbit);
+	//Arena::Instance()->cow->Steering()->CreateRandomPath(3, 200, 200, 300, 300);
+	//Arena::Instance()->cow->Steering()->FollowPathOn();
 }
 
 
 CowPursuitState::~CowPursuitState()
 {
+
 }
 
 void CowPursuitState::Enter(Cow* cow)
@@ -37,5 +36,5 @@ void CowPursuitState::Exit(Cow* cow)
 
 void CowPursuitState::Start(Cow* cow)
 {
-	cow->Steering()->PursuitOn(Arena::Instance()->rabbit);
+	//cow->Steering()->PursuitOn(Arena::Instance()->rabbit);
 }

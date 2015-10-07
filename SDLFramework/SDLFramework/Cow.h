@@ -7,6 +7,7 @@
 #include "SteeringBehaviors.h"
 #include "Smoother.h"
 
+
 class Cow :
 	public Vehicle
 {
@@ -16,8 +17,7 @@ class Cow :
 public:
 	Node* currentNode;
 	StateMachine<Cow>* stateMachine;
-
-
+	SteeringBehavior* steeringBehavior;
 
 
 
@@ -44,7 +44,7 @@ public:
 	void PutOnRandomLocation();
 
 	//// Accessor methods
-	//SteeringBehavior* Steering() const { return steering; }
+	SteeringBehavior* Steering() const { return steeringBehavior; }
 	//Vector2D SmoothingHeading() const { return smoothedHeading; }
 	//bool isSmoothingOn() const { return smoothingOn; }
 	//bool SmoothingOn() { smoothingOn = true; }

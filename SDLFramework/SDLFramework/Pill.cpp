@@ -2,15 +2,12 @@
 #include "Graph.h"
 #include "RabbitWanderingState.h"
 
-Pill::Pill()
+Pill::Pill(uint32_t _x, uint32_t _y)
 {
 	mTexture = mApplication->LoadTexture("pill.png");
+	mX = _x;
+	mY = _y;
 
-	// Put the pill at a random location
-	SetCurrentNode(Graph::graphNodes.at(rand() % Graph::graphNodes.size()));
-
-	while (Graph::rabbit->getCurrentNode()->id == currentNode->id)
-		SetCurrentNode(Graph::graphNodes.at(rand() % Graph::graphNodes.size()));
 
 	mApplication->AddRenderable(this);
 }
@@ -22,15 +19,7 @@ Pill::~Pill()
 // Check whether the cow has searching for the pill, if so make it chase the rabbit
 void Pill::Update(float deltaTime)
 {
-	if (Graph::rabbit->getCurrentNode()->id == currentNode->id)
-	{
-		if (Graph::rabbit->GetCurrentState() == "Search For Pill")
-		{
-			Graph::rabbit->GetFSM()->ChangeState(RabbitWanderingState::Instance());
-			Graph::rabbit->pickedUpPill = true;
-			PutOnRandomLocation();
-		}
-	}
+
 }
 
 // Draw the pill on screen
@@ -42,18 +31,11 @@ void Pill::Draw()
 // Put the pill at a new location
 void Pill::SetCurrentNode(Node* newNode)
 {
-	currentNode = newNode;
-	mX = currentNode->GetBoundingBox().x;
-	mY = currentNode->GetBoundingBox().y;
+
 }
 
 // Respawn the pill somewhere else, aslong its not at the same place as the cow, the rabbit or the weapon
 void Pill::PutOnRandomLocation()
 {
-	SetCurrentNode(Graph::graphNodes.at(rand() % Graph::graphNodes.size()));
 
-	while (Graph::cow->getCurrentNode()->id == currentNode->id ||
-		Graph::rabbit->getCurrentNode()->id == currentNode->id ||
-		Graph::weapon->GetCurrentNode()->id == currentNode->id)
-		SetCurrentNode(Graph::graphNodes.at(rand() % Graph::graphNodes.size()));
 }

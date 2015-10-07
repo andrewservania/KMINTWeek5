@@ -60,8 +60,8 @@ Graph::Graph(FWApplication* _application)
 	graphNodes.push_back(node8);
 
 //	rabbit = new Rabbit(1);												// 1) Create a rabbit
-	pill = new Pill();													// 2) Create a pill at a random location
-	weapon = new Weapon();												// 3) Create a weapon at a random location
+	//pill = new Pill(200,200);													// 2) Create a pill at a random location
+	//weapon = new Weapon(200,200);												// 3) Create a weapon at a random location
 	//cow = new Cow(2);													// 4) Create a cow
 	// NOTE: If one wants to change the order of creation of game entities, then the respawn checks declared
 	//		 within their constructors must be adapted in order to keep making sure that none of the entities

@@ -8,7 +8,7 @@ public:
 	Node* currentNode;
 	bool isPickedUp;
 
-	Weapon();
+	Weapon(uint32_t _x, uint32_t _y);
 	~Weapon();
 	void Update(float deltaTime) override;
 	void Draw() override;

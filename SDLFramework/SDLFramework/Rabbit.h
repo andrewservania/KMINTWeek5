@@ -13,6 +13,8 @@ class Rabbit :
 public:
 	Node* currentNode;
 	StateMachine<Rabbit>* stateMachine;
+	SteeringBehavior* steeringBehavior;
+
 
 	bool pickedUpWeapon;
 	bool pickedUpPill;
@@ -36,4 +38,5 @@ public:
 	Node* getCurrentNode() { return currentNode; }
 	std::string GetCurrentState() { return stateMachine->CurrentState()->GetStateName(); }
 	StateMachine<Rabbit>* GetFSM() { return stateMachine; }
+	SteeringBehavior* Steering() const { return steeringBehavior; }
 };

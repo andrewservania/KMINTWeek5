@@ -9,7 +9,7 @@ public:
 	Node* currentNode;
 	bool isPickedUp;
 
-	Pill();
+	Pill(uint32_t _x, uint32_t _y);
 	~Pill();
 	void Update(float deltaTime) override;
 	void Draw() override;

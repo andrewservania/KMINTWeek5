@@ -97,6 +97,7 @@
     <ClCompile Include="FWApplication.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="iniFileLoaderBase.cpp" />
+    <ClCompile Include="InstanceOfGameEntities.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MovingEntity.cpp" />
     <ClCompile Include="Node.cpp" />
@@ -107,6 +108,7 @@
     <ClCompile Include="ProbabilityDistribution.cpp" />
     <ClCompile Include="Rabbit.cpp" />
     <ClCompile Include="RabbitFleeingState.cpp" />
+    <ClCompile Include="RabbitPursuitState.cpp" />
     <ClCompile Include="RabbitSearchForPillState.cpp" />
     <ClCompile Include="RabbitSearchForWeaponState.cpp" />
     <ClCompile Include="RabbitWanderingState.cpp" />
@@ -140,6 +142,7 @@
     <ClInclude Include="Graph.h" />
     <ClInclude Include="IGameObject.h" />
     <ClInclude Include="iniFileLoaderBase.h" />
+    <ClInclude Include="InstanceOfGameEntities.h" />
     <ClInclude Include="InvertedAABBox2D.h" />
     <ClInclude Include="MovingEntity.h" />
     <ClInclude Include="Node.h" />
@@ -150,6 +153,7 @@
     <ClInclude Include="ProbabilityDistribution.h" />
     <ClInclude Include="Rabbit.h" />
     <ClInclude Include="RabbitFleeingState.h" />
+    <ClInclude Include="RabbitPursuitState.h" />
     <ClInclude Include="RabbitSearchForPillState.h" />
     <ClInclude Include="RabbitSearchForWeaponState.h" />
     <ClInclude Include="RabbitWanderingState.h" />

@@ -32,7 +32,7 @@ Cow::Cow(int id,
 
 	//Load the picture corresponding to the cow
 	mTexture = mApplication->LoadTexture("cow-1.png");
-
+	
 	// set the location of the cow on the screen
 	mX = static_cast<uint32_t>(position.x);
 	mY = static_cast<uint32_t>(position.y);
@@ -40,7 +40,7 @@ Cow::Cow(int id,
 
 
 	// set up the steering behavior class
-	steering = new SteeringBehavior(this);
+	steeringBehavior = new SteeringBehavior(this);
 
 	//set up the smoother
 	headingSmoother = new Smoother<Vector2D>(Parameters::Instance()->NumSamplesForSmoothing, Vector2D(0.0, 0.0));
@@ -50,7 +50,7 @@ Cow::Cow(int id,
 	// Add sample code here that is responsible for updating the cow
 	// Set up the state machine
 	stateMachine = new StateMachine<Cow>(this);
-	stateMachine->SetCurrentState(CowPursuitState::Instance());
+	//stateMachine->SetCurrentState(CowPursuitState::Instance());
 	//stateMachine->SetGlobalState()
 	mApplication->AddRenderable(this);
 
@@ -63,7 +63,7 @@ void Cow::Update(float deltaTime)
 	timeElapsed = static_cast<double>(deltaTime);
 
 	// calculate the combined force from each steering behavior in the vehicle's list
-	Vector2D SteeringForce = steering->Calculate();
+	Vector2D SteeringForce = steeringBehavior->Calculate();
 
 	// Accelaration = Force/Mass
 	Vector2D acceleration = SteeringForce / mass;

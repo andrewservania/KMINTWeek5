@@ -29,7 +29,7 @@ Rabbit::Rabbit(int id,
 	mY = static_cast<uint32_t>(position.y);
 
 	// set up the steering behavior class
-	steering = new SteeringBehavior(this);
+	steeringBehavior = new SteeringBehavior(this);
 
 	//set up the smoother
 	headingSmoother = new Smoother<Vector2D>(Parameters::Instance()->NumSamplesForSmoothing, Vector2D(0.0, 0.0));
@@ -40,9 +40,9 @@ Rabbit::Rabbit(int id,
 	// Add sample code here that is responsible for updating the cow
 	// Set up the state machine
 	stateMachine = new StateMachine<Rabbit>(this);
-	stateMachine->SetCurrentState(RabbitWanderingState::Instance());
+	//stateMachine->SetCurrentState(RabbitWanderingState::Instance());
 	//stateMachine->SetGlobalState()
-
+	
 }
 
 Rabbit::~Rabbit()
@@ -56,7 +56,7 @@ void Rabbit::Update(float deltaTime)
 	double elapsedTime = static_cast<double>(deltaTime);
 
 	// calculate the combined force from each steering behavior in the vehicle's list
-	Vector2D SteeringForce = steering->Calculate();
+	Vector2D SteeringForce = steeringBehavior->Calculate();
 
 	// Accelaration = Force/Mass
 	Vector2D acceleration = SteeringForce / mass;

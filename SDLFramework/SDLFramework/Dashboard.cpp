@@ -87,18 +87,18 @@ void Dashboard::Update()
 	FWApplication::GetInstance()->DrawTextOnScreen(comment13, 300, 380);
 
 	// Cow state label
-	CowStateLabel(Arena::cow->GetCurrentState());
-	FWApplication::GetInstance()->DrawTextOnScreen(cowStateLabel, 650, 90);
+	//CowStateLabel(Arena::cow->GetCurrentState());
+	//FWApplication::GetInstance()->DrawTextOnScreen(cowStateLabel, 650, 90);
 	//FWApplication::GetInstance()->DrawTextOnScreen("NEEDS FIX IN DASHBOARD CLASS", 300, 420);
 
 
 	// Rabbit state label
-	RabbitStateLabel(Arena::rabbit->GetCurrentState());
-	FWApplication::GetInstance()->DrawTextOnScreen(rabbitStateLabel, 650, 110);
+//	RabbitStateLabel(Arena::rabbit->GetCurrentState());
+//	FWApplication::GetInstance()->DrawTextOnScreen(rabbitStateLabel, 650, 110);
 	//FWApplication::GetInstance()->DrawTextOnScreen("NEEDS FIX IN DASHBOARD CLASS", 300, 460);
 
 	// Shortest path label
-	FWApplication::GetInstance()->DrawTextOnScreen(shortestPathLabel, 300, 500);
+	//FWApplication::GetInstance()->DrawTextOnScreen(shortestPathLabel, 300, 500);
 
 	// Probabilities
 	//FWApplication::GetInstance()->DrawTextOnScreen(choice1Probability, 300, 540);

@@ -4,19 +4,19 @@
 #include "Rabbit.h"
 #include "Vehicle.h"
 #include "CellSpacePartition.h"
-
-class Arena : public IGameObject
+#include "InstanceOfGameEntities.h"
+class Arena
 {
 private:
 	
 public:
-	  static Cow*cow;
-	  static Rabbit*rabbit;
-
+	  //static Cow*cow;
+	  //static Rabbit*rabbit;
+	InstanceOfGameEntities* instanceOfGameEntities;
 
 	Arena();
 	~Arena();
-	void Update(float deltaTime) override;
+
 
 	static Arena* Instance()
 	{

@@ -802,8 +802,8 @@ Vector2D SteeringBehavior::Evade(const Vehicle* pursuer)
 
   //uncomment the following two lines to have Evade only consider pursuers 
   //within a 'threat range'
- //  const double ThreatRange = 500.0;
- //  if (ToPursuer.LengthSq() > ThreatRange * ThreatRange) return Vector2D();
+   const double ThreatRange = 500.0;
+   if (ToPursuer.LengthSq() > ThreatRange * ThreatRange) return Vector2D();
   
   //the lookahead time is propotional to the distance between the pursuer
   //and the pursuer; and is inversely proportional to the sum of the
