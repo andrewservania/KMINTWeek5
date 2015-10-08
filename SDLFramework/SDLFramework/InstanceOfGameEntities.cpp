@@ -19,7 +19,7 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 		Parameters::Instance()->SteeringForceTweaker,		//max force
 		Parameters::Instance()->MaxSpeed,					//max velocity
 		Parameters::Instance()->MaxTurnRate,				//max turn rate
-		Parameters::Instance()->VehicleScale, rabbit);				//scale
+		Parameters::Instance()->VehicleScale, rabbit);		//scale
 
 	rabbit = new Rabbit(2,
 		spawnPosition2,										//initial position
@@ -34,17 +34,24 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 		*cow);				
 
 
-		weapon = new Weapon(200,200);
-		pill = new Pill(300,300);
+	weapon = new Weapon(rand() % 1300, rand() % 700);
+	pill = new Pill(rand() % 1300, rand() % 700);
 
-		cow->SetEnemy(rabbit);
-
-		rabbit->GetFSM()->ChangeState(RabbitPursuitState::Instance());
-		cow->GetFSM()->ChangeState(CowWanderingState::Instance());
+	cow->SetEnemy(rabbit);
+	rabbit->GetFSM()->ChangeState(RabbitPursuitState::Instance());
+	cow->GetFSM()->ChangeState(CowWanderingState::Instance());
 
 }
 
 
 InstanceOfGameEntities::~InstanceOfGameEntities()
 {
+}
+
+void InstanceOfGameEntities::SetColor(Color* _color)
+{
+	rabbit->SetColor(_color);
+	cow->SetColor(_color);
+	weapon->SetColor(_color);
+	pill->SetColor(_color);
 }

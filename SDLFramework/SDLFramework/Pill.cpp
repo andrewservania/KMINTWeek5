@@ -8,6 +8,8 @@ Pill::Pill(uint32_t _x, uint32_t _y)
 	mX = _x;
 	mY = _y;
 
+	// Initialize with 'no' color
+	color = new Color(0, 0, 0, 255);
 
 	mApplication->AddRenderable(this);
 }
@@ -25,7 +27,8 @@ void Pill::Update(float deltaTime)
 // Draw the pill on screen
 void Pill::Draw()
 {
-	mApplication->DrawTexture(mTexture, mX, mY, 50, 50);
+	mApplication->DrawTexture(mTexture, mX, mY, 50, 50,Color(color->r, color->b, color->g, 255));
+	
 };
 
 // Put the pill at a new location

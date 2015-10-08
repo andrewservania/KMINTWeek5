@@ -43,6 +43,12 @@ Rabbit::Rabbit(int id,
 	// Set up the state machine
 	stateMachine = new StateMachine<Rabbit>(this);
 	stateMachine->SetCurrentState(RabbitGlobalState::Instance());
+
+	// Initialize with 'no' color
+	color = new Color(0, 0, 0, 255);
+	//add cow to renderable objects
+	mApplication->AddRenderable(this);
+
 }
 
 Rabbit::~Rabbit()
@@ -92,7 +98,8 @@ void Rabbit::Update(float deltaTime)
 // Draw the rabbit texture
 void Rabbit::Draw()
 {
-	mApplication->DrawTexture(mTexture, mX, mY, 100, 100);
+
+	mApplication->DrawTexture(mTexture, mX, mY, 100, 100, Color(color->r, color->b, color->g, 255));
 }
 
 // Execute code if rabbit has been left-clicked upon

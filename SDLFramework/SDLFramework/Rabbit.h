@@ -15,7 +15,7 @@ public:
 	StateMachine<Rabbit>* stateMachine;
 	SteeringBehavior* steeringBehavior;
 	Cow& enemy;
-
+	Color* color;
 	bool pickedUpWeapon;
 	bool pickedUpPill;
 
@@ -42,4 +42,6 @@ public:
 	SteeringBehavior* Steering() const { return steeringBehavior; }
 
 	Cow& GetEnemy() { return enemy; }
+	void SetColor(Color* _color) { color = _color; }
+	Color* GetColor(){ return color; }
 };

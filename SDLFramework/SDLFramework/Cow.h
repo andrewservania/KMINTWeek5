@@ -20,7 +20,7 @@ public:
 	StateMachine<Cow>* stateMachine;
 	SteeringBehavior* steeringBehavior;
 	Rabbit* enemy;
-
+	Color* color;
 
 	Cow(int id,
 		Vector2D _position,
@@ -49,6 +49,9 @@ public:
 	SteeringBehavior* Steering() const { return steeringBehavior; }
 	void SetEnemy(Rabbit* _enemy) { enemy = _enemy; }
 	Rabbit* GetEnemy() { return enemy; }
+
+	void SetColor(Color* _color){ color = _color; }
+	Color* GetColor() { return color; }
 	//Vector2D SmoothingHeading() const { return smoothedHeading; }
 	//bool isSmoothingOn() const { return smoothingOn; }
 	//bool SmoothingOn() { smoothingOn = true; }

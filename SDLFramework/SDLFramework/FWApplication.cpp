@@ -107,6 +107,7 @@ std::string FWApplication::GetRelativePath(const std::string & path) const
 SDL_Texture * FWApplication::LoadTexture(const std::string & fileName)
 {
 	const std::string path = GetRelativePath("Resources" PATH_SEP + fileName);
+
 	SDL_Surface * surface = IMG_Load(path.c_str());
 	if (surface)
 	{
@@ -124,6 +125,31 @@ SDL_Texture * FWApplication::LoadTexture(const std::string & fileName)
 	return nullptr;
 }
 
+
+//SDL_Texture * FWApplication::LoadTexture(const std::string & fileName, SDL_Color _color)
+//{
+//	const std::string path = GetRelativePath("Resources" PATH_SEP + fileName);
+//	SDL_Surface * surface = IMG_Load(path.c_str());
+//	
+//	
+//	if (surface)
+//	{
+//		SDL_Texture * texture = SDL_CreateTextureFromSurface(mRenderer, surface);
+//		
+//		SDL_FreeSurface(surface);
+//
+//		if (!texture)
+//		{
+//			LOG("Couldn't load texture: " + path);
+//		}
+//		return texture;
+//	}
+//
+//	LOG("SDL Error, couldn't load BMP: " + path);
+//	return nullptr;
+//}
+
+
 void FWApplication::DrawTexture(SDL_Texture * texture, int xOffset, int yOffset)
 {
 	SDL_Rect rect = { xOffset, yOffset };
@@ -139,8 +165,20 @@ void FWApplication::DrawTexture(SDL_Texture * texture, int xOffset, int yOffset,
 
 	//SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
 	SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+	SDL_SetRenderDrawColor(mRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 	SDL_RenderCopy(mRenderer, texture, NULL, &rect);
 }
+
+void FWApplication::DrawTexture(SDL_Texture * texture, int xOffset, int yOffset, int width, int height, Color _color)
+{
+	SDL_Rect rect = { xOffset - (width / 2), yOffset - (height / 2), width, height };
+
+	//SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
+	SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+	SDL_SetTextureColorMod(texture, _color.r, _color.g, _color.b);
+	SDL_RenderCopy(mRenderer, texture, NULL, &rect);
+}
+
 
 void FWApplication::StartTick()
 {
@@ -220,6 +258,7 @@ void FWApplication::SetColor(const Color & color)
 {
 	mColor = color;
 	SDL_SetRenderDrawColor(mRenderer, mColor.r, mColor.g, mColor.b, mColor.a);
+	
 }
 
 void FWApplication::DrawRect(int startPosX, int startPosY, int width, int height, bool fill)

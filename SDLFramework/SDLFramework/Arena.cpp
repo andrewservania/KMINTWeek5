@@ -2,16 +2,18 @@
 #include "Parameters.h"
 
 
+using namespace std;
 
 
-//Cow* Arena::cow;
-//Rabbit* Arena::rabbit;
 
-InstanceOfGameEntities* number2;
 Arena::Arena()
 {
-	instanceOfGameEntities = new InstanceOfGameEntities();
-	number2 = new InstanceOfGameEntities();
+
+	for (int i = 0; i < 5; ++i)
+	{
+		auto instance = make_shared<InstanceOfGameEntities>();
+		instance->SetColor(new Color(rand() % 220, rand() % 220, rand() % 220, 255));
+	}
 }
 
 

@@ -10,9 +10,6 @@ class Arena
 private:
 	
 public:
-	  //static Cow*cow;
-	  //static Rabbit*rabbit;
-	InstanceOfGameEntities* instanceOfGameEntities;
 
 	Arena();
 	~Arena();

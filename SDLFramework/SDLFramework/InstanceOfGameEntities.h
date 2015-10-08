@@ -17,5 +17,6 @@ public:
 
 	InstanceOfGameEntities();
 	~InstanceOfGameEntities();
+	void SetColor(Color* color);
 };
 

@@ -116,6 +116,12 @@ public:
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	void DrawTexture(SDL_Texture * texture, int xOffset, int yOffset, int width, int height);
 
+
+	// Andrew: Method that draws a texture on screen with a color shade
+	void DrawTexture(SDL_Texture * texture, int xOffset, int yOffset, int width, int height, Color _color);
+
+
+
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Draws a line from position to position </summary>
 	///

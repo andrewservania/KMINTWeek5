@@ -54,6 +54,8 @@ Cow::Cow(int id,
 	stateMachine = new StateMachine<Cow>(this);
 	stateMachine->SetCurrentState(CowGlobalState::Instance());
 
+	// Initialize with 'no' color
+	color = new Color(0, 0, 0, 255);
 	mApplication->AddRenderable(this);
 
 }
@@ -102,6 +104,7 @@ void Cow::Update(float deltaTime)
 Cow::~Cow()
 {
 	delete stateMachine;
+	//delete color;
 }
 
 void Cow::setCurrentNode(Node* node)
@@ -114,7 +117,9 @@ void Cow::setCurrentNode(Node* node)
 // Draw cow texture
 void Cow::Draw()
 {
-	mApplication->DrawTexture(mTexture, mX, mY, 100, 100);
+
+	mApplication->DrawTexture(mTexture, mX, mY, 100, 100, Color(color->r,color->b,color->g,255));
+
 }
 
 //Handle all clicks
