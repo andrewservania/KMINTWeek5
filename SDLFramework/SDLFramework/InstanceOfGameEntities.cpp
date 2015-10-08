@@ -28,7 +28,9 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 		Parameters::Instance()->SteeringForceTweaker),		//max force
 		Parameters::Instance()->MaxSpeed*2,					//max velocity
 		Parameters::Instance()->MaxTurnRate,				//max turn rate
-		Parameters::Instance()->VehicleScale);				//scale
+		Parameters::Instance()->VehicleScale,				//scale
+		*cow);				
+
 
 		weapon = new Weapon(200,200);
 		pill = new Pill(300,300);

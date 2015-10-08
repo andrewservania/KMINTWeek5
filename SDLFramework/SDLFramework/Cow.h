@@ -6,7 +6,7 @@
 #include "Vector2D.h"
 #include "SteeringBehaviors.h"
 #include "Smoother.h"
-
+//#include "Rabbit.h"
 
 class Cow :
 	public Vehicle
@@ -18,7 +18,7 @@ public:
 	Node* currentNode;
 	StateMachine<Cow>* stateMachine;
 	SteeringBehavior* steeringBehavior;
-
+	//Rabbit* enemy;
 
 
 	Cow(int id,

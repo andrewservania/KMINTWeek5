@@ -10,7 +10,7 @@ Rabbit::Rabbit(int id,
 	double _max_force,
 	double _max_speed,
 	double _max_turn_rate,
-	double _scale) : Vehicle(id,
+	double _scale, Cow& _enemy) : Vehicle(id,
 					_position,
 					_rotation,
 					_velocity,
@@ -18,7 +18,8 @@ Rabbit::Rabbit(int id,
 					_max_force,
 					_max_speed,
 					_max_turn_rate,
-					_scale)
+					_scale),
+					enemy(_enemy)
 {
 	mTexture = mApplication->LoadTexture("rabbit-3.png");
 	pickedUpPill = false;
@@ -40,9 +41,9 @@ Rabbit::Rabbit(int id,
 	// Add sample code here that is responsible for updating the cow
 	// Set up the state machine
 	stateMachine = new StateMachine<Rabbit>(this);
-	//stateMachine->SetCurrentState(RabbitWanderingState::Instance());
+	stateMachine->SetCurrentState(RabbitWanderingState::Instance());
 	//stateMachine->SetGlobalState()
-	
+	Steering()->PursuitOn(&enemy);
 }
 
 Rabbit::~Rabbit()

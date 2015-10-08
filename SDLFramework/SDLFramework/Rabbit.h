@@ -6,6 +6,7 @@
 #include "Vector2D.h"
 #include "SteeringBehaviors.h"
 #include "Smoother.h"
+#include "Cow.h"
 
 class Rabbit :
 	public Vehicle
@@ -14,7 +15,7 @@ public:
 	Node* currentNode;
 	StateMachine<Rabbit>* stateMachine;
 	SteeringBehavior* steeringBehavior;
-
+	Cow& enemy;
 
 	bool pickedUpWeapon;
 	bool pickedUpPill;
@@ -27,7 +28,7 @@ public:
 		double _max_force,
 		double _max_speed,
 		double _max_turn_rate,
-		double _scale);
+		double _scale, Cow& enemy);
 
 	~Rabbit();
 	virtual void Update(float deltaTime) override;
