@@ -7,13 +7,17 @@
 
 class RabbitPursuitState : public State<Rabbit>
 {
+private:
+	void Start(Rabbit* rabbit);
+	bool hasStarted;
 public:
 	RabbitPursuitState();
 	~RabbitPursuitState();
-	void Enter(Rabbit* cow) override;
-	void Execute(Rabbit* cow) override;
-	void Exit(Rabbit* cow) override;
+	void Enter(Rabbit* rabbit) override;
+	void Execute(Rabbit* rabbit) override;
+	void Exit(Rabbit* rabbit) override;
 	std::string GetStateName() override { return "Pursuing Cow"; }
+
 	static RabbitPursuitState* Instance()
 	{
 		static RabbitPursuitState instance;

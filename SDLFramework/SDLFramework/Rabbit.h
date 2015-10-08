@@ -40,4 +40,5 @@ public:
 	std::string GetCurrentState() { return stateMachine->CurrentState()->GetStateName(); }
 	StateMachine<Rabbit>* GetFSM() { return stateMachine; }
 	SteeringBehavior* Steering() const { return steeringBehavior; }
+	Cow& GetEnemy() { return enemy; }
 };

@@ -27,6 +27,18 @@
     <Filter Include="Source Files\Mat Buckland">
       <UniqueIdentifier>{0aa89d29-00a1-419b-891d-13c345e6e714}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\States\Rabbit States">
+      <UniqueIdentifier>{9e8c03cf-a7d6-4ede-8a21-0b8ded88b178}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\States\Cow States">
+      <UniqueIdentifier>{0292d181-e6a5-489e-af08-b33b38138197}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\States\Cow States">
+      <UniqueIdentifier>{a6f12f23-6f64-4967-941b-083c54569c7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\States\Rabbit States">
+      <UniqueIdentifier>{2df5b398-c0f9-45a0-a355-8c45cf022019}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -50,15 +62,6 @@
     <ClCompile Include="Dashboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RabbitWanderingState.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="CowChaseRabbitState.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="RabbitFleeingState.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
     <ClCompile Include="BaseGameEntity.cpp">
       <Filter>Source Files\GameEntities</Filter>
     </ClCompile>
@@ -74,17 +77,8 @@
     <ClCompile Include="Weapon.cpp">
       <Filter>Source Files\GameEntities</Filter>
     </ClCompile>
-    <ClCompile Include="RabbitSearchForPillState.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="RabbitSearchForWeaponState.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
     <ClCompile Include="ProbabilityDistribution.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CowSleepingState.cpp">
-      <Filter>Source Files\States</Filter>
     </ClCompile>
     <ClCompile Include="Arena.cpp">
       <Filter>Source Files</Filter>
@@ -94,9 +88,6 @@
     </ClCompile>
     <ClCompile Include="Vehicle.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CowPursuitState.cpp">
-      <Filter>Source Files\States</Filter>
     </ClCompile>
     <ClCompile Include="Cgdi.cpp">
       <Filter>Source Files\Mat Buckland</Filter>
@@ -122,7 +113,40 @@
     <ClCompile Include="InstanceOfGameEntities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CowChaseRabbitState.cpp">
+      <Filter>Source Files\States\Cow States</Filter>
+    </ClCompile>
+    <ClCompile Include="CowPursuitState.cpp">
+      <Filter>Source Files\States\Cow States</Filter>
+    </ClCompile>
+    <ClCompile Include="CowSearchForWeaponState.cpp">
+      <Filter>Source Files\States\Cow States</Filter>
+    </ClCompile>
+    <ClCompile Include="CowSleepingState.cpp">
+      <Filter>Source Files\States\Cow States</Filter>
+    </ClCompile>
+    <ClCompile Include="CowFleeingState.cpp">
+      <Filter>Source Files\States\Cow States</Filter>
+    </ClCompile>
+    <ClCompile Include="RabbitWanderingState.cpp">
+      <Filter>Source Files\States\Rabbit States</Filter>
+    </ClCompile>
+    <ClCompile Include="RabbitFleeingState.cpp">
+      <Filter>Source Files\States\Rabbit States</Filter>
+    </ClCompile>
     <ClCompile Include="RabbitPursuitState.cpp">
+      <Filter>Source Files\States\Rabbit States</Filter>
+    </ClCompile>
+    <ClCompile Include="RabbitSearchForPillState.cpp">
+      <Filter>Source Files\States\Rabbit States</Filter>
+    </ClCompile>
+    <ClCompile Include="RabbitSearchForWeaponState.cpp">
+      <Filter>Source Files\States\Rabbit States</Filter>
+    </ClCompile>
+    <ClCompile Include="CowSearchForPillState.cpp">
+      <Filter>Source Files\States\Cow States</Filter>
+    </ClCompile>
+    <ClCompile Include="CowWanderingState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -157,9 +181,6 @@
     <ClInclude Include="Dashboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CowChaseRabbitState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
     <ClInclude Include="IGameObject.h">
       <Filter>Header Files\GameEntities</Filter>
     </ClInclude>
@@ -172,20 +193,11 @@
     <ClInclude Include="Rabbit.h">
       <Filter>Header Files\GameEntities</Filter>
     </ClInclude>
-    <ClInclude Include="RabbitFleeingState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="RabbitWanderingState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
     <ClInclude Include="Pill.h">
       <Filter>Header Files\GameEntities</Filter>
     </ClInclude>
     <ClInclude Include="Weapon.h">
       <Filter>Header Files\GameEntities</Filter>
-    </ClInclude>
-    <ClInclude Include="RabbitSearchForWeaponState.h">
-      <Filter>Header Files\States</Filter>
     </ClInclude>
     <ClInclude Include="ProbabilityDistribution.h">
       <Filter>Header Files</Filter>
@@ -250,15 +262,6 @@
     <ClInclude Include="SteeringBehaviors.h">
       <Filter>Header Files\Mat Buckland</Filter>
     </ClInclude>
-    <ClInclude Include="RabbitSearchForPillState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="CowSleepingState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="CowPursuitState.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
     <ClInclude Include="Smoother.h">
       <Filter>Header Files\Mat Buckland</Filter>
     </ClInclude>
@@ -268,7 +271,40 @@
     <ClInclude Include="InstanceOfGameEntities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CowChaseRabbitState.h">
+      <Filter>Header Files\States\Cow States</Filter>
+    </ClInclude>
+    <ClInclude Include="CowFleeingState.h">
+      <Filter>Header Files\States\Cow States</Filter>
+    </ClInclude>
+    <ClInclude Include="CowPursuitState.h">
+      <Filter>Header Files\States\Cow States</Filter>
+    </ClInclude>
+    <ClInclude Include="CowSearchForWeaponState.h">
+      <Filter>Header Files\States\Cow States</Filter>
+    </ClInclude>
+    <ClInclude Include="CowSleepingState.h">
+      <Filter>Header Files\States\Cow States</Filter>
+    </ClInclude>
+    <ClInclude Include="RabbitFleeingState.h">
+      <Filter>Header Files\States\Rabbit States</Filter>
+    </ClInclude>
     <ClInclude Include="RabbitPursuitState.h">
+      <Filter>Header Files\States\Rabbit States</Filter>
+    </ClInclude>
+    <ClInclude Include="RabbitSearchForPillState.h">
+      <Filter>Header Files\States\Rabbit States</Filter>
+    </ClInclude>
+    <ClInclude Include="RabbitSearchForWeaponState.h">
+      <Filter>Header Files\States\Rabbit States</Filter>
+    </ClInclude>
+    <ClInclude Include="RabbitWanderingState.h">
+      <Filter>Header Files\States\Rabbit States</Filter>
+    </ClInclude>
+    <ClInclude Include="CowSearchForPillState.h">
+      <Filter>Header Files\States\Cow States</Filter>
+    </ClInclude>
+    <ClInclude Include="CowWanderingState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

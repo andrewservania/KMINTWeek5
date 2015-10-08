@@ -90,8 +90,12 @@
     <ClCompile Include="Cgdi.cpp" />
     <ClCompile Include="Cow.cpp" />
     <ClCompile Include="CowChaseRabbitState.cpp" />
+    <ClCompile Include="CowFleeingState.cpp" />
     <ClCompile Include="CowPursuitState.cpp" />
+    <ClCompile Include="CowSearchForPillState.cpp" />
+    <ClCompile Include="CowSearchForWeaponState.cpp" />
     <ClCompile Include="CowSleepingState.cpp" />
+    <ClCompile Include="CowWanderingState.cpp" />
     <ClCompile Include="Dashboard.cpp" />
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="FWApplication.cpp" />
@@ -132,8 +136,12 @@
     <ClInclude Include="Cow.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="CowChaseRabbitState.h" />
+    <ClInclude Include="CowFleeingState.h" />
     <ClInclude Include="CowPursuitState.h" />
+    <ClInclude Include="CowSearchForPillState.h" />
+    <ClInclude Include="CowSearchForWeaponState.h" />
     <ClInclude Include="CowSleepingState.h" />
+    <ClInclude Include="CowWanderingState.h" />
     <ClInclude Include="Dashboard.h" />
     <ClInclude Include="Edge.h" />
     <ClInclude Include="EntityFunctionTemplates.h" />

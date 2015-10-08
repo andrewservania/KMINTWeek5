@@ -1,6 +1,7 @@
 #include "Rabbit.h"
 #include "RabbitWanderingState.h"
 #include "Parameters.h"
+#include "RabbitPursuitState.h"
 
 Rabbit::Rabbit(int id,
 	Vector2D _position,
@@ -41,9 +42,9 @@ Rabbit::Rabbit(int id,
 	// Add sample code here that is responsible for updating the cow
 	// Set up the state machine
 	stateMachine = new StateMachine<Rabbit>(this);
-	stateMachine->SetCurrentState(RabbitWanderingState::Instance());
+	stateMachine->SetCurrentState(RabbitPursuitState::Instance());
 	//stateMachine->SetGlobalState()
-	Steering()->PursuitOn(&enemy);
+	
 }
 
 Rabbit::~Rabbit()
