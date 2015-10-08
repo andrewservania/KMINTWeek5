@@ -147,6 +147,12 @@
       <Filter>Source Files\States\Cow States</Filter>
     </ClCompile>
     <ClCompile Include="CowWanderingState.cpp">
+      <Filter>Source Files\States\Cow States</Filter>
+    </ClCompile>
+    <ClCompile Include="CowGlobalState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RabbitGlobalState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -305,6 +311,12 @@
       <Filter>Header Files\States\Cow States</Filter>
     </ClInclude>
     <ClInclude Include="CowWanderingState.h">
+      <Filter>Header Files\States\Cow States</Filter>
+    </ClInclude>
+    <ClInclude Include="CowGlobalState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RabbitGlobalState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

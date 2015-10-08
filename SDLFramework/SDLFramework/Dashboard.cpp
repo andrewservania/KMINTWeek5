@@ -33,7 +33,7 @@ using namespace std;
 
 Dashboard::Dashboard()
 {
-	ApplicationInformation("Andrew Servania - KMINT Week 4");
+	ApplicationInformation("Andrew Servania - KMINT Week 5");
 
 	comment1 = "";
 	comment2 = "";

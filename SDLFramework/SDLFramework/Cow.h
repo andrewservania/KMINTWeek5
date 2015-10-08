@@ -1,12 +1,13 @@
 #pragma once
 #include "Node.h"
-
 #include "Vehicle.h"
 #include "StateMachine.h"
 #include "Vector2D.h"
 #include "SteeringBehaviors.h"
 #include "Smoother.h"
-//#include "Rabbit.h"
+
+
+class Rabbit;
 
 class Cow :
 	public Vehicle
@@ -18,7 +19,7 @@ public:
 	Node* currentNode;
 	StateMachine<Cow>* stateMachine;
 	SteeringBehavior* steeringBehavior;
-	//Rabbit* enemy;
+	Rabbit* enemy;
 
 
 	Cow(int id,
@@ -29,7 +30,8 @@ public:
 		double _max_force,
 		double _max_speed,
 		double _max_turn_rate,
-		double _scale);
+		double _scale, 
+		Rabbit* _enemy);
 
 	~Cow();
 	virtual void Update(float deltaTime) override;
@@ -45,6 +47,8 @@ public:
 
 	//// Accessor methods
 	SteeringBehavior* Steering() const { return steeringBehavior; }
+	void SetEnemy(Rabbit* _enemy) { enemy = _enemy; }
+	Rabbit* GetEnemy() { return enemy; }
 	//Vector2D SmoothingHeading() const { return smoothedHeading; }
 	//bool isSmoothingOn() const { return smoothingOn; }
 	//bool SmoothingOn() { smoothingOn = true; }

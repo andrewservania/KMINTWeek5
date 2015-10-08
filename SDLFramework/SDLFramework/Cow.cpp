@@ -2,7 +2,7 @@
 #include <string>
 #include <memory>
 #include <assert.h>
-#include "CowPursuitState.h"
+#include "CowGlobalState.h"
 #include "Parameters.h"
 
 using namespace std;
@@ -15,7 +15,7 @@ Cow::Cow(int id,
 	double _max_force,
 	double _max_speed,
 	double _max_turn_rate,
-	double _scale) : Vehicle(id,
+	double _scale, Rabbit* _enemy) : Vehicle(id,
 					 _position,
 					 _rotation,
 					 _velocity,
@@ -23,7 +23,9 @@ Cow::Cow(int id,
 					 _max_force,
 					 _max_speed,
 					 _max_turn_rate,
-					 _scale)
+					 _scale),
+					 enemy(_enemy)
+					
 {
 
 	//smoothedHeading = Vector2D(0, 0);
@@ -50,8 +52,8 @@ Cow::Cow(int id,
 	// Add sample code here that is responsible for updating the cow
 	// Set up the state machine
 	stateMachine = new StateMachine<Cow>(this);
-	//stateMachine->SetCurrentState(CowPursuitState::Instance());
-	//stateMachine->SetGlobalState()
+	stateMachine->SetCurrentState(CowGlobalState::Instance());
+
 	mApplication->AddRenderable(this);
 
 }

@@ -1,5 +1,7 @@
 #include "InstanceOfGameEntities.h"
 #include "Parameters.h"
+#include "RabbitPursuitState.h"
+#include "CowWanderingState.h"
 
 using namespace std;
 
@@ -15,9 +17,9 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 		Parameters::Instance()->VehicleMass,				//mass
 		Parameters::Instance()->SteeringForce *
 		Parameters::Instance()->SteeringForceTweaker,		//max force
-		Parameters::Instance()->MaxSpeed*3,					//max velocity
+		Parameters::Instance()->MaxSpeed,					//max velocity
 		Parameters::Instance()->MaxTurnRate,				//max turn rate
-		Parameters::Instance()->VehicleScale);				//scale
+		Parameters::Instance()->VehicleScale, rabbit);				//scale
 
 	rabbit = new Rabbit(2,
 		spawnPosition2,										//initial position
@@ -35,7 +37,10 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 		weapon = new Weapon(200,200);
 		pill = new Pill(300,300);
 
+		cow->SetEnemy(rabbit);
 
+		rabbit->GetFSM()->ChangeState(RabbitPursuitState::Instance());
+		cow->GetFSM()->ChangeState(CowWanderingState::Instance());
 
 }
 

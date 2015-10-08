@@ -1,6 +1,5 @@
 #pragma once
 #include "Node.h"
-
 #include "Vehicle.h"
 #include "StateMachine.h"
 #include "Vector2D.h"
@@ -28,7 +27,8 @@ public:
 		double _max_force,
 		double _max_speed,
 		double _max_turn_rate,
-		double _scale, Cow& enemy);
+		double _scale, 
+		Cow& enemy);
 
 	~Rabbit();
 	virtual void Update(float deltaTime) override;
@@ -40,5 +40,6 @@ public:
 	std::string GetCurrentState() { return stateMachine->CurrentState()->GetStateName(); }
 	StateMachine<Rabbit>* GetFSM() { return stateMachine; }
 	SteeringBehavior* Steering() const { return steeringBehavior; }
+
 	Cow& GetEnemy() { return enemy; }
 };

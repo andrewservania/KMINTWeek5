@@ -33,6 +33,6 @@ void RabbitPursuitState::Exit(Rabbit* rabbit)
 
 void RabbitPursuitState::Start(Rabbit* rabbit)
 {
-	rabbit->Steering()->PursuitOn((&rabbit->GetEnemy()));
+	rabbit->Steering()->PursuitOn(&rabbit->GetEnemy());
 }
 

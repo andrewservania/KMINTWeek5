@@ -4,13 +4,15 @@
 
 class CowSearchForWeaponState : public State<Cow>
 {
+private:
+	void Start(Cow* cow);
+
 public:
 	CowSearchForWeaponState();
 	~CowSearchForWeaponState();
 	void Enter(Cow* cow) override;
 	void Execute(Cow* cow) override;
 	void Exit(Cow* cow) override;
-	void Start(Cow* cow);
 	std::string GetStateName() override { return "Search For Weapon"; }
 	static CowSearchForWeaponState* Instance()
 	{
