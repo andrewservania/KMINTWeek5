@@ -90,7 +90,7 @@ void Rabbit::Update(float deltaTime)
 	}
 
 	// treat the screen as a toroid. Current window resolution is 1300x700
-	WrapAround(position, 1300, 700);
+	WrapAround(position,800,600);
 
 	if (isSmoothingOn()) smoothedHeading = headingSmoother->Update(Heading());
 }

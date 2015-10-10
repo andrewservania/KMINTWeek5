@@ -7,9 +7,10 @@ using namespace std;
 
 InstanceOfGameEntities::InstanceOfGameEntities()
 {
-	Vector2D spawnPosition1 = Vector2D(rand() % 1300, rand() % 700);
-	Vector2D spawnPosition2 = Vector2D(rand() % 1300, rand() % 700);
-
+	Vector2D spawnPosition1 = Vector2D(200, rand() % 600);
+	Vector2D spawnPosition2 = Vector2D(600, rand() % 600);
+	weapon = new Weapon(rand() % 800, rand() % 600);
+	pill = new Pill(rand() % 800, rand() % 600);
 	cow =  new Cow(1,
 		spawnPosition1,										//initial position
 		RandFloat()*TwoPi,									//start rotation
@@ -34,8 +35,7 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 		*cow);				
 
 
-	weapon = new Weapon(rand() % 1300, rand() % 700);
-	pill = new Pill(rand() % 1300, rand() % 700);
+
 
 	cow->SetEnemy(rabbit);
 	rabbit->GetFSM()->ChangeState(RabbitPursuitState::Instance());

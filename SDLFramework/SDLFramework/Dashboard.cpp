@@ -69,7 +69,7 @@ Dashboard::~Dashboard()
 void Dashboard::Update()
 {
 	// Application information
-	FWApplication::GetInstance()->DrawTextOnScreen(applicationInformation, 650, 50);
+	FWApplication::GetInstance()->DrawTextOnScreen(applicationInformation, 400, 50);
 
 	// KMINT Week 3 Description
 	FWApplication::GetInstance()->DrawTextOnScreen(comment1, 300, 100);

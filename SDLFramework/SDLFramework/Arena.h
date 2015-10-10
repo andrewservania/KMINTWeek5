@@ -5,9 +5,11 @@
 #include "Vehicle.h"
 #include "CellSpacePartition.h"
 #include "InstanceOfGameEntities.h"
+
+
+
 class Arena
 {
-private:
 	
 public:
 
@@ -21,5 +23,6 @@ public:
 
 		return &instance;
 	}
+
 };
 
