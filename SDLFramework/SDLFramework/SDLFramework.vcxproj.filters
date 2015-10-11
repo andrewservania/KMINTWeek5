@@ -150,10 +150,10 @@
       <Filter>Source Files\States\Cow States</Filter>
     </ClCompile>
     <ClCompile Include="CowGlobalState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\States\Cow States</Filter>
     </ClCompile>
     <ClCompile Include="RabbitGlobalState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\States\Rabbit States</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

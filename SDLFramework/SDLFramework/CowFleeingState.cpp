@@ -39,7 +39,7 @@ void CowFleeingState::Exit(Cow* cow)
 void CowFleeingState::Start(Cow* cow)
 {
 	cow->Steering()->EvadeOn(reinterpret_cast<Vehicle*>(cow->GetEnemy()));
-	cow->SetMaxSpeed(100000.0);
+	cow->SetMaxSpeed(200000.0);
 }
 
 bool CowFleeingState::NoThreat(Cow* cow)

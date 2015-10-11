@@ -2,9 +2,17 @@
 #include "Graph.h"
 #include "RabbitWanderingState.h"
 
-Weapon::Weapon(uint32_t _x, uint32_t _y)
+
+Weapon::Weapon(uint32_t _x, uint32_t _y) : Vehicle(1,
+	Vector2D(_x, _y),0,
+	Vector2D(0, 0),
+	0,
+	0,
+	0,
+	0,
+	1)
 {
-	
+
 	mTexture = mApplication->LoadTexture("gun-metal.png");
 
 	mX = _x;

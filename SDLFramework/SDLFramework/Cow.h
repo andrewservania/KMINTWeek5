@@ -5,7 +5,8 @@
 #include "Vector2D.h"
 #include "SteeringBehaviors.h"
 #include "Smoother.h"
-
+#include "Pill.h"
+#include "Weapon.h"
 
 class Rabbit;
 
@@ -21,6 +22,9 @@ public:
 	SteeringBehavior* steeringBehavior;
 	Rabbit* enemy;
 	Color* color;
+	Pill* pill;
+	Weapon* weapon;
+
 
 	Cow(int id,
 		Vector2D _position,
@@ -36,9 +40,7 @@ public:
 	~Cow();
 	virtual void Update(float deltaTime) override;
 	virtual void Draw()override;
-	//void OnClick(SDL_Event &event);
-	//void OnLeftClick(SDL_Event &event);
-	//void OnRightClick(SDL_Event &event);
+
 	void setCurrentNode(Node* node);
 	Node* getCurrentNode() { return currentNode; };
 	StateMachine<Cow>* GetFSM() const { return stateMachine; }
@@ -47,11 +49,16 @@ public:
 
 	//// Accessor methods
 	SteeringBehavior* Steering() const { return steeringBehavior; }
-	void SetEnemy(Rabbit* _enemy) { enemy = _enemy; }
 	Rabbit* GetEnemy() { return enemy; }
-
-	void SetColor(Color* _color){ color = _color; }
 	Color* GetColor() { return color; }
+	Weapon* GetWeapon() { return weapon; }
+	Pill* GetPill() { return pill; }
+
+	void SetEnemy(Rabbit* _enemy) { enemy = _enemy; }
+	void SetColor(Color* _color){ color = _color; }
+	void SetPill(Pill* _pill){ pill = _pill; }
+	void SetWeapon(Weapon* _weapon) { weapon = _weapon; }
+
 	//Vector2D SmoothingHeading() const { return smoothedHeading; }
 	//bool isSmoothingOn() const { return smoothingOn; }
 	//bool SmoothingOn() { smoothingOn = true; }

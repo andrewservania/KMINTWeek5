@@ -1,6 +1,10 @@
 #include "CowWanderingState.h"
 #include "CowFleeingState.h"
 #include "Rabbit.h"
+#include "ProbabilityDistribution.h"
+#include "CowSearchForPillState.h"
+#include "CowSearchForWeaponState.h"
+
 CowWanderingState::CowWanderingState()
 {
 	hasStarted = false;
@@ -24,7 +28,23 @@ void CowWanderingState::Execute(Cow* cow)
 		hasStarted = true;
 	}
 
-	if (IsThreadEminent(cow)) cow->GetFSM()->ChangeState(CowFleeingState::Instance());
+	if (IsThreadEminent(cow)){
+		// Choose next action
+		switch (ProbabilityDistribution::Instance()->GenerateRandomChoice())
+		{
+		case 1: 
+			cow->GetFSM()->ChangeState(CowFleeingState::Instance());
+			break;
+		case 2: 
+			cow->GetFSM()->ChangeState(CowSearchForWeaponState::Instance());
+			break;
+		case 3: 
+			cow->GetFSM()->ChangeState(CowSearchForPillState::Instance());
+			break;
+		}
+		
+	}
+		
 }
 
 void CowWanderingState::Exit(Cow* cow)
@@ -35,14 +55,14 @@ void CowWanderingState::Exit(Cow* cow)
 void CowWanderingState::Start(Cow* cow)
 {
 	cow->Steering()->WanderOn();
-	cow->Steering()->CreateRandomPath(4, rand() % 100, rand() % 100, rand() % 1300, rand() % 700);
+	cow->Steering()->CreateRandomPath(1, rand() % 100, rand() % 100, rand() % 1300, rand() % 700);
 	cow->Steering()->FollowPathOn();
 }
 
 bool CowWanderingState::IsThreadEminent(Cow* cow)
 {
 	float distanceBetweenCowAndRabbit = cow->DistanceTo(cow->GetEnemy());
-	if (distanceBetweenCowAndRabbit <= 200)
+	if (distanceBetweenCowAndRabbit <= 300)
 		return true; 
 	else 
 		return false;

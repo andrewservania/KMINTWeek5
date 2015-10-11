@@ -25,11 +25,11 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 	rabbit = new Rabbit(2,
 		spawnPosition2,										//initial position
 		RandFloat()*TwoPi,									//start rotation
-		Vector2D(400, 200),									//velocity
+		Vector2D(200, 100),									//velocity
 		Parameters::Instance()->VehicleMass,				//mass
 		(Parameters::Instance()->SteeringForce *			
 		Parameters::Instance()->SteeringForceTweaker),		//max force
-		Parameters::Instance()->MaxSpeed*2,					//max velocity
+		Parameters::Instance()->MaxSpeed,					//max velocity
 		Parameters::Instance()->MaxTurnRate,				//max turn rate
 		Parameters::Instance()->VehicleScale,				//scale
 		*cow);				
@@ -37,8 +37,13 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 
 
 
-	cow->SetEnemy(rabbit);
+	//rabbit->SetWeapon(weapon);
+	//rabbit->SetPill(pill);
 	rabbit->GetFSM()->ChangeState(RabbitPursuitState::Instance());
+
+	cow->SetEnemy(rabbit);
+	cow->SetWeapon(weapon);
+	cow->SetPill(pill);
 	cow->GetFSM()->ChangeState(CowWanderingState::Instance());
 
 }

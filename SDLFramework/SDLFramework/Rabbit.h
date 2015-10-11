@@ -6,6 +6,8 @@
 #include "SteeringBehaviors.h"
 #include "Smoother.h"
 #include "Cow.h"
+#include "Weapon.h"
+#include "Pill.h"
 
 class Rabbit :
 	public Vehicle
@@ -16,6 +18,8 @@ public:
 	SteeringBehavior* steeringBehavior;
 	Cow& enemy;
 	Color* color;
+	Weapon* weapon;
+	Pill* pill;
 	bool pickedUpWeapon;
 	bool pickedUpPill;
 
@@ -42,6 +46,11 @@ public:
 	SteeringBehavior* Steering() const { return steeringBehavior; }
 
 	Cow& GetEnemy() { return enemy; }
-	void SetColor(Color* _color) { color = _color; }
 	Color* GetColor(){ return color; }
+	Weapon* GetWeapon() { return weapon; }
+	Pill* GetPill() { return pill; }
+
+	void SetColor(Color* _color) { color = _color; }
+	void SetPill(Pill* _pill){ pill = _pill; }
+	void SetWeapon(Weapon* _weapon) { weapon = _weapon; }
 };

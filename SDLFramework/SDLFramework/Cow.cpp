@@ -122,32 +122,7 @@ void Cow::Draw()
 
 }
 
-//Handle all clicks
-//void Cow::OnClick(SDL_Event& event)
-//{
-//	// Handle clicks that are made within the range in which the cow is situated on
-//	if (event.motion.x >= static_cast<Sint32>(mX - 90) &&
-//		event.motion.x <= static_cast<Sint32>(mX + 90) &&
-//		event.motion.y >= static_cast<Sint32>(mY - 90) &&
-//		event.motion.y <= static_cast<Sint32>(mY + 90))
-//	{
-//		if (event.button.button == SDL_BUTTON_LEFT)
-//			OnLeftClick(event);
-//		if (event.button.button == SDL_BUTTON_RIGHT)
-//			OnRightClick(event);
-//	}
-//}
-//
-//// Execute code when rabbit has been left clicked upon
-//void Cow::OnLeftClick(SDL_Event &event)
-//{
-//}
-//
-//// Execute code when rabbit has been right clicked upon
-//void Cow::OnRightClick(SDL_Event &event)
-//{
-//	printf("Right-clicked on cow!\n");
-//}
+
 
 // Put the cow at a random node that is not the same as the rabbit, weapon and pill
 void Cow::PutOnRandomLocation()

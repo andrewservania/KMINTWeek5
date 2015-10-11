@@ -1,8 +1,9 @@
 #pragma once
 #include "IGameObject.h"
 #include "Node.h"
+#include "Vehicle.h"
 class Pill :
-	public IGameObject
+	public Vehicle
 {
 public:
 

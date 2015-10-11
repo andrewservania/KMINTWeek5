@@ -8,7 +8,6 @@ std::string Dashboard::applicationInformation;
 std::string Dashboard::shortestPathLabel;
 std::string Dashboard::cowStateLabel;
 std::string Dashboard::rabbitStateLabel;
-
 std::string Dashboard::comment1;
 std::string Dashboard::comment2;
 std::string Dashboard::comment3;
@@ -23,12 +22,11 @@ std::string Dashboard::comment11;
 std::string Dashboard::comment12;
 std::string Dashboard::comment13;
 
-
 std::string Dashboard::choice1Probability;
 std::string Dashboard::choice2Probability;
 std::string Dashboard::choice3Probability;
-
 std::string Dashboard::cowSleepingTurns;
+
 using namespace std;
 
 Dashboard::Dashboard()
@@ -64,6 +62,7 @@ Dashboard::Dashboard()
 
 Dashboard::~Dashboard()
 {
+
 }
 
 void Dashboard::Update()
@@ -87,22 +86,24 @@ void Dashboard::Update()
 	FWApplication::GetInstance()->DrawTextOnScreen(comment13, 300, 380);
 
 	// Cow state label
-	//CowStateLabel(Arena::cow->GetCurrentState());
-	//FWApplication::GetInstance()->DrawTextOnScreen(cowStateLabel, 650, 90);
-	//FWApplication::GetInstance()->DrawTextOnScreen("NEEDS FIX IN DASHBOARD CLASS", 300, 420);
-
+	// CowStateLabel(Arena::cow->GetCurrentState());
+	// FWApplication::GetInstance()->DrawTextOnScreen(cowStateLabel, 650, 90);
+	// FWApplication::GetInstance()->DrawTextOnScreen("NEEDS FIX IN DASHBOARD CLASS", 300, 420);
 
 	// Rabbit state label
-//	RabbitStateLabel(Arena::rabbit->GetCurrentState());
-//	FWApplication::GetInstance()->DrawTextOnScreen(rabbitStateLabel, 650, 110);
-	//FWApplication::GetInstance()->DrawTextOnScreen("NEEDS FIX IN DASHBOARD CLASS", 300, 460);
+	// RabbitStateLabel(Arena::rabbit->GetCurrentState());
+	// FWApplication::GetInstance()->DrawTextOnScreen(rabbitStateLabel, 650, 110);
+	// FWApplication::GetInstance()->DrawTextOnScreen("NEEDS FIX IN DASHBOARD CLASS", 300, 460);
 
 	// Shortest path label
-	//FWApplication::GetInstance()->DrawTextOnScreen(shortestPathLabel, 300, 500);
+	// FWApplication::GetInstance()->DrawTextOnScreen(shortestPathLabel, 300, 500);
 
 	// Probabilities
-	//FWApplication::GetInstance()->DrawTextOnScreen(choice1Probability, 300, 540);
-	//FWApplication::GetInstance()->DrawTextOnScreen(choice2Probability, 300, 560);
-	//FWApplication::GetInstance()->DrawTextOnScreen(choice3Probability, 300, 580);
+	// FWApplication::GetInstance()->DrawTextOnScreen(choice1Probability, 300, 540);
+	// FWApplication::GetInstance()->DrawTextOnScreen(choice2Probability, 300, 560);
+	// FWApplication::GetInstance()->DrawTextOnScreen(choice3Probability, 300, 580);
+
+
+
 
 }

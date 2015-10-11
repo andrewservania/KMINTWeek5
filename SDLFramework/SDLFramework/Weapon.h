@@ -1,15 +1,24 @@
 #pragma once
-#include "IGameObject.h"
 #include "Node.h"
+#include "Vehicle.h"
+
 class Weapon :
-	public IGameObject
+	public Vehicle
 {
 public:
 	Node* currentNode;
 	bool isPickedUp;
 	Color* color;
-	Weapon(uint32_t _x, uint32_t _y);
+
+	Weapon(
+		uint32_t _x,
+		uint32_t _y);
+
 	~Weapon();
+
+
+
+
 	void Update(float deltaTime) override;
 	void Draw() override;
 	void SetCurrentNode(Node* newNode);
@@ -18,4 +27,5 @@ public:
 
 	void SetColor(Color* _color){ color = _color; }
 	Color* GetColor() { return color; }
+	
 };

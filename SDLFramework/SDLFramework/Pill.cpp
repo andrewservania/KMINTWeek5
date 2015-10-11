@@ -2,7 +2,15 @@
 #include "Graph.h"
 #include "RabbitWanderingState.h"
 
-Pill::Pill(uint32_t _x, uint32_t _y)
+Pill::Pill(uint32_t _x, uint32_t _y) :
+	Vehicle(1,
+	Vector2D(_x, _y), 0,
+	Vector2D(0, 0),
+	0,
+	0,
+	0,
+	0,
+	1)
 {
 	mTexture = mApplication->LoadTexture("pill.png");
 	mX = _x;
