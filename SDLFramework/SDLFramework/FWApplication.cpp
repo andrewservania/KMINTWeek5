@@ -63,9 +63,17 @@ FWApplication::FWApplication(int offsetX, int offsetY, int width, int height)
 	SetFontSize(12);
 	SetFont("OpenSans-Regular.ttf");
 
+
+
+
+	// set timer
+
+
+
 	mInstance = this;
 	mGameObjects.reserve(32);
 }
+
 
 FWApplication::~FWApplication()
 {
@@ -413,6 +421,8 @@ void FWApplication::Quit()
 {
 	mIsRunning = false;
 }
+
+
 
 //void FWApplication::AddOnEvent(std::function<void(SDL_Event*)> func)
 //{

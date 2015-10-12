@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-
+#include <stdint.h>
 class Dashboard
 {
 private:
@@ -48,6 +48,7 @@ public:
 	void SetChoice2Probablity(int val) { choice2Probability = "Choice 2 - Search For Pill -  Chance: " + std::to_string(val) + "%"; }
 	void SetChoice3Probablity(int val) { choice3Probability = "Choice 3 - Flee From Cow -  Chance: " + std::to_string(val) + "%"; }
 	void SetCowSleepingTurns(int val) { cowSleepingTurns = "Cow Sleeping Turns: " + std::to_string(val); }
+	void SetTimePassed(uint32_t val) { comment1 = "Time passed: " + std::to_string(val); }
 
 	static Dashboard* Instance()
 	{

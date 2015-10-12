@@ -173,6 +173,8 @@ public:
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	void EndTick();
 
+
+	void ResetTicks() { mStartCycleTimeMS = 0; }
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Destroy a texture resource, and frees memory </summary>
 	///
@@ -236,6 +238,8 @@ public:
 	void Quit();
 	//void AddOnEvent(std::function<void(SDL_Event*)> func);
 
+
+
 private:
 	std::vector<IGameObject *> mGameObjects;
 	static FWApplication * mInstance;
@@ -256,4 +260,13 @@ private:
 	std::string mFontName;
 	uint32_t mFontSize;
 	//uint32_t mColor;
+
+
+
+
+
+
+
+
+
 };

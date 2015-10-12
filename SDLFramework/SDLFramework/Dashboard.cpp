@@ -33,7 +33,7 @@ Dashboard::Dashboard()
 {
 	ApplicationInformation("Andrew Servania - KMINT Week 5");
 
-	comment1 = "";
+	comment1 = "Time passed: 0";
 	comment2 = "";
 	comment3 = "";
 
