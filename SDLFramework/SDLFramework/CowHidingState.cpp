@@ -14,8 +14,8 @@ CowHidingState::~CowHidingState()
 
 void CowHidingState::Enter(Cow* cow)
 {
-
-	cow->DoesNotMove_On();
+	cow->SetVelocity(Vector2D(0, 0));
+	//cow->DoesNotMove_On();
 }
 
 void CowHidingState::Execute(Cow* cow)
@@ -27,11 +27,11 @@ void CowHidingState::Execute(Cow* cow)
 		cow->SetScore((cow->GetScore() + 1));
 		Dashboard::Instance()->SetCowScore(cow->GetScore());
 		cow->GetEnemy()->Respawn();
-		cow->Respawn();
-		cow->GetEnemy()->GetFSM()->ChangeState(RabbitPursuitState::Instance());
+		cow->SetPos(Vector2D(200, rand() % 600));
+
 	}
 
-//	cow->SetVelocity(Vector2D(0, 0));
+	cow->SetVelocity(Vector2D(0, 0));
 }
 
 void CowHidingState::Exit(Cow* cow)
