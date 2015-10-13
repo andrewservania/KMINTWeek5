@@ -9,8 +9,6 @@ using namespace std;
 
 Arena::Arena()
 {
-	instanceTimer = 0;
-	instanceSeconds = 0;
 	seconds = 0;
 	auto instance1 = make_shared<InstanceOfGameEntities>();
 	auto instance2 = make_shared<InstanceOfGameEntities>();
@@ -41,7 +39,6 @@ void Arena::ResetInstances()
 
 void Arena::SecondTick()
 {
-	Dashboard::Instance()->SetTimePassed(seconds);
 	if (seconds == 30)
 	{
 		seconds = 0;
@@ -49,6 +46,7 @@ void Arena::SecondTick()
 	}
 	else
 	{
-		
+		seconds++;
 	}
+	Dashboard::Instance()->SetTimePassed(seconds);
 }

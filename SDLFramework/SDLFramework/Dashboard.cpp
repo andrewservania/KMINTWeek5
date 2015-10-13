@@ -71,7 +71,8 @@ void Dashboard::Update()
 	FWApplication::GetInstance()->DrawTextOnScreen(applicationInformation, 400, 50);
 
 	// KMINT Week 3 Description
-	FWApplication::GetInstance()->DrawTextOnScreen(comment1, 300, 100);
+	FWApplication::GetInstance()->DrawTextOnScreen(comment1, 400, 100); // Now indicates the amount of time passed.
+
 	FWApplication::GetInstance()->DrawTextOnScreen(comment2, 300, 120);
 	FWApplication::GetInstance()->DrawTextOnScreen(comment3, 300, 140);
 	FWApplication::GetInstance()->DrawTextOnScreen(comment4, 300, 180);
