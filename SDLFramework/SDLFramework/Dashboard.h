@@ -48,8 +48,15 @@ public:
 	void SetChoice2Probablity(int val) { choice2Probability = "Choice 2 - Search For Pill -  Chance: " + std::to_string(val) + "%"; }
 	void SetChoice3Probablity(int val) { choice3Probability = "Choice 3 - Flee From Cow -  Chance: " + std::to_string(val) + "%"; }
 	void SetCowSleepingTurns(int val) { cowSleepingTurns = "Cow Sleeping Turns: " + std::to_string(val); }
-	void SetTimePassed(uint32_t val) { comment1 = "Time passed: " + std::to_string(val); }
-
+	void SetTimePassed(uint32_t val) {
+		if (val <= 9)
+			comment1 = "Time passed: 00:0" +
+			std::to_string(val);
+		else{
+			comment1 = "Time passed: 00:" +
+				std::to_string(val);
+		}
+	}
 	static Dashboard* Instance()
 	{
 		static Dashboard instance;

@@ -6,9 +6,24 @@
 #include "AStar.h"
 #include "Arena.h"
 #include "Dashboard.h"
+#include "SDL_timer.h"
+#include <memory>
+
+Uint32 delay = 1000; // ms
+SDL_TimerID myTimerID;
+std::shared_ptr<Arena> arena;
+
+Uint32 MyCallBackFunc(Uint32 interval, void *param)
+{
+	arena->SecondTick();
+	return interval;
+}
+
 
 int main(int args[])
 {
+	
+
 	srand(static_cast<unsigned int>(time(nullptr)));						// initialize random seed
 
 	auto application = new FWApplication();
@@ -19,9 +34,10 @@ int main(int args[])
 	}
 
 	application->SetTargetFPS(60);
-	Arena::Instance();
+	arena = std::make_shared<Arena>();
 	auto dashboard = new Dashboard();										// To show some statistics such as shortestPath, Cow state and rabbit state
 
+	myTimerID = SDL_AddTimer(delay, MyCallBackFunc, nullptr);
 	while (application->IsRunning())
 	{
 		application->StartTick();
@@ -63,3 +79,6 @@ int main(int args[])
 
 	return EXIT_SUCCESS;
 }
+
+
+
