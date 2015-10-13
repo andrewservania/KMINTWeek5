@@ -3,9 +3,7 @@
 
 CowPursuitState::CowPursuitState()
 {
-	//Arena::Instance()->cow->Steering()->PursuitOn(Arena::Instance()->rabbit);
-	//Arena::Instance()->cow->Steering()->CreateRandomPath(3, 200, 200, 300, 300);
-	//Arena::Instance()->cow->Steering()->FollowPathOn();
+
 }
 
 

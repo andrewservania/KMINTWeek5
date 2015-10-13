@@ -28,7 +28,7 @@ Cow::Cow(int id,
 					 enemy(_enemy)
 					
 {
-
+	cowDoesNotMove = false;
 	score = 0;
 	//smoothedHeading = Vector2D(0, 0);
 	//smoothingOn = false ;
@@ -68,39 +68,43 @@ void Cow::Update(float deltaTime)
 
 	timeElapsed = static_cast<double>(deltaTime);
 
-	// calculate the combined force from each steering behavior in the vehicle's list
-	Vector2D SteeringForce = steeringBehavior->Calculate();
+	if (!cowDoesNotMove){
+		// calculate the combined force from each steering behavior in the vehicle's list
+		Vector2D SteeringForce = steeringBehavior->Calculate();
 
-	// Accelaration = Force/Mass
-	Vector2D acceleration = SteeringForce / mass;
+		// Accelaration = Force/Mass
+		Vector2D acceleration = SteeringForce / mass;
 
-	// update velocity
-	velocity += acceleration * timeElapsed;
+		// update velocity
+		velocity += acceleration * timeElapsed;
 
-	// make sure vehicle does not exceed maximum velocity
-	velocity.Truncate(maxSpeed);
+		// make sure vehicle does not exceed maximum velocity
+		velocity.Truncate(maxSpeed);
 
-	// update the position
-	position += velocity * timeElapsed;
+		// update the position
+		position += velocity * timeElapsed;
 
-	// set the actual location of the vehicle in the arena
-	mX = static_cast<uint32_t>(position.x);
-	mY = static_cast<uint32_t>(position.y);
+		// set the actual location of the vehicle in the arena
+		mX = static_cast<uint32_t>(position.x);
+		mY = static_cast<uint32_t>(position.y);
 
-	//update the heading if the cow has a velocity greater than a very smal
-	//value
-	if (velocity.LengthSq() > 0.00000001)
-	{
-		heading = Vec2DNormalize(velocity);
+		//update the heading if the cow has a velocity greater than a very smal
+		//value
+		if (velocity.LengthSq() > 0.00000001)
+		{
+			heading = Vec2DNormalize(velocity);
 
-		side = heading.Perp();
+			side = heading.Perp();
 	}
 
-	// treat the screen as a toroid. Current window resolution is 1300x700
-	WrapAround(position, 800, 600);
+	   // treat the screen as a toroid. Current window resolution is 1300x700
+	   WrapAround(position, 800, 600);
 
-	if (isSmoothingOn()) smoothedHeading = headingSmoother->Update(Heading());
+	//if (isSmoothingOn()) smoothedHeading = headingSmoother->Update(Heading());
 	
+
+	}
+
 }
 
 Cow::~Cow()
@@ -119,9 +123,7 @@ void Cow::setCurrentNode(Node* node)
 // Draw cow texture
 void Cow::Draw()
 {
-	Dashboard::Instance()->comment4 = "Cow x: " + to_string(mX);
 	mApplication->DrawTexture(mTexture, mX, mY, 100, 100, Color(color->r,color->b,color->g,255));
-
 }
 
 
@@ -135,11 +137,13 @@ void Cow::PutOnRandomLocation()
 void Cow::Respawn()
 {
 	position = Vector2D(200, rand() % 600);
-	velocity = Vector2D(200, 100);
-	Reset();
+
 }
 
 void Cow::Reset()
 {
+	position = Vector2D(200, rand() % 600);
+	velocity = Vector2D(200, 100);
 	stateMachine->SetCurrentState(CowWanderingState::Instance());
+	DoesNotMove_Off();
 }

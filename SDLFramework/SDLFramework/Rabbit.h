@@ -49,6 +49,7 @@ public:
 	SteeringBehavior* Steering() const { return steeringBehavior; }
 
 	Cow& GetEnemy() { return enemy; }
+	void SetEnemy(Cow& _val){ enemy = _val; }
 	Color* GetColor(){ return color; }
 	Weapon* GetWeapon() { return weapon; }
 	Pill* GetPill() { return pill; }

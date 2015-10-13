@@ -37,10 +37,6 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 		*cow);				
 
 
-
-
-	//rabbit->SetWeapon(weapon);
-	//rabbit->SetPill(pill);
 	rabbit->GetFSM()->ChangeState(RabbitPursuitState::Instance());
 
 	cow->SetEnemy(rabbit);
@@ -65,13 +61,11 @@ void InstanceOfGameEntities::SetColor(Color* _color)
 
 void InstanceOfGameEntities::Reset()
 {
-	cow->Respawn();
-	rabbit->Respawn();
+	cow->Reset();
+	rabbit->Reset();
 	weapon->Respawn();
 	pill->Respawn();
 
-	rabbit->GetFSM()->ChangeState(RabbitPursuitState::Instance());
-	cow->GetFSM()->ChangeState(CowWanderingState::Instance());
 }
 
 void InstanceOfGameEntities::End()

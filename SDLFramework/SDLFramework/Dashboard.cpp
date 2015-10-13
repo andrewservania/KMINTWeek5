@@ -36,7 +36,6 @@ Dashboard::Dashboard()
 	comment1 = "Time passed: 00:00";
 	comment2 = "Amount of runs: 0";
 	comment3 = "Rabbit score: 0";
-
 	comment4 = "Cow score: 0";
 	comment5 = "";
 	comment6 = "";
@@ -71,11 +70,11 @@ void Dashboard::Update()
 	FWApplication::GetInstance()->DrawTextOnScreen(applicationInformation, 400, 50);
 
 	// KMINT Week 3 Description
-	FWApplication::GetInstance()->DrawTextOnScreen(comment1, 400, 100); // Now indicates the amount of time passed.
+	FWApplication::GetInstance()->DrawTextOnScreen(comment1, 100, 100); // Now indicates the amount of time passed.
+	FWApplication::GetInstance()->DrawTextOnScreen(comment2, 100, 120); // Amount of runs
+	FWApplication::GetInstance()->DrawTextOnScreen(comment3, 100, 140); // Rabbit score
+	FWApplication::GetInstance()->DrawTextOnScreen(comment4, 100, 160); // Cow score
 
-	FWApplication::GetInstance()->DrawTextOnScreen(comment2, 400, 120);
-	FWApplication::GetInstance()->DrawTextOnScreen(comment3, 300, 140);
-	FWApplication::GetInstance()->DrawTextOnScreen(comment4, 300, 180);
 	FWApplication::GetInstance()->DrawTextOnScreen(comment5, 300, 200);
 	FWApplication::GetInstance()->DrawTextOnScreen(comment6, 300, 220);
 	FWApplication::GetInstance()->DrawTextOnScreen(comment7, 300, 240);

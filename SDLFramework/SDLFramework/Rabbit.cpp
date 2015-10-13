@@ -3,6 +3,7 @@
 #include "Parameters.h"
 #include "RabbitGlobalState.h"
 #include "Dashboard.h"
+#include "RabbitPursuitState.h"
 
 using namespace std;
 
@@ -102,7 +103,6 @@ void Rabbit::Update(float deltaTime)
 // Draw the rabbit texture
 void Rabbit::Draw()
 {
-	Dashboard::Instance()->comment5 = "Rabbit x: " + to_string(mX);
 	mApplication->DrawTexture(mTexture, mX, mY, 100, 100, Color(color->r, color->b, color->g, 255));
 }
 
@@ -127,11 +127,13 @@ void Rabbit::setCurrentNode(Node* node)
 
 void Rabbit::Respawn()
 {
-	position = Vector2D(600, rand() % 600);
-	velocity = Vector2D(200, 100);
+	SetPos(Vector2D(600, rand() % 600));
+	
 }
 
 void Rabbit::Reset()
 {
-
+	position = Vector2D(600, rand() % 600);
+	velocity = Vector2D(200, 100);
+	stateMachine->SetCurrentState(RabbitPursuitState::Instance());
 }

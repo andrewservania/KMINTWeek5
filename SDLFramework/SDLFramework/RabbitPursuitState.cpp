@@ -28,11 +28,14 @@ void RabbitPursuitState::Execute(Rabbit* rabbit)
 	float distanceBetweenRabbitAndCow = rabbit->DistanceTo(&rabbit->GetEnemy());
 	if (distanceBetweenRabbitAndCow <= 20)
 	{
-	
-		rabbit->SetScore((rabbit->GetScore() + 10));
-		Dashboard::Instance()->SetRabbitScore(rabbit->GetScore());
-		rabbit->Respawn();
-		(&rabbit->GetEnemy())->Respawn();
+
+		if ((&rabbit->GetEnemy())->GetCurrentState() == "Fleeing")
+		{
+			rabbit->SetScore((rabbit->GetScore() + 10));
+			Dashboard::Instance()->SetRabbitScore(rabbit->GetScore());
+			rabbit->Respawn();
+			(&rabbit->GetEnemy())->Respawn();
+		}
 	}
 }
 

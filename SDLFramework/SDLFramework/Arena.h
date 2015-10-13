@@ -13,6 +13,7 @@ class Arena
 private:
 	uint32_t seconds;
 	int runs;
+	bool applicationEnd;
 
 	std::shared_ptr<InstanceOfGameEntities> instance1;
 	std::shared_ptr<InstanceOfGameEntities> instance2;

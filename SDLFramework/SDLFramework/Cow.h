@@ -15,6 +15,7 @@ class Cow :
 {
 private:
 	int score;
+	bool cowDoesNotMove;
 
 
 public:
@@ -69,4 +70,6 @@ public:
 	void SetScore(int val){ score = val; }
 	int GetScore(){ return score; }
 	void Reset();
+	void DoesNotMove_On(){ cowDoesNotMove = true; };
+	void DoesNotMove_Off(){ cowDoesNotMove = false; };
 };

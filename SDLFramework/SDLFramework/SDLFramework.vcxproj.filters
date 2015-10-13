@@ -155,6 +155,9 @@
     <ClCompile Include="MovingEntity.cpp">
       <Filter>Source Files\GameEntities</Filter>
     </ClCompile>
+    <ClCompile Include="CowHidingState.cpp">
+      <Filter>Source Files\States\Cow States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll" />
@@ -314,10 +317,13 @@
       <Filter>Header Files\States\Cow States</Filter>
     </ClInclude>
     <ClInclude Include="CowGlobalState.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\States\Cow States</Filter>
+    </ClInclude>
+    <ClInclude Include="CowHidingState.h">
+      <Filter>Header Files\States\Cow States</Filter>
     </ClInclude>
     <ClInclude Include="RabbitGlobalState.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\States\Rabbit States</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
