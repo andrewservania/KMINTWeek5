@@ -3,7 +3,7 @@
 #include <stdint.h>
 class Dashboard
 {
-private:
+public:
 	static std::string applicationInformation;
 	static std::string shortestPathLabel;
 	static std::string cowStateLabel;
@@ -28,7 +28,7 @@ private:
 	static std::string choice3Probability;
 	static std::string cowSleepingTurns;
 
-public:
+
 
 	Dashboard();
 	~Dashboard();
@@ -48,6 +48,7 @@ public:
 	void SetChoice2Probablity(int val) { choice2Probability = "Choice 2 - Search For Pill -  Chance: " + std::to_string(val) + "%"; }
 	void SetChoice3Probablity(int val) { choice3Probability = "Choice 3 - Flee From Cow -  Chance: " + std::to_string(val) + "%"; }
 	void SetCowSleepingTurns(int val) { cowSleepingTurns = "Cow Sleeping Turns: " + std::to_string(val); }
+	
 	void SetTimePassed(uint32_t val) {
 		if (val <= 9)
 			comment1 = "Time passed: 00:0" +
@@ -57,9 +58,19 @@ public:
 				std::to_string(val);
 		}
 	}
+
+	void SetAmountOfRuns(int val){ comment2 = "Amount of runs: "+ std::to_string(val); }
+	
+	void SetRabbitScore(int val) { comment3 = "Rabbit score: " + std::to_string(val); }
+
+	void SetCowScore(int val) { comment4 = "Cow score: " + std::to_string(val); }
+	
+	
+	
 	static Dashboard* Instance()
 	{
 		static Dashboard instance;
 		return &instance;
 	}
+
 };

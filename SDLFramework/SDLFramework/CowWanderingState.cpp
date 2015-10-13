@@ -36,10 +36,14 @@ void CowWanderingState::Execute(Cow* cow)
 			cow->GetFSM()->ChangeState(CowFleeingState::Instance());
 			break;
 		case 2: 
-			cow->GetFSM()->ChangeState(CowSearchForWeaponState::Instance());
+		//	cow->GetFSM()->ChangeState(CowSearchForWeaponState::Instance());
+			cow->GetFSM()->ChangeState(CowFleeingState::Instance());
+
 			break;
 		case 3: 
-			cow->GetFSM()->ChangeState(CowSearchForPillState::Instance());
+	//		cow->GetFSM()->ChangeState(CowSearchForPillState::Instance());
+			cow->GetFSM()->ChangeState(CowFleeingState::Instance());
+
 			break;
 		}
 		
@@ -61,11 +65,17 @@ void CowWanderingState::Start(Cow* cow)
 
 bool CowWanderingState::IsThreadEminent(Cow* cow)
 {
-	float distanceBetweenCowAndRabbit = cow->DistanceTo(cow->GetEnemy());
-	if (distanceBetweenCowAndRabbit <= 300)
-		return true; 
-	else 
-		return false;
+	if (cow->GetEnemy()->Pos().x >= (cow->Pos().x - 300) &&
+		cow->GetEnemy()->Pos().x <= (cow->Pos().x + 300) ||
+		cow->GetEnemy()->Pos().y >= (cow->Pos().y - 300) &&
+		cow->GetEnemy()->Pos().y <= (cow->Pos().y + 300))
+	{
+		return true;
+	}
+	else return false;
 
 	return false;
+
+
+
 }

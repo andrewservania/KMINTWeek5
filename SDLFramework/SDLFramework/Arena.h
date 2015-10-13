@@ -12,9 +12,15 @@ class Arena
 {
 private:
 	uint32_t seconds;
+	int runs;
+
+	std::shared_ptr<InstanceOfGameEntities> instance1;
+	std::shared_ptr<InstanceOfGameEntities> instance2;
+	std::shared_ptr<InstanceOfGameEntities> instance3;
+	std::shared_ptr<InstanceOfGameEntities> instance4;
 
 	void ResetInstances();
-
+	void EndProgram();
 public:
 
 	Arena();

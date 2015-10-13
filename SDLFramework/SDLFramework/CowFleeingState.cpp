@@ -32,23 +32,26 @@ void CowFleeingState::Execute(Cow* cow)
 
 void CowFleeingState::Exit(Cow* cow)
 {
-	cow->SetMaxSpeed(150.0);
+	cow->SetMaxSpeed(50.0);
 	hasStarted = false;
 }
 
 void CowFleeingState::Start(Cow* cow)
 {
 	cow->Steering()->EvadeOn(reinterpret_cast<Vehicle*>(cow->GetEnemy()));
-	cow->SetMaxSpeed(200000.0);
+	cow->SetMaxSpeed(20000.0);
 }
 
 bool CowFleeingState::NoThreat(Cow* cow)
 {
-	float distanceBetweenCowAndRabbit = cow->DistanceTo(cow->GetEnemy());
-	if (distanceBetweenCowAndRabbit >= 600.0)
-		return true; 
-	else 
+		if (cow->GetEnemy()->Pos().x >= (cow->Pos().x + 301) ||
+			cow->GetEnemy()->Pos().x <= (cow->Pos().x - 301) ||
+			cow->GetEnemy()->Pos().y >= (cow->Pos().y + 301) ||
+			cow->GetEnemy()->Pos().y <= (cow->Pos().y - 301))
+		{
+			return true; 
+		}	
+		else return false;
+	
 		return false;
-
-	return false;
 }

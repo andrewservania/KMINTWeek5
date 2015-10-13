@@ -16,8 +16,11 @@ public:
 	void Update(float deltaTime) override;
 	void Draw() override;
 	void SetCurrentNode(Node* newNode);
-	Node* GetCurrentNode() { return currentNode; }
 	void PutOnRandomLocation();
 	void SetColor(Color* _color){ color = _color; }
+	void Respawn() { mX = rand() % 800; mY = rand() % 600; }
+
+
 	Color* GetColor() { return color; }
+	Node* GetCurrentNode() { return currentNode; }
 };

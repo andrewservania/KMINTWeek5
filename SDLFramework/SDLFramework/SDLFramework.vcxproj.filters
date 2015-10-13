@@ -83,9 +83,6 @@
     <ClCompile Include="Arena.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MovingEntity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Vehicle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -154,6 +151,9 @@
     </ClCompile>
     <ClCompile Include="RabbitGlobalState.cpp">
       <Filter>Source Files\States\Rabbit States</Filter>
+    </ClCompile>
+    <ClCompile Include="MovingEntity.cpp">
+      <Filter>Source Files\GameEntities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

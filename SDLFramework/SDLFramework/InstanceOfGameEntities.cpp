@@ -2,17 +2,19 @@
 #include "Parameters.h"
 #include "RabbitPursuitState.h"
 #include "CowWanderingState.h"
+#include "CowGlobalState.h"
+#include "RabbitGlobalState.h"
 
 using namespace std;
 
 InstanceOfGameEntities::InstanceOfGameEntities()
 {
-	Vector2D spawnPosition1 = Vector2D(200, rand() % 600);
-	Vector2D spawnPosition2 = Vector2D(600, rand() % 600);
+
 	weapon = new Weapon(rand() % 800, rand() % 600);
 	pill = new Pill(rand() % 800, rand() % 600);
+
 	cow =  new Cow(1,
-		spawnPosition1,										//initial position
+		Vector2D(200, rand() % 600),						//initial position
 		RandFloat()*TwoPi,									//start rotation
 		Vector2D(200, 100),									//velocity
 		Parameters::Instance()->VehicleMass,				//mass
@@ -23,13 +25,13 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 		Parameters::Instance()->VehicleScale, rabbit);		//scale
 
 	rabbit = new Rabbit(2,
-		spawnPosition2,										//initial position
+		Vector2D(600, rand() % 600),						//initial position
 		RandFloat()*TwoPi,									//start rotation
 		Vector2D(200, 100),									//velocity
 		Parameters::Instance()->VehicleMass,				//mass
 		(Parameters::Instance()->SteeringForce *			
 		Parameters::Instance()->SteeringForceTweaker),		//max force
-		Parameters::Instance()->MaxSpeed,					//max velocity
+		Parameters::Instance()->MaxSpeed *2,				//max velocity (double the speed of the cow)
 		Parameters::Instance()->MaxTurnRate,				//max turn rate
 		Parameters::Instance()->VehicleScale,				//scale
 		*cow);				
@@ -59,4 +61,22 @@ void InstanceOfGameEntities::SetColor(Color* _color)
 	cow->SetColor(_color);
 	weapon->SetColor(_color);
 	pill->SetColor(_color);
+}
+
+void InstanceOfGameEntities::Reset()
+{
+	cow->Respawn();
+	rabbit->Respawn();
+	weapon->Respawn();
+	pill->Respawn();
+
+	rabbit->GetFSM()->ChangeState(RabbitPursuitState::Instance());
+	cow->GetFSM()->ChangeState(CowWanderingState::Instance());
+}
+
+void InstanceOfGameEntities::End()
+{
+	rabbit->GetFSM()->ChangeState(RabbitGlobalState::Instance());
+	cow->GetFSM()->ChangeState(CowGlobalState::Instance());
+
 }

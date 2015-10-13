@@ -26,7 +26,7 @@ int Parameters::NumSamplesForSmoothing = 10;
 double Parameters::SteeringForceTweaker = 200.0;
 
 double Parameters::SteeringForce = 2.0;
-double Parameters::MaxSpeed = 150.0;
+double Parameters::MaxSpeed = 50.0;
 double Parameters::VehicleMass = 1.0;
 double Parameters::VehicleScale = 3.0;
 

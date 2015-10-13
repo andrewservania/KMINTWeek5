@@ -2,6 +2,9 @@
 #include "RabbitWanderingState.h"
 #include "Parameters.h"
 #include "RabbitGlobalState.h"
+#include "Dashboard.h"
+
+using namespace std;
 
 Rabbit::Rabbit(int id,
 	Vector2D _position,
@@ -25,6 +28,7 @@ Rabbit::Rabbit(int id,
 	mTexture = mApplication->LoadTexture("rabbit-3.png");
 	pickedUpPill = false;
 	pickedUpWeapon = false;
+	score = 0;
 
 	// set the location of the cow on the screen
 	mX = static_cast<uint32_t>(position.x);
@@ -98,7 +102,7 @@ void Rabbit::Update(float deltaTime)
 // Draw the rabbit texture
 void Rabbit::Draw()
 {
-
+	Dashboard::Instance()->comment5 = "Rabbit x: " + to_string(mX);
 	mApplication->DrawTexture(mTexture, mX, mY, 100, 100, Color(color->r, color->b, color->g, 255));
 }
 
@@ -119,4 +123,15 @@ void Rabbit::setCurrentNode(Node* node)
 	currentNode = node;
 	mX = node->GetBoundingBox().x;
 	mY = node->GetBoundingBox().y;
+}
+
+void Rabbit::Respawn()
+{
+	position = Vector2D(600, rand() % 600);
+	velocity = Vector2D(200, 100);
+}
+
+void Rabbit::Reset()
+{
+
 }

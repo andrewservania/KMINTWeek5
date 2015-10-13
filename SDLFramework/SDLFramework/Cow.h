@@ -13,7 +13,8 @@ class Rabbit;
 class Cow :
 	public Vehicle
 {
-
+private:
+	int score;
 
 
 public:
@@ -24,7 +25,7 @@ public:
 	Color* color;
 	Pill* pill;
 	Weapon* weapon;
-
+	
 
 	Cow(int id,
 		Vector2D _position,
@@ -58,13 +59,14 @@ public:
 	void SetColor(Color* _color){ color = _color; }
 	void SetPill(Pill* _pill){ pill = _pill; }
 	void SetWeapon(Weapon* _weapon) { weapon = _weapon; }
-
+	void Respawn();
 	//Vector2D SmoothingHeading() const { return smoothedHeading; }
 	//bool isSmoothingOn() const { return smoothingOn; }
 	//bool SmoothingOn() { smoothingOn = true; }
 	//bool SmoothingOff() { smoothingOn = false; }
 	//bool ToggleSmoothing() { return !smoothingOn; }
 	//double TimeElapsed() const { return timeElapsed; }
-
-
+	void SetScore(int val){ score = val; }
+	int GetScore(){ return score; }
+	void Reset();
 };

@@ -4,7 +4,8 @@
 #include <assert.h>
 #include "CowGlobalState.h"
 #include "Parameters.h"
-
+#include "CowWanderingState.h"
+#include "Dashboard.h"
 using namespace std;
 
 Cow::Cow(int id,
@@ -28,6 +29,7 @@ Cow::Cow(int id,
 					
 {
 
+	score = 0;
 	//smoothedHeading = Vector2D(0, 0);
 	//smoothingOn = false ;
 	//timeElapsed = 0.0;
@@ -117,7 +119,7 @@ void Cow::setCurrentNode(Node* node)
 // Draw cow texture
 void Cow::Draw()
 {
-
+	Dashboard::Instance()->comment4 = "Cow x: " + to_string(mX);
 	mApplication->DrawTexture(mTexture, mX, mY, 100, 100, Color(color->r,color->b,color->g,255));
 
 }
@@ -128,4 +130,16 @@ void Cow::Draw()
 void Cow::PutOnRandomLocation()
 {
 
+}
+
+void Cow::Respawn()
+{
+	position = Vector2D(200, rand() % 600);
+	velocity = Vector2D(200, 100);
+	Reset();
+}
+
+void Cow::Reset()
+{
+	stateMachine->SetCurrentState(CowWanderingState::Instance());
 }

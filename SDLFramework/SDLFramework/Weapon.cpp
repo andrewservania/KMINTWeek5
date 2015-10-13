@@ -12,7 +12,6 @@ Weapon::Weapon(uint32_t _x, uint32_t _y) : Vehicle(1,
 	0,
 	1)
 {
-
 	mTexture = mApplication->LoadTexture("gun-metal.png");
 
 	mX = _x;

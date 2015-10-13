@@ -12,6 +12,9 @@
 class Rabbit :
 	public Vehicle
 {
+private:
+	int score;
+
 public:
 	Node* currentNode;
 	StateMachine<Rabbit>* stateMachine;
@@ -53,4 +56,9 @@ public:
 	void SetColor(Color* _color) { color = _color; }
 	void SetPill(Pill* _pill){ pill = _pill; }
 	void SetWeapon(Weapon* _weapon) { weapon = _weapon; }
+	void Respawn();
+	void SetScore(int val){ score = val; }
+	int GetScore(){ return score; }
+	void Reset();
+
 };

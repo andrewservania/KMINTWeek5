@@ -34,10 +34,10 @@ Dashboard::Dashboard()
 	ApplicationInformation("Andrew Servania - KMINT Week 5");
 
 	comment1 = "Time passed: 00:00";
-	comment2 = "";
-	comment3 = "";
+	comment2 = "Amount of runs: 0";
+	comment3 = "Rabbit score: 0";
 
-	comment4 = "";
+	comment4 = "Cow score: 0";
 	comment5 = "";
 	comment6 = "";
 	comment7 = "";
@@ -73,7 +73,7 @@ void Dashboard::Update()
 	// KMINT Week 3 Description
 	FWApplication::GetInstance()->DrawTextOnScreen(comment1, 400, 100); // Now indicates the amount of time passed.
 
-	FWApplication::GetInstance()->DrawTextOnScreen(comment2, 300, 120);
+	FWApplication::GetInstance()->DrawTextOnScreen(comment2, 400, 120);
 	FWApplication::GetInstance()->DrawTextOnScreen(comment3, 300, 140);
 	FWApplication::GetInstance()->DrawTextOnScreen(comment4, 300, 180);
 	FWApplication::GetInstance()->DrawTextOnScreen(comment5, 300, 200);

@@ -5,6 +5,8 @@
 class Weapon :
 	public Vehicle
 {
+private:
+
 public:
 	Node* currentNode;
 	bool isPickedUp;
@@ -27,5 +29,8 @@ public:
 
 	void SetColor(Color* _color){ color = _color; }
 	Color* GetColor() { return color; }
-	
+	void Respawn() { mX = rand() % 800; mY = rand() % 600; }
+
+
+
 };
