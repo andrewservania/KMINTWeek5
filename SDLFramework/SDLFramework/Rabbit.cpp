@@ -21,7 +21,7 @@ Rabbit::Rabbit(int id,
 					_velocity,
 					_mass,
 					_max_force,
-					_max_speed*3.0,
+					_max_speed*1.7,
 					_max_turn_rate,
 					_scale),
 					enemy(_enemy)

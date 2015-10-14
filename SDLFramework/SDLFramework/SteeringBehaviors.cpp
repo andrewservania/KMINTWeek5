@@ -707,12 +707,12 @@ Vector2D SteeringBehavior::Flee(Vector2D TargetPos)
 {
   //only flee if the target is within 'panic distance'. Work in distance
   //squared space.
- /* const double PanicDistanceSq = 100.0f * 100.0;
-  if (Vec2DDistanceSq(m_pVehicle->Pos(), target) > PanicDistanceSq)
-  {
-    return Vector2D(0,0);
-  }
-  */
+ //const double PanicDistanceSq = 100.0f * 100.0;
+ // if (Vec2DDistanceSq(m_pVehicle->Pos(), m_pVehicle-> target) > PanicDistanceSq)
+ // {
+ //  return Vector2D(0,0);
+ //}
+  
 
   Vector2D DesiredVelocity = Vec2DNormalize(m_pVehicle->Pos() - TargetPos) 
                             * m_pVehicle->MaxSpeed();

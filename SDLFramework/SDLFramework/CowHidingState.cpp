@@ -2,6 +2,8 @@
 #include "Rabbit.h"
 #include "Dashboard.h"
 #include "RabbitPursuitState.h"
+#include "CowWanderingState.h"
+
 CowHidingState::CowHidingState()
 {
 	cowCurrentXpos = 0.0;
@@ -24,14 +26,23 @@ void CowHidingState::Enter(Cow* cow)
 
 void CowHidingState::Execute(Cow* cow)
 {
+	cow->SetPos(Vector2D(cowCurrentXpos,cowCurrentYpos));
+	cow->SetVelocity(Vector2D(0, 0));
 
-	float distanceBetweenCowAndRabbit = cow->DistanceTo(cow->GetEnemy());
-	if (distanceBetweenCowAndRabbit < 50)
+	if ((cow->Pos().x > cow->GetEnemy()->Pos().x - 25 &&
+		cow->Pos().x < cow->GetEnemy()->Pos().x + 25) &&
+		(cow->Pos().y > cow->GetEnemy()->Pos().y - 25 &&
+		cow->Pos().y < cow->GetEnemy()->Pos().y + 25))
 	{
-		if (cow->GetFSM()->PreviousState()->GetStateName() == "Search For Weapon")
+		if (cow->GetFSM()->PreviousState()->GetStateName() == "FleeAndSearchForWeapon")
 		{
 			cow->SetScore((cow->GetScore() + 1));
 			Dashboard::Instance()->SetCowScore(cow->GetScore());
+		}
+
+		if (cow->GetFSM()->PreviousState()->GetStateName() == "Wandering")
+		{
+			cow->GetFSM()->ChangeState(CowWanderingState::Instance());
 		}
 
 		cow->GetEnemy()->Respawn();
@@ -39,9 +50,10 @@ void CowHidingState::Execute(Cow* cow)
 		cowCurrentYpos = rand() % 600;
 		cow->SetPos(Vector2D(cowCurrentXpos,cowCurrentYpos));
 	}
-	cow->SetPos(Vector2D(cowCurrentXpos,cowCurrentYpos));
-	cow->SetVelocity(Vector2D(0, 0));
-	cow->Steering()->ArriveOn();
+
+
+	
+
 }
 
 void CowHidingState::Exit(Cow* cow)

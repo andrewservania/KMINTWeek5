@@ -10,16 +10,14 @@ private:
 	int choice1Probability;
 	int choice2Probability;
 	int choice3Probability;
+	int choice4Probability;
 	int lastChangedChoice;
 
 	void UpdateProbabilityLabels();
 public:
-	void IncreaseChoice1Probability();
-	void IncreaseChoice2Probability();
-	void IncreaseChoice3Probability();
-
+;
 	ProbabilityDistribution();
-	ProbabilityDistribution(int probabilityChoice1, int probabilityChoice2, int probabilityChoice3);
+	ProbabilityDistribution(int probabilityChoice1, int probabilityChoice2, int probabilityChoice3, int probabilityChoice4);
 	~ProbabilityDistribution();
 	int GenerateRandomChoice();
 

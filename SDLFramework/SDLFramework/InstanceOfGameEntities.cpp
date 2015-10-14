@@ -63,14 +63,9 @@ void InstanceOfGameEntities::Reset()
 {
 	cow->Reset();
 	rabbit->Reset();
+	weapon->Respawn();
+	pill->Respawn();
 
-	//weapon = new Weapon(rand() % 800, rand() % 600);
-	//pill = new Pill(rand() % 800, rand() % 600);
-	//weapon->Respawn();
-	//pill->Respawn();
-
-	//cow->SetWeapon(weapon);
-	//cow->SetPill(pill);
 }
 
 void InstanceOfGameEntities::End()

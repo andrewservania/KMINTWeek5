@@ -68,6 +68,7 @@ void Cow::Update(float deltaTime)
 
 	timeElapsed = static_cast<double>(deltaTime);
 
+	Dashboard::Instance()->comment10 = "Cow Current state: " + GetFSM()->CurrentState()->GetStateName();
 	if (!cowDoesNotMove){
 		// calculate the combined force from each steering behavior in the vehicle's list
 		Vector2D SteeringForce = steeringBehavior->Calculate();
@@ -137,7 +138,7 @@ void Cow::PutOnRandomLocation()
 void Cow::Respawn()
 {
 	position = Vector2D(200, rand() % 600);
-
+	velocity = Vector2D(0, 0);
 }
 
 void Cow::Reset()
