@@ -116,9 +116,6 @@
     <ClCompile Include="CowPursuitState.cpp">
       <Filter>Source Files\States\Cow States</Filter>
     </ClCompile>
-    <ClCompile Include="CowSearchForWeaponState.cpp">
-      <Filter>Source Files\States\Cow States</Filter>
-    </ClCompile>
     <ClCompile Include="CowSleepingState.cpp">
       <Filter>Source Files\States\Cow States</Filter>
     </ClCompile>
@@ -140,9 +137,6 @@
     <ClCompile Include="RabbitSearchForWeaponState.cpp">
       <Filter>Source Files\States\Rabbit States</Filter>
     </ClCompile>
-    <ClCompile Include="CowSearchForPillState.cpp">
-      <Filter>Source Files\States\Cow States</Filter>
-    </ClCompile>
     <ClCompile Include="CowWanderingState.cpp">
       <Filter>Source Files\States\Cow States</Filter>
     </ClCompile>
@@ -156,6 +150,12 @@
       <Filter>Source Files\GameEntities</Filter>
     </ClCompile>
     <ClCompile Include="CowHidingState.cpp">
+      <Filter>Source Files\States\Cow States</Filter>
+    </ClCompile>
+    <ClCompile Include="CowFleeAndSearchPillState.cpp">
+      <Filter>Source Files\States\Cow States</Filter>
+    </ClCompile>
+    <ClCompile Include="CowFleeAndSearchWeaponState.cpp">
       <Filter>Source Files\States\Cow States</Filter>
     </ClCompile>
   </ItemGroup>
@@ -289,9 +289,6 @@
     <ClInclude Include="CowPursuitState.h">
       <Filter>Header Files\States\Cow States</Filter>
     </ClInclude>
-    <ClInclude Include="CowSearchForWeaponState.h">
-      <Filter>Header Files\States\Cow States</Filter>
-    </ClInclude>
     <ClInclude Include="CowSleepingState.h">
       <Filter>Header Files\States\Cow States</Filter>
     </ClInclude>
@@ -310,9 +307,6 @@
     <ClInclude Include="RabbitWanderingState.h">
       <Filter>Header Files\States\Rabbit States</Filter>
     </ClInclude>
-    <ClInclude Include="CowSearchForPillState.h">
-      <Filter>Header Files\States\Cow States</Filter>
-    </ClInclude>
     <ClInclude Include="CowWanderingState.h">
       <Filter>Header Files\States\Cow States</Filter>
     </ClInclude>
@@ -324,6 +318,12 @@
     </ClInclude>
     <ClInclude Include="RabbitGlobalState.h">
       <Filter>Header Files\States\Rabbit States</Filter>
+    </ClInclude>
+    <ClInclude Include="CowFleeAndSearchPillState.h">
+      <Filter>Header Files\States\Cow States</Filter>
+    </ClInclude>
+    <ClInclude Include="CowFleeAndSearchWeaponState.h">
+      <Filter>Header Files\States\Cow States</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -2,8 +2,8 @@
 #include "CowFleeingState.h"
 #include "Rabbit.h"
 #include "ProbabilityDistribution.h"
-#include "CowSearchForPillState.h"
-#include "CowSearchForWeaponState.h"
+#include "CowFleeAndSearchPillState.h"
+#include "CowFleeAndSearchWeaponState.h"
 
 CowWanderingState::CowWanderingState()
 {
@@ -34,16 +34,18 @@ void CowWanderingState::Execute(Cow* cow)
 		switch (ProbabilityDistribution::Instance()->GenerateRandomChoice())
 		{
 		case 1: 
-			cow->GetFSM()->ChangeState(CowFleeingState::Instance());
+			//cow->GetFSM()->ChangeState(CowFleeingState::Instance());
+			cow->GetFSM()->ChangeState(CowFleeAndSearchWeaponState::Instance());
+
 			break;
 		case 2: 
 		//	cow->GetFSM()->ChangeState(CowSearchForWeaponState::Instance());
-			cow->GetFSM()->ChangeState(CowSearchForWeaponState::Instance());
+			cow->GetFSM()->ChangeState(CowFleeAndSearchWeaponState::Instance());
 
 			break;
 		case 3: 
 	//		cow->GetFSM()->ChangeState(CowSearchForPillState::Instance());
-			cow->GetFSM()->ChangeState(CowSearchForPillState::Instance());
+			cow->GetFSM()->ChangeState(CowFleeAndSearchWeaponState::Instance());
 
 			break;
 		}

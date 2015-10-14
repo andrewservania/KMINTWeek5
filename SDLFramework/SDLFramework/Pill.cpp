@@ -3,7 +3,7 @@
 #include "RabbitWanderingState.h"
 
 Pill::Pill(uint32_t _x, uint32_t _y) :
-	Vehicle(1,
+	Vehicle(2,
 	Vector2D(_x, _y), 0,
 	Vector2D(0, 0),
 	0,
@@ -13,9 +13,9 @@ Pill::Pill(uint32_t _x, uint32_t _y) :
 	1)
 {
 	mTexture = mApplication->LoadTexture("pill.png");
+
 	mX = _x;
 	mY = _y;
-
 	// Initialize with 'no' color
 	color = new Color(0, 0, 0, 255);
 

@@ -94,8 +94,8 @@
     <ClCompile Include="CowGlobalState.cpp" />
     <ClCompile Include="CowHidingState.cpp" />
     <ClCompile Include="CowPursuitState.cpp" />
-    <ClCompile Include="CowSearchForPillState.cpp" />
-    <ClCompile Include="CowSearchForWeaponState.cpp" />
+    <ClCompile Include="CowFleeAndSearchPillState.cpp" />
+    <ClCompile Include="CowFleeAndSearchWeaponState.cpp" />
     <ClCompile Include="CowSleepingState.cpp" />
     <ClCompile Include="CowWanderingState.cpp" />
     <ClCompile Include="Dashboard.cpp" />
@@ -143,8 +143,8 @@
     <ClInclude Include="CowGlobalState.h" />
     <ClInclude Include="CowHidingState.h" />
     <ClInclude Include="CowPursuitState.h" />
-    <ClInclude Include="CowSearchForPillState.h" />
-    <ClInclude Include="CowSearchForWeaponState.h" />
+    <ClInclude Include="CowFleeAndSearchPillState.h" />
+    <ClInclude Include="CowFleeAndSearchWeaponState.h" />
     <ClInclude Include="CowSleepingState.h" />
     <ClInclude Include="CowWanderingState.h" />
     <ClInclude Include="Dashboard.h" />

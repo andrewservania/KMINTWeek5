@@ -43,7 +43,7 @@ void Arena::SecondTick()
 {
 	if (!applicationEnd)
 	{
-		if (seconds == 30)
+		if (seconds == 5)
 		{
 			seconds = 0;
 			runs++;

@@ -21,7 +21,7 @@ Rabbit::Rabbit(int id,
 					_velocity,
 					_mass,
 					_max_force,
-					_max_speed,
+					_max_speed*3.0,
 					_max_turn_rate,
 					_scale),
 					enemy(_enemy)
@@ -128,7 +128,7 @@ void Rabbit::setCurrentNode(Node* node)
 void Rabbit::Respawn()
 {
 	SetPos(Vector2D(600, rand() % 600));
-	
+	velocity = Vector2D(0, 0);
 }
 
 void Rabbit::Reset()

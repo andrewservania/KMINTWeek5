@@ -13,7 +13,7 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 	weapon = new Weapon(rand() % 800, rand() % 600);
 	pill = new Pill(rand() % 800, rand() % 600);
 
-	cow =  new Cow(1,
+	cow =  new Cow(3,
 		Vector2D(200, rand() % 600),						//initial position
 		RandFloat()*TwoPi,									//start rotation
 		Vector2D(200, 100),									//velocity
@@ -24,7 +24,7 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 		Parameters::Instance()->MaxTurnRate,				//max turn rate
 		Parameters::Instance()->VehicleScale, rabbit);		//scale
 
-	rabbit = new Rabbit(2,
+	rabbit = new Rabbit(4,
 		Vector2D(600, rand() % 600),						//initial position
 		RandFloat()*TwoPi,									//start rotation
 		Vector2D(200, 100),									//velocity
@@ -63,9 +63,14 @@ void InstanceOfGameEntities::Reset()
 {
 	cow->Reset();
 	rabbit->Reset();
-	weapon->Respawn();
-	pill->Respawn();
 
+	//weapon = new Weapon(rand() % 800, rand() % 600);
+	//pill = new Pill(rand() % 800, rand() % 600);
+	//weapon->Respawn();
+	//pill->Respawn();
+
+	//cow->SetWeapon(weapon);
+	//cow->SetPill(pill);
 }
 
 void InstanceOfGameEntities::End()

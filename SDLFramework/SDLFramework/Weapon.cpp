@@ -16,7 +16,6 @@ Weapon::Weapon(uint32_t _x, uint32_t _y) : Vehicle(1,
 
 	mX = _x;
 	mY = _y;
-
 	// Initialize with 'no' color
 	color = new Color(0, 0, 0, 255);
 
