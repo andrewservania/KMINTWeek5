@@ -5,6 +5,11 @@
 class CowHidingState :
 	public State<Cow>
 {
+private:
+	double cowCurrentXpos;
+	double cowCurrentYpos;
+
+
 public:
 	CowHidingState();
 	~CowHidingState();

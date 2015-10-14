@@ -17,6 +17,7 @@ CowWanderingState::~CowWanderingState()
 
 void CowWanderingState::Enter(Cow* cow)
 {
+	
 	Start(cow);
 }
 
@@ -65,8 +66,10 @@ void CowWanderingState::Start(Cow* cow)
 
 bool CowWanderingState::IsThreadEminent(Cow* cow)
 {
-	float distanceBetweenCowAndRabbit = cow->DistanceTo(cow->GetEnemy());
-	if (distanceBetweenCowAndRabbit <= 300.0f)
+	if ((cow->Pos().x > cow->GetEnemy()->Pos().x - 300 &&
+		cow->Pos().x < cow->GetEnemy()->Pos().x + 300) &&
+		(cow->Pos().y > cow->GetEnemy()->Pos().y - 300 &&
+		cow->Pos().y <  cow->GetEnemy()->Pos().y + 300))
 	{
 		return true;
 	}

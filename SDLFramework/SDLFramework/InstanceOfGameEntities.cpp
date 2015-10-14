@@ -18,8 +18,8 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 		RandFloat()*TwoPi,									//start rotation
 		Vector2D(200, 100),									//velocity
 		Parameters::Instance()->VehicleMass,				//mass
-		Parameters::Instance()->SteeringForce *
-		Parameters::Instance()->SteeringForceTweaker,		//max force
+		(Parameters::Instance()->SteeringForce *
+		Parameters::Instance()->SteeringForceTweaker),		//max force
 		Parameters::Instance()->MaxSpeed,					//max velocity
 		Parameters::Instance()->MaxTurnRate,				//max turn rate
 		Parameters::Instance()->VehicleScale, rabbit);		//scale

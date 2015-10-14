@@ -11,8 +11,8 @@ using namespace std;
 // I stand open to all your expert feedback. :)
 
 
-ProbabilityDistribution::ProbabilityDistribution() : choice1Probability(40), // percent
-													 choice2Probability(30), // percent
+ProbabilityDistribution::ProbabilityDistribution() : choice1Probability(30), // percent
+													 choice2Probability(40), // percent
 													 choice3Probability(30)  // percent
 {
 	currentTotalProbability = totalProbability;
