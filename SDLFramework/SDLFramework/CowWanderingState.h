@@ -9,6 +9,7 @@ private:
 	void Start(Cow* cow);
 	bool hasStarted;
 	bool IsThreadEminent(Cow* cow);
+
 public:
 	CowWanderingState();
 	~CowWanderingState();

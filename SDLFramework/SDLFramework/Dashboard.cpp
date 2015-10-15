@@ -52,9 +52,7 @@ Dashboard::Dashboard()
   //comment6 = "-------------------------------------------------------------------------------------------";
 	//ShortestPathLabel("");
 
-	SetChoice1Probablity(ProbabilityDistribution::Instance()->GetChoice1Probability());
-	SetChoice2Probablity(ProbabilityDistribution::Instance()->GetChoice2Probability());
-	SetChoice3Probablity(ProbabilityDistribution::Instance()->GetChoice3Probability());
+
 
 	cowSleepingTurns = "Cow Sleeping Turns: 0";
 }
@@ -98,10 +96,6 @@ void Dashboard::Update()
 	// Shortest path label
 	// FWApplication::GetInstance()->DrawTextOnScreen(shortestPathLabel, 300, 500);
 
-	// Probabilities
-	// FWApplication::GetInstance()->DrawTextOnScreen(choice1Probability, 300, 540);
-	// FWApplication::GetInstance()->DrawTextOnScreen(choice2Probability, 300, 560);
-	// FWApplication::GetInstance()->DrawTextOnScreen(choice3Probability, 300, 580);
 
 
 

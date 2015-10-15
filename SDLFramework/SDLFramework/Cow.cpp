@@ -46,18 +46,19 @@ Cow::Cow(int id,
 	// set up the steering behavior class
 	steeringBehavior = new SteeringBehavior(this);
 
-	//set up the smoother
+	// set up the smoother
 	headingSmoother = new Smoother<Vector2D>(Parameters::Instance()->NumSamplesForSmoothing, Vector2D(0.0, 0.0));
 
-	//add cow to renderable objects
+	// instantiate probability with random values
+	probabilityDistribution = new ProbabilityDistribution();
 
-	// Add sample code here that is responsible for updating the cow
 	// Set up the state machine
 	stateMachine = new StateMachine<Cow>(this);
 	stateMachine->SetCurrentState(CowGlobalState::Instance());
 
 	// Initialize with 'no' color
 	color = new Color(0, 0, 0, 255);
+	//add cow to renderable objects
 	mApplication->AddRenderable(this);
 
 }

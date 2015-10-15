@@ -13,7 +13,6 @@ private:
 	int choice4Probability;
 	int lastChangedChoice;
 
-	void UpdateProbabilityLabels();
 public:
 ;
 	ProbabilityDistribution();
@@ -24,11 +23,7 @@ public:
 	int GetChoice1Probability() { return choice1Probability; }
 	int GetChoice2Probability() { return choice2Probability; }
 	int GetChoice3Probability() { return choice3Probability; }
+	int GetChoice4Probability() { return choice4Probability; }
 
-	static ProbabilityDistribution* Instance()
-	{
-		static ProbabilityDistribution instance;
-
-		return &instance;
-	}
+	void DistributeProbabilityAtRandom();
 };

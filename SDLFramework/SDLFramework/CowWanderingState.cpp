@@ -1,19 +1,20 @@
 #include "CowWanderingState.h"
 #include "CowFleeingState.h"
 #include "Rabbit.h"
-#include "ProbabilityDistribution.h"
 #include "CowFleeAndSearchPillState.h"
 #include "CowFleeAndSearchWeaponState.h"
 #include "CowHidingState.h"
 
 CowWanderingState::CowWanderingState()
 {
+
 	hasStarted = false;
 }
 
 
 CowWanderingState::~CowWanderingState()
 {
+	
 }
 
 void CowWanderingState::Enter(Cow* cow)
@@ -32,7 +33,7 @@ void CowWanderingState::Execute(Cow* cow)
 
 	if (IsThreadEminent(cow)){
 		// Choose next action
-		switch (ProbabilityDistribution::Instance()->GenerateRandomChoice())
+		switch (cow->GetProbabilityDistribution()->GenerateRandomChoice())
 		{
 		case 1: 
 			cow->GetFSM()->ChangeState(CowFleeingState::Instance());

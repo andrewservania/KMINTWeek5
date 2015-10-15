@@ -7,6 +7,7 @@
 #include "Smoother.h"
 #include "Pill.h"
 #include "Weapon.h"
+#include "ProbabilityDistribution.h"
 
 class Rabbit;
 
@@ -16,7 +17,7 @@ class Cow :
 private:
 	int score;
 	bool cowDoesNotMove;
-
+	ProbabilityDistribution* probabilityDistribution;
 
 public:
 	Node* currentNode;
@@ -72,4 +73,5 @@ public:
 	void Reset();
 	void DoesNotMove_On(){ cowDoesNotMove = true; };
 	void DoesNotMove_Off(){ cowDoesNotMove = false; };
+	ProbabilityDistribution* GetProbabilityDistribution() { return probabilityDistribution; }
 };
