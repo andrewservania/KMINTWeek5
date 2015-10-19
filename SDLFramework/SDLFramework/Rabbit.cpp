@@ -31,9 +31,10 @@ Rabbit::Rabbit(int id,
 	pickedUpWeapon = false;
 	score = 0;
 
+	position = _position;
 	// set the location of the cow on the screen
-	mX = static_cast<uint32_t>(position.x);
-	mY = static_cast<uint32_t>(position.y);
+	//mX = static_cast<uint32_t>(position.x);
+	//mY = static_cast<uint32_t>(position.y);
 
 	// set up the steering behavior class
 	steeringBehavior = new SteeringBehavior(this);
@@ -82,8 +83,8 @@ void Rabbit::Update(float deltaTime)
 	position += velocity * elapsedTime;
 
 	// set the actual location of the vehicle in the arena
-	mX = static_cast<uint32_t>(position.x);
-	mY = static_cast<uint32_t>(position.y);
+	//mX = static_cast<uint32_t>(position.x);
+	//mY = static_cast<uint32_t>(position.y);
 
 	//update the heading if the cow has a velocity greater than a very smal
 	//value
@@ -103,7 +104,7 @@ void Rabbit::Update(float deltaTime)
 // Draw the rabbit texture
 void Rabbit::Draw()
 {
-	mApplication->DrawTexture(mTexture, mX, mY, 100, 100, Color(color->r, color->b, color->g, 255));
+	mApplication->DrawTexture(mTexture, static_cast<int>(position.x), static_cast<int>(position.y), 100, 100, Color(color->r, color->b, color->g, 255));
 }
 
 // Execute code if rabbit has been left-clicked upon
@@ -121,14 +122,15 @@ void Rabbit::OnRightClick()
 void Rabbit::setCurrentNode(Node* node)
 {
 	currentNode = node;
-	mX = node->GetBoundingBox().x;
-	mY = node->GetBoundingBox().y;
+	//mX = node->GetBoundingBox().x;
+	//mY = node->GetBoundingBox().y;
 }
 
 void Rabbit::Respawn()
 {
-	SetPos(Vector2D(600, rand() % 600));
+	position = Vector2D(600, rand() % 600);
 	velocity = Vector2D(0, 0);
+	stateMachine->SetCurrentState(RabbitPursuitState::Instance());
 }
 
 void Rabbit::Reset()

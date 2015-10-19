@@ -52,8 +52,6 @@ Dashboard::Dashboard()
   //comment6 = "-------------------------------------------------------------------------------------------";
 	//ShortestPathLabel("");
 
-
-
 	cowSleepingTurns = "Cow Sleeping Turns: 0";
 }
 

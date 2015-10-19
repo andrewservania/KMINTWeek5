@@ -14,8 +14,7 @@ Weapon::Weapon(uint32_t _x, uint32_t _y) : Vehicle(1,
 {
 	mTexture = mApplication->LoadTexture("gun-metal.png");
 
-	mX = _x;
-	mY = _y;
+	position = Vector2D(_x, _y);
 	// Initialize with 'no' color
 	color = new Color(0, 0, 0, 255);
 
@@ -33,7 +32,7 @@ void Weapon::Update(float deltaTime)
 
 void Weapon::Draw()
 {
-	mApplication->DrawTexture(mTexture, mX, mY, 50, 50, Color(color->r, color->b, color->g, 255));
+	mApplication->DrawTexture(mTexture, static_cast<int>(position.x), static_cast<int>(position.y), 50, 50, Color(color->r, color->b, color->g, 255));
 };
 
 // Put the weapon at a new location

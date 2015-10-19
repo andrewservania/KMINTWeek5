@@ -2,7 +2,7 @@
 #include "Config.h"
 #include "FWApplication.h"
 #include <SDL_events.h>
-#include <time.h>
+#include <ctime>
 #include "AStar.h"
 #include "Arena.h"
 #include "Dashboard.h"

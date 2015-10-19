@@ -27,7 +27,6 @@ public:
 	Color* color;
 	Pill* pill;
 	Weapon* weapon;
-	
 
 	Cow(int id,
 		Vector2D _position,

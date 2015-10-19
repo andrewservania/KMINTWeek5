@@ -6,8 +6,7 @@
 
 CowHidingState::CowHidingState()
 {
-	cowCurrentXpos = 0.0;
-	cowCurrentYpos = 0.0;
+
 }
 
 
@@ -18,15 +17,13 @@ CowHidingState::~CowHidingState()
 
 void CowHidingState::Enter(Cow* cow)
 {
-	cowCurrentXpos = cow->Pos().x;
-	cowCurrentYpos = cow->Pos().y;
 	cow->SetVelocity(Vector2D(0, 0));
 	
 }
 
 void CowHidingState::Execute(Cow* cow)
 {
-	cow->SetPos(Vector2D(cowCurrentXpos,cowCurrentYpos));
+
 	cow->SetVelocity(Vector2D(0, 0));
 
 	if ((cow->Pos().x > cow->GetEnemy()->Pos().x - 25 &&
@@ -44,11 +41,10 @@ void CowHidingState::Execute(Cow* cow)
 		{
 			cow->GetFSM()->ChangeState(CowWanderingState::Instance());
 		}
-
+		
 		cow->GetEnemy()->Respawn();
-		cowCurrentXpos = 200; 
-		cowCurrentYpos = rand() % 600;
-		cow->SetPos(Vector2D(cowCurrentXpos,cowCurrentYpos));
+
+			cow->SetPos(Vector2D(200, rand() % 600));
 	}
 
 

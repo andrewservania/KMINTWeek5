@@ -26,6 +26,7 @@ Cow::Cow(int id,
 					 _max_turn_rate,
 					 _scale),
 					 enemy(_enemy)
+					 
 					
 {
 	cowDoesNotMove = false;
@@ -36,10 +37,11 @@ Cow::Cow(int id,
 
 	//Load the picture corresponding to the cow
 	mTexture = mApplication->LoadTexture("cow-1.png");
+	position = _position;
 	
 	// set the location of the cow on the screen
-	mX = static_cast<uint32_t>(position.x);
-	mY = static_cast<uint32_t>(position.y);
+	//mX = static_cast<uint32_t>(position.x);
+	//mY = static_cast<uint32_t>(position.y);
 
 
 
@@ -87,8 +89,8 @@ void Cow::Update(float deltaTime)
 		position += velocity * timeElapsed;
 
 		// set the actual location of the vehicle in the arena
-		mX = static_cast<uint32_t>(position.x);
-		mY = static_cast<uint32_t>(position.y);
+		//mX = static_cast<uint32_t>(position.x);
+		//mY = static_cast<uint32_t>(position.y);
 
 		//update the heading if the cow has a velocity greater than a very smal
 		//value
@@ -118,14 +120,14 @@ Cow::~Cow()
 void Cow::setCurrentNode(Node* node)
 {
 	currentNode = node;
-	mX = node->GetBoundingBox().x;
-	mY = node->GetBoundingBox().y;
+	//mX = node->GetBoundingBox().x;
+	//mY = node->GetBoundingBox().y;
 }
 
 // Draw cow texture
 void Cow::Draw()
 {
-	mApplication->DrawTexture(mTexture, mX, mY, 100, 100, Color(color->r,color->b,color->g,255));
+	mApplication->DrawTexture(mTexture, static_cast<int>(position.x), static_cast<int>(position.y), 100, 100, Color(color->r,color->b,color->g,255));
 }
 
 
@@ -138,13 +140,20 @@ void Cow::PutOnRandomLocation()
 
 void Cow::Respawn()
 {
+	//mX = rand() % 200;
+	//mY = rand() % 600;
+
 	position = Vector2D(200, rand() % 600);
+	//mX = position.x;
+	//mY = position.y;
 	velocity = Vector2D(0, 0);
 }
 
 void Cow::Reset()
 {
 	position = Vector2D(200, rand() % 600);
+	//mX = position.x;
+	//mY = position.y;
 	velocity = Vector2D(200, 100);
 	stateMachine->SetCurrentState(CowWanderingState::Instance());
 	DoesNotMove_Off();

@@ -24,8 +24,8 @@ void RabbitPursuitState::Execute(Rabbit* rabbit)
 		Start(rabbit);
 		hasStarted = true;
 	}
-
-	float distanceBetweenRabbitAndCow = rabbit->DistanceTo(&rabbit->GetEnemy());
+	
+	float distanceBetweenRabbitAndCow = rabbit->DistanceBetween(&rabbit->GetEnemy());
 	if (distanceBetweenRabbitAndCow <= 20)
 	{
 

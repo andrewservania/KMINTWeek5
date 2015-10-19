@@ -20,8 +20,8 @@ public:
 	void SetColor(Color* _color){ color = _color; }
 	void Respawn() { 
 		SetPos(Vector2D(rand() % 800, rand() % 600));
-		mX = static_cast<uint32_t>(position.x);
-		mY = static_cast<uint32_t>(position.y);
+		
+	
 	}
 
 

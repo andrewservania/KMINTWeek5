@@ -54,6 +54,7 @@ public:
 	bool SmoothingOff() { smoothingOn = false;  }
 	bool ToggleSmoothing() { return !smoothingOn; }
 	double TimeElapsed() const { return timeElapsed; }
+	float DistanceBetween(Vehicle* _vehicle);
 	
 };
 

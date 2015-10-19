@@ -38,6 +38,10 @@ Vehicle::~Vehicle()
 {
 }
 
+float Vehicle::DistanceBetween(Vehicle* _vehicle)
+{
+	return sqrt(pow((float)_vehicle->Pos().x - static_cast<float>(position.x), 2) + pow((float)_vehicle->Pos().y - static_cast<float>(position.y), 2));
+}
 //void Vehicle::Update(float deltaTime)
 //{
 //	double elapsedTime = static_cast<double>(deltaTime);

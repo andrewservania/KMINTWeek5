@@ -14,7 +14,6 @@ class Rabbit :
 {
 private:
 	int score;
-
 public:
 	Node* currentNode;
 	StateMachine<Rabbit>* stateMachine;
