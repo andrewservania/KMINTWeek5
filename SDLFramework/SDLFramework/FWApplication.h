@@ -47,7 +47,7 @@ public:
 
 	uint32_t mFPS;
 
-	FWApplication(int offsetX = 50, int offsetY = 50, int width = 800, int height = 600);
+	FWApplication(int offsetX = 50, int offsetY = 50, int width = 800, int height = 800);
 	~FWApplication();
 
 	void SetTargetFPS(unsigned short target);

@@ -33,7 +33,7 @@ void RabbitFleeingState::Exit(Rabbit* rabbit)
 {
 	rabbit->SetMaxSpeed(150.0);
 	hasStarted = false;
-	Dashboard::Instance()->ShortestPathLabel("");
+//	Dashboard::Instance()->ShortestPathLabel("");
 }
 
 void RabbitFleeingState::Start(Rabbit* rabbit)

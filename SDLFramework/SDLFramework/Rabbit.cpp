@@ -57,6 +57,7 @@ Rabbit::Rabbit(int id,
 	//add cow to renderable objects
 	mApplication->AddRenderable(this);
 
+	instanceColor = "null";
 }
 
 Rabbit::~Rabbit()
@@ -98,7 +99,7 @@ void Rabbit::Update(float deltaTime)
 	}
 
 	// treat the screen as a toroid. Current window resolution is 1300x700
-	WrapAround(position,800,600);
+	WrapAround(position,800,800);
 
 	//if (isSmoothingOn()) smoothedHeading = headingSmoother->Update(Heading());
 }
@@ -130,14 +131,14 @@ void Rabbit::setCurrentNode(Node* node)
 
 void Rabbit::Respawn()
 {
-	position = Vector2D(600, rand() % 600);
+	position = Vector2D(600, rand() % 800);
 	velocity = Vector2D(0, 0);
 	stateMachine->SetCurrentState(RabbitPursuitState::Instance());
 }
 
 void Rabbit::Reset()
 {
-	position = Vector2D(600, rand() % 600);
+	position = Vector2D(600, rand() % 800);
 	velocity = Vector2D(200, 100);
 	stateMachine->SetCurrentState(RabbitPursuitState::Instance());
 }

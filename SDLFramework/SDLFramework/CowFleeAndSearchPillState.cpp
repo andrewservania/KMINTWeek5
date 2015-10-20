@@ -27,7 +27,7 @@ void CowFleeAndSearchPillState::Execute(Cow* cow)
 		cow->Steering()->PursuitOff();
 	}
 	else{
-		cow->SetMaxSpeed(500.0);
+		cow->SetMaxSpeed(400.0);
 		cow->Steering()->PursuitOn(cow->GetPill());
 	}
 	 if ((cow->Pos().x > cow->GetPill()->Pos().x - 25 &&

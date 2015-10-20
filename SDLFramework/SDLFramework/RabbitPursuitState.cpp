@@ -35,7 +35,7 @@ void RabbitPursuitState::Execute(Rabbit* rabbit)
 			(&rabbit->GetEnemy())->GetCurrentState() == "FleeAndSearchForPill")
 		{
 			rabbit->SetScore((rabbit->GetScore() + 10));
-			Dashboard::Instance()->SetRabbitScore(rabbit->GetScore());
+			//Dashboard::Instance()->SetRabbitScore(rabbit->GetScore());
 			rabbit->Respawn();
 			(&rabbit->GetEnemy())->Respawn();
 			(&rabbit->GetEnemy())->GetFSM()->ChangeState(CowWanderingState::Instance());

@@ -9,11 +9,14 @@
 #include "Weapon.h"
 #include "Pill.h"
 
+#include <string>
+
 class Rabbit :
 	public Vehicle
 {
 private:
 	int score;
+	std::string instanceColor;
 public:
 	Node* currentNode;
 	StateMachine<Rabbit>* stateMachine;
@@ -60,5 +63,8 @@ public:
 	void SetScore(int val){ score = val; }
 	int GetScore(){ return score; }
 	void Reset();
+
+	std::string GetInstanceColor() { return instanceColor; }
+	void SetInstanceColor(std::string val){ instanceColor = val; }
 
 };

@@ -21,7 +21,7 @@ void CowSleepingState::Execute(Cow* cow)
 	if (counter == 50)
 	{
 		turn++;
-		Dashboard::Instance()->SetCowSleepingTurns(turn);
+		//Dashboard::Instance()->SetCowSleepingTurns(turn);
 
 		counter = 0;
 	}
@@ -31,7 +31,7 @@ void CowSleepingState::Execute(Cow* cow)
 	{
 		cow->GetFSM()->ChangeState(CowChaseRabbitState::Instance());
 		//turn = 0;
-		Dashboard::Instance()->SetCowSleepingTurns(turn);
+		//Dashboard::Instance()->SetCowSleepingTurns(turn);
 		turn = 0;
 		counter = 0;
 	}
@@ -41,5 +41,5 @@ void CowSleepingState::Execute(Cow* cow)
 void CowSleepingState::Exit(Cow* cow)
 {
 	turn = 0;
-	Dashboard::Instance()->SetCowSleepingTurns(turn);
+	//Dashboard::Instance()->SetCowSleepingTurns(turn);
 }

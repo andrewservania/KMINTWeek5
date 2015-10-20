@@ -19,7 +19,7 @@ public:
 	void PutOnRandomLocation();
 	void SetColor(Color* _color){ color = _color; }
 	void Respawn() { 
-		SetPos(Vector2D(rand() % 800, rand() % 600));
+		SetPos(Vector2D(200 + rand() % 600, rand() % 800));
 		
 	
 	}

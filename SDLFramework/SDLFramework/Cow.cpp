@@ -1,5 +1,4 @@
 #include "Cow.h"
-#include <string>
 #include <memory>
 #include <assert.h>
 #include "CowGlobalState.h"
@@ -62,7 +61,7 @@ Cow::Cow(int id,
 	color = new Color(0, 0, 0, 255);
 	//add cow to renderable objects
 	mApplication->AddRenderable(this);
-
+	instanceColor = "null";
 }
 
 void Cow::Update(float deltaTime)
@@ -71,7 +70,7 @@ void Cow::Update(float deltaTime)
 
 	timeElapsed = static_cast<double>(deltaTime);
 
-	Dashboard::Instance()->comment10 = "Cow Current state: " + GetFSM()->CurrentState()->GetStateName();
+//	Dashboard::Instance()->comment10 = "Cow Current state: " + GetFSM()->CurrentState()->GetStateName();
 	if (!cowDoesNotMove){
 		// calculate the combined force from each steering behavior in the vehicle's list
 		Vector2D SteeringForce = steeringBehavior->Calculate();
@@ -102,7 +101,7 @@ void Cow::Update(float deltaTime)
 	}
 
 	   // treat the screen as a toroid. Current window resolution is 800 x 600
-	   WrapAround(position, 800, 600);
+	   WrapAround(position, 800, 800);
 
 	 //if (isSmoothingOn()) smoothedHeading = headingSmoother->Update(Heading());
 	
@@ -143,7 +142,7 @@ void Cow::Respawn()
 	//mX = rand() % 200;
 	//mY = rand() % 600;
 
-	position = Vector2D(200, rand() % 600);
+	position = Vector2D(200, rand() % 800);
 	//mX = position.x;
 	//mY = position.y;
 	velocity = Vector2D(0, 0);
@@ -151,7 +150,7 @@ void Cow::Respawn()
 
 void Cow::Reset()
 {
-	position = Vector2D(200, rand() % 600);
+	position = Vector2D(200, rand() % 800);
 	//mX = position.x;
 	//mY = position.y;
 	velocity = Vector2D(200, 100);

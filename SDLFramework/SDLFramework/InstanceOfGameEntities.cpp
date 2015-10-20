@@ -10,11 +10,11 @@ using namespace std;
 InstanceOfGameEntities::InstanceOfGameEntities()
 {
 
-	weapon = new Weapon(rand() % 800, rand() % 600);
-	pill = new Pill(rand() % 800, rand() % 600);
+	weapon = new Weapon(200 + rand() % 600, rand() % 800);
+	pill = new Pill(200 + rand() % 600, rand() % 800);
 
 	cow =  new Cow(3,
-		Vector2D(200, rand() % 600),						//initial position
+		Vector2D(200, rand() % 800),						//initial position
 		RandFloat()*TwoPi,									//start rotation
 		Vector2D(200, 100),									//velocity
 		Parameters::Instance()->VehicleMass,				//mass
@@ -25,7 +25,7 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 		Parameters::Instance()->VehicleScale, rabbit);		//scale
 
 	rabbit = new Rabbit(4,
-		Vector2D(600, rand() % 600),						//initial position
+		Vector2D(600, rand() % 800),						//initial position
 		RandFloat()*TwoPi,									//start rotation
 		Vector2D(200, 100),									//velocity
 		Parameters::Instance()->VehicleMass,				//mass
@@ -71,6 +71,8 @@ void InstanceOfGameEntities::Reset()
 void InstanceOfGameEntities::End()
 {
 	rabbit->GetFSM()->ChangeState(RabbitGlobalState::Instance());
+	rabbit->SetPos(Vector2D(200 + rand() % 600, rand() % 800));
 	cow->GetFSM()->ChangeState(CowGlobalState::Instance());
+	cow->SetPos(Vector2D(200 + rand() % 600, rand() % 800));
 
 }

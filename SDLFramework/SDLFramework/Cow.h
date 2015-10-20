@@ -9,6 +9,7 @@
 #include "Weapon.h"
 #include "ProbabilityDistribution.h"
 
+#include <string>
 class Rabbit;
 
 class Cow :
@@ -17,7 +18,7 @@ class Cow :
 private:
 	int score;
 	bool cowDoesNotMove;
-	ProbabilityDistribution* probabilityDistribution;
+	std::string instanceColor;
 
 public:
 	Node* currentNode;
@@ -27,6 +28,7 @@ public:
 	Color* color;
 	Pill* pill;
 	Weapon* weapon;
+	ProbabilityDistribution* probabilityDistribution;
 
 	Cow(int id,
 		Vector2D _position,
@@ -73,4 +75,8 @@ public:
 	void DoesNotMove_On(){ cowDoesNotMove = true; };
 	void DoesNotMove_Off(){ cowDoesNotMove = false; };
 	ProbabilityDistribution* GetProbabilityDistribution() { return probabilityDistribution; }
+
+	std::string GetInstanceColor() { return instanceColor; }
+	void SetInstanceColor(std::string val){ instanceColor = val; }
+
 };

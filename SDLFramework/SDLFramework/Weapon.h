@@ -30,7 +30,7 @@ public:
 	void SetColor(Color* _color){ color = _color; }
 	Color* GetColor() { return color; }
 	void Respawn() {
-		SetPos(Vector2D(rand() % 800, rand() % 600));
+		SetPos(Vector2D(200 + rand() % 600, rand() % 800));
 	}
 
 

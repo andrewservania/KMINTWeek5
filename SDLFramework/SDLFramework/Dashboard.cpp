@@ -5,54 +5,62 @@
 #include "ProbabilityDistribution.h"
 
 std::string Dashboard::applicationInformation;
-std::string Dashboard::shortestPathLabel;
-std::string Dashboard::cowStateLabel;
-std::string Dashboard::rabbitStateLabel;
-std::string Dashboard::comment1;
-std::string Dashboard::comment2;
-std::string Dashboard::comment3;
-std::string Dashboard::comment4;
-std::string Dashboard::comment5;
-std::string Dashboard::comment6;
-std::string Dashboard::comment7;
-std::string Dashboard::comment8;
-std::string Dashboard::comment9;
-std::string Dashboard::comment10;
-std::string Dashboard::comment11;
-std::string Dashboard::comment12;
-std::string Dashboard::comment13;
+std::string Dashboard::timePassed;
+std::string Dashboard::amountOfRuns;
 
-std::string Dashboard::choice1Probability;
-std::string Dashboard::choice2Probability;
-std::string Dashboard::choice3Probability;
-std::string Dashboard::cowSleepingTurns;
+
+std::string Dashboard::cow1Score;
+std::string Dashboard::cow2Score;
+std::string Dashboard::cow3Score;
+std::string Dashboard::cow4Score;
+
+std::string Dashboard::rabbit1Score;
+std::string Dashboard::rabbit2Score;
+std::string Dashboard::rabbit3Score;
+std::string Dashboard::rabbit4Score;
+
+std::string Dashboard::cow1StateLabel;
+std::string Dashboard::cow2StateLabel;
+std::string Dashboard::cow3StateLabel;
+std::string Dashboard::cow4StateLabel;
+
+std::string Dashboard::stateOfAllRabbitsLabel;
+
+Cow* Dashboard::cow1;
+Cow* Dashboard::cow2;
+Cow* Dashboard::cow3;
+Cow* Dashboard::cow4;
+
+Rabbit* Dashboard::rabbit1;
+Rabbit* Dashboard::rabbit2;
+Rabbit* Dashboard::rabbit3;
+Rabbit* Dashboard::rabbit4;
 
 using namespace std;
 
 Dashboard::Dashboard()
 {
-	ApplicationInformation("Andrew Servania - KMINT Week 5");
+	// Application information
+	applicationInformation = "Andrew Servania - KMINT Week 5";
+	timePassed = "Time passed: 00:00";
+	amountOfRuns = "Amount of runs: 0";
 
-	comment1 = "Time passed: 00:00";
-	comment2 = "Amount of runs: 0";
-	comment3 = "Rabbit score: 0";
-	comment4 = "Cow score: 0";
-	comment5 = "";
-	comment6 = "";
-	comment7 = "";
-	comment8 = "";
-	comment9 = "";
+	cow1Score = "Cow 1 score: 0";
+	cow2Score = "Cow 2 score: 0";
+	cow3Score = "Cow 3 score: 0";
+	cow4Score = "Cow 4 score: 0";
 
-	comment10 = "";
-	comment11 = "";
-	comment12 = "";
-	comment13 = "";
+	rabbit1Score = "Rabbit 1 score: 0";
+	rabbit2Score = "Rabbit 2 score: 0";
+	rabbit3Score = "Rabbit 3 score: 0";
+	rabbit4Score = "Rabbit 4 score: 0";
 
+	cow1StateLabel = "Cow 1 State: null";
+	cow2StateLabel = "Cow 2 State: null";
+	cow3StateLabel = "Cow 3 State: null";
+	cow4StateLabel = "Cow 4 State: null";
 
-  //comment6 = "-------------------------------------------------------------------------------------------";
-	//ShortestPathLabel("");
-
-	cowSleepingTurns = "Cow Sleeping Turns: 0";
+	stateOfAllRabbitsLabel = "State of the rabbit of all instances: Pursuit";
 }
 
 Dashboard::~Dashboard()
@@ -62,40 +70,75 @@ Dashboard::~Dashboard()
 
 void Dashboard::Update()
 {
+	if (rabbit1 != nullptr)
+	{
+		FWApplication::GetInstance()->DrawTextOnScreen("Instance 1 Color: " + rabbit1->GetInstanceColor(), 130, 120); // Instance Color
+		SetRabbit1Score(rabbit1->GetScore());
+	}
+	if (rabbit2 != nullptr)
+	{
+		FWApplication::GetInstance()->DrawTextOnScreen("Instance 2 Color: " + rabbit2->GetInstanceColor(), 130, 220); // Instance Color
+		SetRabbit2Score(rabbit2->GetScore());
+	}
+	if (rabbit3 != nullptr)
+	{
+		FWApplication::GetInstance()->DrawTextOnScreen("Instance 3 Color: " + rabbit3->GetInstanceColor(), 130, 320); // Instance Color
+		SetRabbit3Score(rabbit3->GetScore());
+	}
+	if (rabbit4 != nullptr)
+	{
+		FWApplication::GetInstance()->DrawTextOnScreen("Instance 4 Color: " + rabbit4->GetInstanceColor(), 130, 420); // Instance Color
+		SetRabbit4Score(rabbit4->GetScore());
+	}
+
+	if (cow1 != nullptr)
+	{
+		SetCow1Score(cow1->GetScore());
+		SetCow1StateLabel(cow1->GetFSM()->CurrentState()->GetStateName());
+	}
+	if (cow2 != nullptr)
+	{
+		SetCow2Score(cow2->GetScore());
+		SetCow2StateLabel(cow2->GetFSM()->CurrentState()->GetStateName());
+	}
+	if (cow3 != nullptr)
+	{
+		SetCow3Score(cow3->GetScore());
+		SetCow3StateLabel(cow3->GetFSM()->CurrentState()->GetStateName());
+	}
+	if (cow4 != nullptr)
+	{
+		SetCow4Score(cow4->GetScore());
+		SetCow4StateLabel(cow4->GetFSM()->CurrentState()->GetStateName());
+	}
+
 	// Application information
 	FWApplication::GetInstance()->DrawTextOnScreen(applicationInformation, 400, 50);
+	FWApplication::GetInstance()->DrawTextOnScreen(timePassed, 400, 70);   // Now indicates the amount of time passed.
+	FWApplication::GetInstance()->DrawTextOnScreen(amountOfRuns, 400, 90); // Amount of runs
+	
+	//KMINT Week 5
 
-	// KMINT Week 3 Description
-	FWApplication::GetInstance()->DrawTextOnScreen(comment1, 100, 100); // Now indicates the amount of time passed.
-	FWApplication::GetInstance()->DrawTextOnScreen(comment2, 100, 120); // Amount of runs
-	FWApplication::GetInstance()->DrawTextOnScreen(comment3, 100, 140); // Rabbit score
-	FWApplication::GetInstance()->DrawTextOnScreen(comment4, 100, 160); // Cow score
+	// Instance1
+	FWApplication::GetInstance()->DrawTextOnScreen(rabbit1Score, 130, 140);		// Rabbit 1 score
+	FWApplication::GetInstance()->DrawTextOnScreen(cow1Score, 130, 160);		// Cow 1 score
+	FWApplication::GetInstance()->DrawTextOnScreen(cow1StateLabel, 130, 180);	// Cow 1 State
 
-	FWApplication::GetInstance()->DrawTextOnScreen(comment5, 300, 200);
-	FWApplication::GetInstance()->DrawTextOnScreen(comment6, 300, 220);
-	FWApplication::GetInstance()->DrawTextOnScreen(comment7, 300, 240);
-	FWApplication::GetInstance()->DrawTextOnScreen(comment8, 300, 260);
-	FWApplication::GetInstance()->DrawTextOnScreen(comment9, 300, 280);
-	FWApplication::GetInstance()->DrawTextOnScreen(comment10, 300, 320);
-	FWApplication::GetInstance()->DrawTextOnScreen(comment11, 300, 340);
-	FWApplication::GetInstance()->DrawTextOnScreen(comment12, 300, 360);
-	FWApplication::GetInstance()->DrawTextOnScreen(comment13, 300, 380);
+	// Instance2
+	FWApplication::GetInstance()->DrawTextOnScreen(rabbit2Score, 130, 240);		// Rabbit 2 score
+	FWApplication::GetInstance()->DrawTextOnScreen(cow2Score, 130, 260);		// Cow 2 score
+	FWApplication::GetInstance()->DrawTextOnScreen(cow2StateLabel, 130, 280);	// Cow 2 State
 
-	// Cow state label
-	// CowStateLabel(Arena::cow->GetCurrentState());
-	// FWApplication::GetInstance()->DrawTextOnScreen(cowStateLabel, 650, 90);
-	// FWApplication::GetInstance()->DrawTextOnScreen("NEEDS FIX IN DASHBOARD CLASS", 300, 420);
+	// Instance3
+	FWApplication::GetInstance()->DrawTextOnScreen(rabbit3Score, 130, 340);		// Rabbit 3 score
+	FWApplication::GetInstance()->DrawTextOnScreen(cow3Score, 130, 360);		// Cow 3 score
+	FWApplication::GetInstance()->DrawTextOnScreen(cow3StateLabel, 130, 380);	// Cow 3 State
 
-	// Rabbit state label
-	// RabbitStateLabel(Arena::rabbit->GetCurrentState());
-	// FWApplication::GetInstance()->DrawTextOnScreen(rabbitStateLabel, 650, 110);
-	// FWApplication::GetInstance()->DrawTextOnScreen("NEEDS FIX IN DASHBOARD CLASS", 300, 460);
+	// Instance4
+	FWApplication::GetInstance()->DrawTextOnScreen(rabbit4Score, 130, 440);		// Rabbit 4 score
+	FWApplication::GetInstance()->DrawTextOnScreen(cow4Score, 130, 460);		// Cow 4 score
+	FWApplication::GetInstance()->DrawTextOnScreen(cow4StateLabel, 130, 480);	// Cow 4 State
 
-	// Shortest path label
-	// FWApplication::GetInstance()->DrawTextOnScreen(shortestPathLabel, 300, 500);
-
-
-
-
+	FWApplication::GetInstance()->DrawTextOnScreen(stateOfAllRabbitsLabel, 200, 600);	// State of the rabbit of all 4 instances
 
 }

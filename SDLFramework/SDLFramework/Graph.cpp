@@ -91,5 +91,5 @@ void Graph::UpdateShortPathDescription()
 			shortestPathLabel += " -> ";
 	}
 
-	Dashboard::Instance()->ShortestPathLabel(shortestPathLabel);
+	//Dashboard::Instance()->ShortestPathLabel(shortestPathLabel);
 }

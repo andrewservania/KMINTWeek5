@@ -19,6 +19,10 @@ private:
 	std::shared_ptr<InstanceOfGameEntities> instance2;
 	std::shared_ptr<InstanceOfGameEntities> instance3;
 	std::shared_ptr<InstanceOfGameEntities> instance4;
+	void InitializeInstance1();
+	void InitializeInstance2();
+	void InitializeInstance3();
+	void InitializeInstance4();
 
 	void ResetInstances();
 	void EndProgram();

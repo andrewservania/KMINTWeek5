@@ -72,5 +72,5 @@ void RabbitSearchForWeaponState::UpdateShortestPathLabel(stack<Node*> _shortestP
 		if (!_shortestPath.empty())
 			shortestPathLabel += " -> ";
 	}
-	Dashboard::Instance()->ShortestPathLabel(shortestPathLabel);
+	//Dashboard::Instance()->ShortestPathLabel(shortestPathLabel);
 }

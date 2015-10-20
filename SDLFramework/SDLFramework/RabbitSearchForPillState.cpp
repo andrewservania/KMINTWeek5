@@ -70,5 +70,5 @@ void RabbitSearchForPillState::UpdateShortestPathLabel(stack<Node*> _shortestPat
 		if (!_shortestPath.empty())
 			shortestPathLabel += " -> ";
 	}
-	Dashboard::Instance()->ShortestPathLabel(shortestPathLabel);
+//	Dashboard::Instance()->ShortestPathLabel(shortestPathLabel);
 }

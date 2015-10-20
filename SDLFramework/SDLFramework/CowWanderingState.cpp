@@ -79,19 +79,16 @@ void CowWanderingState::Exit(Cow* cow)
 void CowWanderingState::Start(Cow* cow)
 {
 	cow->Steering()->WanderOn();
-	cow->SetVelocity(Vector2D(200, 100));
+	
 }
 
 bool CowWanderingState::IsThreadEminent(Cow* cow)
 {
-	if ((cow->Pos().x > cow->GetEnemy()->Pos().x - 300 &&
-		cow->Pos().x < cow->GetEnemy()->Pos().x + 300) &&
-		(cow->Pos().y > cow->GetEnemy()->Pos().y - 300 &&
-		cow->Pos().y <  cow->GetEnemy()->Pos().y + 300))
+	float distanceBetweenCowAndRabbit = cow->DistanceBetween(cow->GetEnemy());
+	if (distanceBetweenCowAndRabbit <= 300)
 	{
 		return true;
 	}
-	else return false;
+	 return false;
 
-	return false;
 }
