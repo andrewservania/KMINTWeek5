@@ -1,5 +1,6 @@
 #include "RabbitPursuitState.h"
 #include "Dashboard.h"
+#include "CowWanderingState.h"
 
 RabbitPursuitState::RabbitPursuitState()
 {
@@ -29,12 +30,15 @@ void RabbitPursuitState::Execute(Rabbit* rabbit)
 	if (distanceBetweenRabbitAndCow <= 30)
 	{
 
-		if ((&rabbit->GetEnemy())->GetCurrentState() == "Fleeing")
+		if ((&rabbit->GetEnemy())->GetCurrentState() == "Fleeing" ||
+			(&rabbit->GetEnemy())->GetCurrentState() == "FleeAndSearchForWeapon" ||
+			(&rabbit->GetEnemy())->GetCurrentState() == "FleeAndSearchForPill")
 		{
 			rabbit->SetScore((rabbit->GetScore() + 10));
 			Dashboard::Instance()->SetRabbitScore(rabbit->GetScore());
 			rabbit->Respawn();
 			(&rabbit->GetEnemy())->Respawn();
+			(&rabbit->GetEnemy())->GetFSM()->ChangeState(CowWanderingState::Instance());
 		}
 	}
 }

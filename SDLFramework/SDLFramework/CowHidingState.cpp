@@ -31,7 +31,9 @@ void CowHidingState::Execute(Cow* cow)
 		(cow->Pos().y > cow->GetEnemy()->Pos().y - 25 &&
 		cow->Pos().y < cow->GetEnemy()->Pos().y + 25))
 	{
-		if (cow->GetFSM()->PreviousState()->GetStateName() == "FleeAndSearchForWeapon")
+		if (cow->GetFSM()->PreviousState()->GetStateName() == "FleeAndSearchForWeapon" ||
+			cow->GetFSM()->PreviousState()->GetStateName() == "FleeAndSearchForPill"
+			)
 		{
 			cow->SetScore((cow->GetScore() + 1));
 			Dashboard::Instance()->SetCowScore(cow->GetScore());

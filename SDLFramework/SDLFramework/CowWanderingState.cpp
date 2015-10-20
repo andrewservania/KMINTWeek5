@@ -79,6 +79,7 @@ void CowWanderingState::Exit(Cow* cow)
 void CowWanderingState::Start(Cow* cow)
 {
 	cow->Steering()->WanderOn();
+	cow->SetVelocity(Vector2D(200, 100));
 }
 
 bool CowWanderingState::IsThreadEminent(Cow* cow)
