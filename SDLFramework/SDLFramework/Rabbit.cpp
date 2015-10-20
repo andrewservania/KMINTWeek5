@@ -31,7 +31,9 @@ Rabbit::Rabbit(int id,
 	pickedUpWeapon = false;
 	score = 0;
 
-	position = _position;
+	//smoothedHeading = Vector2D(0, 0);
+	//smoothingOn = true;
+	//position = _position;
 	// set the location of the cow on the screen
 	//mX = static_cast<uint32_t>(position.x);
 	//mY = static_cast<uint32_t>(position.y);
@@ -98,7 +100,7 @@ void Rabbit::Update(float deltaTime)
 	// treat the screen as a toroid. Current window resolution is 1300x700
 	WrapAround(position,800,600);
 
-	if (isSmoothingOn()) smoothedHeading = headingSmoother->Update(Heading());
+	//if (isSmoothingOn()) smoothedHeading = headingSmoother->Update(Heading());
 }
 
 // Draw the rabbit texture

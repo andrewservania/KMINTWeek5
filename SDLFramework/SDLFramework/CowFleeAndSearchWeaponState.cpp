@@ -15,16 +15,23 @@ CowFleeAndSearchWeaponState::~CowFleeAndSearchWeaponState()
 
 void CowFleeAndSearchWeaponState::Enter(Cow* cow)
 {
-	//cow->SetMaxSpeed(200.0);
-	//cow->Steering()->FleeOn();
-	cow->Steering()->EvadeOn(cow->GetEnemy());
-	cow->SetMaxSpeed(500.0);
-	cow->Steering()->PursuitOn(reinterpret_cast<Vehicle*>(cow->GetWeapon()));
+
 }
 void CowFleeAndSearchWeaponState::Execute(Cow* cow)
 {
 
-	
+	float distanceDistanceBetweenCowAndRabbit = cow->DistanceBetween(cow->GetEnemy());
+	if (distanceDistanceBetweenCowAndRabbit < 300)
+	{
+		cow->SetMaxSpeed(25000.0);
+		cow->Steering()->EvadeOn(cow->GetEnemy());
+		cow->Steering()->PursuitOff();
+	}
+	else{
+		cow->SetMaxSpeed(500.0);
+		cow->Steering()->PursuitOn(cow->GetWeapon());
+	}
+
 	if ((cow->Pos().x > cow->GetWeapon()->Pos().x - 25 &&
 		cow->Pos().x < cow->GetWeapon()->Pos().x + 25) &&
 		(cow->Pos().y > cow->GetWeapon()->Pos().y - 25 &&
@@ -37,7 +44,8 @@ void CowFleeAndSearchWeaponState::Execute(Cow* cow)
 
 void CowFleeAndSearchWeaponState::Exit(Cow* cow)
 {
-	cow->SetMaxSpeed(50.0);
+	cow->Steering()->PursuitOff();
+	//cow->SetMaxSpeed(50.0);
 }
 
 void CowFleeAndSearchWeaponState::Start(Cow* cow)

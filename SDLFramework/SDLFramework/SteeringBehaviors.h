@@ -316,9 +316,9 @@ public:
   void WanderOn(){m_iFlags |= wander;}
   void PursuitOn(Vehicle* v){m_iFlags |= pursuit; m_pTargetAgent1 = v;}
   void EvadeOn(Vehicle* v){m_iFlags |= evade; m_pTargetAgent1 = v;}
-  //void CohesionOn(){m_iFlags |= cohesion;}
-  //void SeparationOn(){m_iFlags |= separation;}
-  //void AlignmentOn(){m_iFlags |= allignment;}
+  void CohesionOn(){m_iFlags |= cohesion;}
+  void SeparationOn(){m_iFlags |= separation;}
+  void AlignmentOn(){m_iFlags |= allignment;}
   //void ObstacleAvoidanceOn(){m_iFlags |= obstacle_avoidance;}
   //void WallAvoidanceOn(){m_iFlags |= wall_avoidance;}
   void FollowPathOn(){m_iFlags |= follow_path;}
@@ -333,9 +333,9 @@ public:
   void WanderOff(){if(On(wander)) m_iFlags ^=wander;}
   void PursuitOff(){if(On(pursuit)) m_iFlags ^=pursuit;}
   void EvadeOff(){if(On(evade)) m_iFlags ^=evade;}
-  //void CohesionOff(){if(On(cohesion)) m_iFlags ^=cohesion;}
-  //void SeparationOff(){if(On(separation)) m_iFlags ^=separation;}
-  //void AlignmentOff(){if(On(allignment)) m_iFlags ^=allignment;}
+  void CohesionOff(){if(On(cohesion)) m_iFlags ^=cohesion;}
+  void SeparationOff(){if(On(separation)) m_iFlags ^=separation;}
+  void AlignmentOff(){if(On(allignment)) m_iFlags ^=allignment;}
   //void ObstacleAvoidanceOff(){if(On(obstacle_avoidance)) m_iFlags ^=obstacle_avoidance;}
   //void WallAvoidanceOff(){if(On(wall_avoidance)) m_iFlags ^=wall_avoidance;}
   void FollowPathOff(){if(On(follow_path)) m_iFlags ^=follow_path;}

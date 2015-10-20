@@ -26,7 +26,7 @@ void RabbitPursuitState::Execute(Rabbit* rabbit)
 	}
 	
 	float distanceBetweenRabbitAndCow = rabbit->DistanceBetween(&rabbit->GetEnemy());
-	if (distanceBetweenRabbitAndCow <= 20)
+	if (distanceBetweenRabbitAndCow <= 30)
 	{
 
 		if ((&rabbit->GetEnemy())->GetCurrentState() == "Fleeing")

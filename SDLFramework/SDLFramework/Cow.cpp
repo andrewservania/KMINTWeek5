@@ -32,12 +32,12 @@ Cow::Cow(int id,
 	cowDoesNotMove = false;
 	score = 0;
 	//smoothedHeading = Vector2D(0, 0);
-	//smoothingOn = false ;
+	//smoothingOn = true ;
 	//timeElapsed = 0.0;
 
 	//Load the picture corresponding to the cow
 	mTexture = mApplication->LoadTexture("cow-1.png");
-	position = _position;
+	//position = _position;
 	
 	// set the location of the cow on the screen
 	//mX = static_cast<uint32_t>(position.x);
@@ -101,10 +101,10 @@ void Cow::Update(float deltaTime)
 			side = heading.Perp();
 	}
 
-	   // treat the screen as a toroid. Current window resolution is 1300x700
+	   // treat the screen as a toroid. Current window resolution is 800 x 600
 	   WrapAround(position, 800, 600);
 
-	//if (isSmoothingOn()) smoothedHeading = headingSmoother->Update(Heading());
+	 //if (isSmoothingOn()) smoothedHeading = headingSmoother->Update(Heading());
 	
 
 	}

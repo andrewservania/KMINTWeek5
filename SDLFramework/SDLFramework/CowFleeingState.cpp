@@ -29,30 +29,21 @@ void CowFleeingState::Execute(Cow* cow)
 		hasStarted = true;
 	}
 	if (NoThreat(cow)){
-
-		// If the cow was already trying to catch a pill, instruct it to continue on trying to catch the pill
-		if (cow->GetFSM()->PreviousState()->GetStateName() == "FleeAndSearchForPill")
-		{
-			cow->GetFSM()->ChangeState(CowFleeAndSearchPillState::Instance());
-		}
-		else if (cow->GetFSM()->PreviousState()->GetStateName() == "FleeAndSearchForWeapon")
-		{
-			cow->GetFSM()->ChangeState(CowFleeAndSearchWeaponState::Instance());
-		} else
 		cow->GetFSM()->ChangeState(CowWanderingState::Instance());
 	}
 }
 
 void CowFleeingState::Exit(Cow* cow)
 {
-	cow->SetMaxSpeed(50.0);
+	cow->SetMaxSpeed(2000.0);
+	cow->Steering()->EvadeOff();
 	hasStarted = false;
 }
 
 void CowFleeingState::Start(Cow* cow)
 {
+	cow->SetMaxSpeed(600.0);
 	cow->Steering()->EvadeOn(reinterpret_cast<Vehicle*>(cow->GetEnemy()));
-	cow->SetMaxSpeed(500.0);
 }
 
 bool CowFleeingState::NoThreat(Cow* cow)
@@ -62,7 +53,6 @@ bool CowFleeingState::NoThreat(Cow* cow)
 		(cow->Pos().y > cow->GetEnemy()->Pos().y - 300  &&
 		 cow->Pos().y < cow->GetEnemy()->Pos().y + 300))
 	{
-
 			return false; 
 	}	
 		else return true;
