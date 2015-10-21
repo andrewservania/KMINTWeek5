@@ -16,7 +16,7 @@ public:
 	void Enter(Rabbit* rabbit) override;
 	void Execute(Rabbit* rabbit) override;
 	void Exit(Rabbit* rabbit) override;
-	std::string GetStateName() override { return "Pursuing Cow"; }
+	std::string GetStateName() override { return "Pursuit (Chasing Cow)"; }
 
 	static RabbitPursuitState* Instance()
 	{

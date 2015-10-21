@@ -5,6 +5,8 @@
 #include "CowGlobalState.h"
 #include "RabbitGlobalState.h"
 
+#include <iostream>
+
 using namespace std;
 
 InstanceOfGameEntities::InstanceOfGameEntities()
@@ -65,6 +67,7 @@ void InstanceOfGameEntities::Reset()
 	rabbit->Reset();
 	weapon->Respawn();
 	pill->Respawn();
+	PrintProbabilities();
 
 }
 
@@ -75,4 +78,13 @@ void InstanceOfGameEntities::End()
 	cow->GetFSM()->ChangeState(CowGlobalState::Instance());
 	cow->SetPos(Vector2D(200 + rand() % 600, rand() % 800));
 
+}
+
+void InstanceOfGameEntities::PrintProbabilities()
+{
+	cout <<		"Flee: " + to_string(cow->GetProbabilityDistribution()->GetChoice1Probability()) + "%  " +
+		"FleeAndSearchWeapon: " + to_string(cow->GetProbabilityDistribution()->GetChoice2Probability()) + "% " +
+		"FleeAndSearchPill: " + to_string(cow->GetProbabilityDistribution()->GetChoice3Probability()) + "% " +
+		"Hide: " + to_string(cow->GetProbabilityDistribution()->GetChoice4Probability()) + "% \n";	// Cow 1 probability
+	
 }

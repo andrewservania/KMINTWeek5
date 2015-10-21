@@ -5,6 +5,9 @@
 #include "Parameters.h"
 #include "CowWanderingState.h"
 #include "Dashboard.h"
+
+#include <iostream>
+
 using namespace std;
 
 Cow::Cow(int id,
@@ -25,8 +28,6 @@ Cow::Cow(int id,
 					 _max_turn_rate,
 					 _scale),
 					 enemy(_enemy)
-					 
-					
 {
 	cowDoesNotMove = false;
 	score = 0;
@@ -155,5 +156,6 @@ void Cow::Reset()
 	//mY = position.y;
 	velocity = Vector2D(200, 100);
 	stateMachine->SetCurrentState(CowWanderingState::Instance());
-	DoesNotMove_Off();
+	//DoesNotMove_Off();
+	probabilityDistribution->DistributeProbabilityAtRandom();
 }

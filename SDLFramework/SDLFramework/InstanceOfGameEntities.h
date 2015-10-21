@@ -20,5 +20,6 @@ public:
 	void SetColor(Color* color);
 	void Reset();
 	void End();
+	void PrintProbabilities();
 };
 
