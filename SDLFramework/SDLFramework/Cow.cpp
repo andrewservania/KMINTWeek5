@@ -140,22 +140,16 @@ void Cow::PutOnRandomLocation()
 
 void Cow::Respawn()
 {
-	//mX = rand() % 200;
-	//mY = rand() % 600;
-
 	position = Vector2D(200, rand() % 800);
-	//mX = position.x;
-	//mY = position.y;
 	velocity = Vector2D(0, 0);
 }
 
 void Cow::Reset()
 {
+	SetScore(0);
 	position = Vector2D(200, rand() % 800);
-	//mX = position.x;
-	//mY = position.y;
 	velocity = Vector2D(200, 100);
 	stateMachine->SetCurrentState(CowWanderingState::Instance());
-	//DoesNotMove_Off();
-	probabilityDistribution->DistributeProbabilityAtRandom();
+	DoesNotMove_Off();
+	
 }

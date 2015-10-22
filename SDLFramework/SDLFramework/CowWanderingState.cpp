@@ -46,23 +46,23 @@ void CowWanderingState::Execute(Cow* cow)
 		{
 		case 1: 
 			cow->GetFSM()->ChangeState(CowFleeingState::Instance());
-			//cow->GetFSM()->ChangeState(CowFleeAndSearchWeaponState::Instance());
+			//cow->GetFSM()->ChangeState(CowHidingState::Instance());
+
 			break;
 		case 2: 
 			cow->GetFSM()->ChangeState(CowFleeAndSearchWeaponState::Instance());
-			//cow->GetFSM()->ChangeState(CowFleeingState::Instance());
-			//cow->GetFSM()->ChangeState(CowFleeAndSearchWeaponState::Instance());
+			//cow->GetFSM()->ChangeState(CowHidingState::Instance());
 
 			break;
 		case 3: 
 			cow->GetFSM()->ChangeState(CowFleeAndSearchPillState::Instance());
-			//cow->GetFSM()->ChangeState(CowFleeingState::Instance());
-			//cow->GetFSM()->ChangeState(CowFleeAndSearchWeaponState::Instance());
+			//cow->GetFSM()->ChangeState(CowHidingState::Instance());
+
 			break;
 		case 4:
 			cow->GetFSM()->ChangeState(CowHidingState::Instance());
-			//cow->GetFSM()->ChangeState(CowFleeingState::Instance());
-			//cow->GetFSM()->ChangeState(CowFleeAndSearchWeaponState::Instance());
+			//cow->GetFSM()->ChangeState(CowFleeAndSearchPillState::Instance());
+
 			break;
 		}
 		
@@ -78,7 +78,9 @@ void CowWanderingState::Exit(Cow* cow)
 
 void CowWanderingState::Start(Cow* cow)
 {
+
 	cow->Steering()->WanderOn();
+	cow->SetVelocity(Vector2D(200, 100));
 	
 }
 

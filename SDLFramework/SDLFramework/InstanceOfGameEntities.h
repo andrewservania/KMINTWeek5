@@ -6,6 +6,19 @@
 
 #include <memory>
 
+struct InstanceScore
+{
+	 int cowScore = 0;
+	 int rabbitScore = 0;
+	 std::string instanceColor;
+	 ProbabilityDistribution* probabilityDistribution;
+
+	 bool operator > (const InstanceScore& instance) const
+	 {
+		 return  (cowScore > instance.cowScore);
+	 }
+};
+
 class InstanceOfGameEntities
 {
 public:
@@ -14,6 +27,7 @@ public:
 	Rabbit* rabbit;
 	Weapon* weapon;
 	Pill* pill;
+	InstanceScore instanceScore;
 
 	InstanceOfGameEntities();
 	~InstanceOfGameEntities();
@@ -21,5 +35,8 @@ public:
 	void Reset();
 	void End();
 	void PrintProbabilities();
+
+	InstanceScore GetScore();
+
 };
 

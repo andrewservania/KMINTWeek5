@@ -75,7 +75,7 @@ public:
 	void DoesNotMove_On(){ cowDoesNotMove = true; };
 	void DoesNotMove_Off(){ cowDoesNotMove = false; };
 	ProbabilityDistribution* GetProbabilityDistribution() { return probabilityDistribution; }
-
+	void SetProbalitityOfChoices(ProbabilityDistribution* val){ probabilityDistribution = val; };
 	std::string GetInstanceColor() { return instanceColor; }
 	void SetInstanceColor(std::string val){ instanceColor = val; }
 

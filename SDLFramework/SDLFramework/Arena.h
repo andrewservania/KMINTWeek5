@@ -6,7 +6,7 @@
 #include "CellSpacePartition.h"
 #include "InstanceOfGameEntities.h"
 #include "SDL_timer.h"
-
+#include "GeneticAlgorithm.h"
 
 class Arena 
 {
@@ -19,6 +19,8 @@ private:
 	std::shared_ptr<InstanceOfGameEntities> instance2;
 	std::shared_ptr<InstanceOfGameEntities> instance3;
 	std::shared_ptr<InstanceOfGameEntities> instance4;
+	std::shared_ptr<GeneticAlgorithm> geneticAlgorithm;
+
 	void InitializeInstance1();
 	void InitializeInstance2();
 	void InitializeInstance3();

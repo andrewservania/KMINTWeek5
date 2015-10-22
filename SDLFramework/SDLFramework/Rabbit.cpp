@@ -1,5 +1,5 @@
 #include "Rabbit.h"
-#include "RabbitWanderingState.h"
+
 #include "Parameters.h"
 #include "RabbitGlobalState.h"
 #include "Dashboard.h"
@@ -125,8 +125,6 @@ void Rabbit::OnRightClick()
 void Rabbit::setCurrentNode(Node* node)
 {
 	currentNode = node;
-	//mX = node->GetBoundingBox().x;
-	//mY = node->GetBoundingBox().y;
 }
 
 void Rabbit::Respawn()
@@ -138,6 +136,7 @@ void Rabbit::Respawn()
 
 void Rabbit::Reset()
 {
+	SetScore(0);
 	position = Vector2D(600, rand() % 800);
 	velocity = Vector2D(200, 100);
 	stateMachine->SetCurrentState(RabbitPursuitState::Instance());

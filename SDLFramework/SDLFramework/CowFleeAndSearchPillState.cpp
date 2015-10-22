@@ -22,7 +22,7 @@ void CowFleeAndSearchPillState::Execute(Cow* cow)
 	float distanceDistanceBetweenCowAndRabbit = cow->DistanceBetween(cow->GetEnemy());
 	if (distanceDistanceBetweenCowAndRabbit < 300)
 	{
-		cow->SetMaxSpeed(27000.0);
+		cow->SetMaxSpeed(38000.0);
 		cow->Steering()->EvadeOn(cow->GetEnemy());
 		cow->Steering()->PursuitOff();
 	}

@@ -1,6 +1,6 @@
 #include "Pill.h"
 #include "Graph.h"
-#include "RabbitWanderingState.h"
+
 
 Pill::Pill(uint32_t _x, uint32_t _y) :
 	Vehicle(2,

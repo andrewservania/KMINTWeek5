@@ -63,6 +63,7 @@ void InstanceOfGameEntities::SetColor(Color* _color)
 
 void InstanceOfGameEntities::Reset()
 {
+
 	cow->Reset();
 	rabbit->Reset();
 	weapon->Respawn();
@@ -88,3 +89,13 @@ void InstanceOfGameEntities::PrintProbabilities()
 		"Hide: " + to_string(cow->GetProbabilityDistribution()->GetChoice4Probability()) + "% \n";	// Cow 1 probability
 	
 }
+
+InstanceScore InstanceOfGameEntities::GetScore()
+{
+	instanceScore.cowScore = cow->GetScore();
+	instanceScore.rabbitScore = rabbit->GetScore();
+	instanceScore.probabilityDistribution = cow->GetProbabilityDistribution();
+	instanceScore.instanceColor = cow->GetInstanceColor();
+	return instanceScore;
+}
+

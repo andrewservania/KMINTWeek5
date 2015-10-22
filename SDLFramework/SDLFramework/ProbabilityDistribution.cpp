@@ -17,13 +17,13 @@ ProbabilityDistribution::ProbabilityDistribution()
 
 ProbabilityDistribution::ProbabilityDistribution(int probabilityChoice1, int probabilityChoice2, int probabilityChoice3, int probabilityChoice4)
 {
-	currentTotalProbability = totalProbability;
+
 	choice1Probability = probabilityChoice1;
 	choice2Probability = probabilityChoice2;
 	choice3Probability = probabilityChoice3;
 	choice4Probability = probabilityChoice4;
 
-	assert((choice1Probability + choice2Probability + choice3Probability + probabilityChoice4) == 100 && "The probability numbers are incorrect. Make sure the choice percentages equal 100% and 100% only.");
+	
 }
 
 ProbabilityDistribution::~ProbabilityDistribution()
@@ -74,4 +74,19 @@ void ProbabilityDistribution::DistributeProbabilityAtRandom()
 
 
 
+}
+
+void ProbabilityDistribution::Normalize()
+{
+	int sum = choice1Probability + choice2Probability + choice3Probability + choice4Probability;
+
+	int normalizedvalue1 = (choice1Probability * 100) / sum;
+	int normalizedvalue2 = (choice2Probability * 100) / sum;
+	int normalizedvalue3 = (choice3Probability * 100) / sum;
+	int normalizedvalue4 = (choice4Probability * 100) / sum;
+
+	choice1Probability = normalizedvalue1;
+	choice2Probability = normalizedvalue2;
+	choice3Probability = normalizedvalue3;
+	choice4Probability = normalizedvalue4;
 }

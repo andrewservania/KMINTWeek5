@@ -1,6 +1,6 @@
 #include "Weapon.h"
 #include "Graph.h"
-#include "RabbitWanderingState.h"
+
 
 
 Weapon::Weapon(uint32_t _x, uint32_t _y) : Vehicle(1,
