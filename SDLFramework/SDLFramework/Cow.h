@@ -45,7 +45,6 @@ public:
 	virtual void Update(float deltaTime) override;
 	virtual void Draw()override;
 
-	void setCurrentNode(Node* node);
 	Node* getCurrentNode() { return currentNode; };
 	StateMachine<Cow>* GetFSM() const { return stateMachine; }
 	std::string GetCurrentState() { return stateMachine->CurrentState()->GetStateName(); }
@@ -63,12 +62,6 @@ public:
 	void SetPill(Pill* _pill){ pill = _pill; }
 	void SetWeapon(Weapon* _weapon) { weapon = _weapon; }
 	void Respawn();
-	//Vector2D SmoothingHeading() const { return smoothedHeading; }
-	//bool isSmoothingOn() const { return smoothingOn; }
-	//bool SmoothingOn() { smoothingOn = true; }
-	//bool SmoothingOff() { smoothingOn = false; }
-	//bool ToggleSmoothing() { return !smoothingOn; }
-	//double TimeElapsed() const { return timeElapsed; }
 	void SetScore(int val){ score = val; }
 	int GetScore(){ return score; }
 	void Reset();

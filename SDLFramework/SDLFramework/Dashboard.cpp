@@ -31,7 +31,6 @@ std::string Dashboard::rabbit3Score;
 std::string Dashboard::rabbit4Score;
 
 
-
 /// <summary>	The dashboard cow 1 state label. </summary>
 std::string Dashboard::cow1StateLabel;
 /// <summary>	The dashboard cow 2 state label. </summary>
@@ -95,6 +94,12 @@ Dashboard::Dashboard()
 
 	stateOfAllRabbitsLabel = "State of the rabbit of all instances: ";
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Destructor. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Dashboard::~Dashboard()
 {

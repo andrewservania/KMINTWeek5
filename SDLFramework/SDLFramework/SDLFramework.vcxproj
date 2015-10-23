@@ -85,7 +85,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Arena.cpp" />
-    <ClCompile Include="AStar.cpp" />
     <ClCompile Include="BaseGameEntity.cpp" />
     <ClCompile Include="Cgdi.cpp" />
     <ClCompile Include="Cow.cpp" />
@@ -99,7 +98,6 @@
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="FWApplication.cpp" />
     <ClCompile Include="GeneticAlgorithm.cpp" />
-    <ClCompile Include="Graph.cpp" />
     <ClCompile Include="iniFileLoaderBase.cpp" />
     <ClCompile Include="InstanceOfGameEntities.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -124,7 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arena.h" />
-    <ClInclude Include="AStar.h" />
     <ClInclude Include="BaseGameEntity.h" />
     <ClInclude Include="C2DMatrix.h" />
     <ClInclude Include="CellSpacePartition.h" />
@@ -144,7 +141,6 @@
     <ClInclude Include="FWApplication.h" />
     <ClInclude Include="GeneticAlgorithm.h" />
     <ClInclude Include="geometry.h" />
-    <ClInclude Include="Graph.h" />
     <ClInclude Include="IGameObject.h" />
     <ClInclude Include="iniFileLoaderBase.h" />
     <ClInclude Include="InstanceOfGameEntities.h" />

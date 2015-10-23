@@ -3,7 +3,6 @@
 #include "FWApplication.h"
 #include <SDL_events.h>
 #include <ctime>
-#include "AStar.h"
 #include "Arena.h"
 #include "Dashboard.h"
 #include "SDL_timer.h"
