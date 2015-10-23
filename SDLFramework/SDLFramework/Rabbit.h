@@ -44,7 +44,6 @@ public:
 	virtual void Draw()override;
 	void OnLeftClick();
 	void OnRightClick();
-	void setCurrentNode(Node* node);
 	Node* getCurrentNode() { return currentNode; }
 	std::string GetCurrentState() { return stateMachine->CurrentState()->GetStateName(); }
 	StateMachine<Rabbit>* GetFSM() { return stateMachine; }

@@ -4,43 +4,76 @@
 #include "Arena.h"
 #include "ProbabilityDistribution.h"
 
+
+/// <summary>	Information describing the dashboard application. </summary>
 std::string Dashboard::applicationInformation;
+/// <summary>	The time passed. </summary>
 std::string Dashboard::timePassed;
+/// <summary>	The amount of runs. </summary>
 std::string Dashboard::amountOfRuns;
 
-
+/// <summary>	The score of the cow from instance 1. </summary>
 std::string Dashboard::cow1Score;
+/// <summary>	The score of the cow from instance 2. </summary>
 std::string Dashboard::cow2Score;
+/// <summary>	The score of the cow from instance 3. </summary>
 std::string Dashboard::cow3Score;
+/// <summary>	The score of the cow from instance 4. </summary>
 std::string Dashboard::cow4Score;
 
+/// <summary>	The score of the rabbit from instance 1. </summary>
 std::string Dashboard::rabbit1Score;
+/// <summary>	The score of the rabbit from instance 2. </summary>
 std::string Dashboard::rabbit2Score;
+/// <summary>	The score of the rabbit from instance 3. </summary>
 std::string Dashboard::rabbit3Score;
+/// <summary>	The score of the rabbit from instance 4. </summary>
 std::string Dashboard::rabbit4Score;
 
+
+
+/// <summary>	The dashboard cow 1 state label. </summary>
 std::string Dashboard::cow1StateLabel;
+/// <summary>	The dashboard cow 2 state label. </summary>
 std::string Dashboard::cow2StateLabel;
+/// <summary>	The dashboard cow 3 state label. </summary>
 std::string Dashboard::cow3StateLabel;
+/// <summary>	The dashboard cow 4 state label. </summary>
 std::string Dashboard::cow4StateLabel;
 
+/// <summary>	The state label of all rabbits. </summary>
 std::string Dashboard::stateOfAllRabbitsLabel;
 
+/// <summary>	The first dashboard cow. </summary>
 Cow* Dashboard::cow1;
+/// <summary>	The second dashboard cow. </summary>
 Cow* Dashboard::cow2;
+/// <summary>	The third dashboard cow. </summary>
 Cow* Dashboard::cow3;
+/// <summary>	The fourth dashboard cow. </summary>
 Cow* Dashboard::cow4;
 
+/// <summary>	The first dashboard rabbit. </summary>
 Rabbit* Dashboard::rabbit1;
+/// <summary>	The second dashboard rabbit. </summary>
 Rabbit* Dashboard::rabbit2;
+/// <summary>	The third dashboard rabbit. </summary>
 Rabbit* Dashboard::rabbit3;
+/// <summary>	The fourth dashboard rabbit. </summary>
 Rabbit* Dashboard::rabbit4;
 
 using namespace std;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Default constructor. </summary>
+///
+///  initialize all parameters that are to be displayed on the dashboard
+/// 
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Dashboard::Dashboard()
 {
-	// Application information
 	applicationInformation = "Andrew Servania - KMINT Week 5";
 	timePassed = "Time passed: 00:00";
 	amountOfRuns = "Amount of runs: 0";
@@ -67,6 +100,21 @@ Dashboard::~Dashboard()
 {
 
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Updates the dashboard. </summary>
+///
+///  Updates the dashboard with in realtime with the following statistics:
+///  1) Instance color  
+///  2) The state of the cow of all instances  
+///  3) Application information  
+///  4) The time that has passed  
+///  5) The amount of runs  
+///  6) The state of the rabbit of all instances  
+///  7) Some additional description regarding the probability development of the cow's choices  
+///  8) 
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void Dashboard::Update()
 {

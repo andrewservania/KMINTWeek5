@@ -15,8 +15,6 @@ public:
 	~Pill();
 	void Update(float deltaTime) override;
 	void Draw() override;
-	void SetCurrentNode(Node* newNode);
-	void PutOnRandomLocation();
 	void SetColor(Color* _color){ color = _color; }
 	void Respawn() { 
 		SetPos(Vector2D(200 + rand() % 600, rand() % 800));

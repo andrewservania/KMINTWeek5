@@ -6,14 +6,31 @@
 
 using namespace std;
 
-// A class created to distribute probability among three choices in the most amateuristic way possible.
-// My sincere apologies to any statisticians ,computer-math scientists, scientific software engineers.
-// I stand open to all your expert feedback. :)
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>
+/// A class created to distribute probability among three choices in the most amateuristic way
+/// possible. My sincere apologies to any statisticians ,computer-math scientists, scientific
+/// software engineers. I stand open to all your expert feedback. :)
+/// </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ProbabilityDistribution::ProbabilityDistribution()
 {
 	DistributeProbabilityAtRandom();
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Constructor. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="probabilityChoice1">	The probability percentage for choice 1. </param>
+/// <param name="probabilityChoice2">	The probability percentage for choice 2. </param>
+/// <param name="probabilityChoice3">	The probability percentage for choice 3. </param>
+/// <param name="probabilityChoice4">	The probability percentage for choice 4. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ProbabilityDistribution::ProbabilityDistribution(int probabilityChoice1, int probabilityChoice2, int probabilityChoice3, int probabilityChoice4)
 {
@@ -26,9 +43,23 @@ ProbabilityDistribution::ProbabilityDistribution(int probabilityChoice1, int pro
 	
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Destructor. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 ProbabilityDistribution::~ProbabilityDistribution()
 {
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Generates a random choice based on the given distributed percentages. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <returns>	The random choice. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int ProbabilityDistribution::GenerateRandomChoice()
 {
@@ -45,12 +76,16 @@ int ProbabilityDistribution::GenerateRandomChoice()
 	return 0; // If the random number does not fall within the above-declared ranges, return 0
 }
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Distribute probability at random. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void ProbabilityDistribution::DistributeProbabilityAtRandom()
 {
 	// The sum represents the probability space that encapsules all the given choices.
-	// Therefore, one must normalize to 100%. The benifit of this is that, it won't manner
+	// Therefore, one must normalize to 100%. The benifit of this is that, it won't matter
 	// hopw big the probability space is, because it will always be 100%.
 
 	// Step 1: Generate 4 random numbers between 10 and 30.
@@ -75,6 +110,12 @@ void ProbabilityDistribution::DistributeProbabilityAtRandom()
 
 
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Normalizes this probability of the choices to 100% </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void ProbabilityDistribution::Normalize()
 {

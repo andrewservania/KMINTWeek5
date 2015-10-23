@@ -8,7 +8,7 @@ class CowWanderingState :
 private:
 	void Start(Cow* cow);
 	bool hasStarted;
-	bool IsThreadEminent(Cow* cow);
+	bool IsThreatEminent(Cow* cow);
 
 public:
 	CowWanderingState();

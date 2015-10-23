@@ -1,12 +1,24 @@
 #include "Vehicle.h"
-//#include "C2DMatrix.h"
-//#include "Geometry.h"
-//#include "SteeringBehaviors.h"
-//#include "Transformations.h"
-//#include "GameWorld.h"
-//#include "CellSpacePartition.h"
-//#include "cgdi.h"
 #include "Parameters.h"
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Constructor. </summary>
+///
+///  Create a vehicle that will be traveling on the arena.
+///  
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="id">			 	The identifier. </param>
+/// <param name="_position">	 	The position. </param>
+/// <param name="_rotation">	 	The rotation. </param>
+/// <param name="_velocity">	 	The velocity. </param>
+/// <param name="_mass">		 	The mass. </param>
+/// <param name="_max_force">	 	The maximum force. </param>
+/// <param name="_max_speed">	 	The maximum speed. </param>
+/// <param name="_max_turn_rate">	The maximum turn rate. </param>
+/// <param name="_scale">		 	The scale. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Vehicle::Vehicle(int id,
 	Vector2D _position,
 	double _rotation,
@@ -42,48 +54,3 @@ float Vehicle::DistanceBetween(Vehicle* _vehicle)
 {
 	return sqrt(pow((float)_vehicle->Pos().x - static_cast<float>(position.x), 2) + pow((float)_vehicle->Pos().y - static_cast<float>(position.y), 2));
 }
-//void Vehicle::Update(float deltaTime)
-//{
-//	double elapsedTime = static_cast<double>(deltaTime);
-//
-//	// calculate the combined force from each steering behavoir in the
-//	// vehicle's list
-//	Vector2D SteeringForce = steering->Calculate();
-//
-//	// Acceleration = Force/Mass
-//	Vector2D acceleration = SteeringForce / mass;
-//
-//	// update velocity
-//	velocity += acceleration * elapsedTime;
-//
-//	// make sure vehicle does not exceed maximum velocity
-//	velocity.Truncate(maxSpeed);
-//
-//	// update the position
-//	position += velocity * elapsedTime;
-//
-//	// set the actual location of the vehicle in the arena
-//	mX = static_cast<uint32_t>(position.x);
-//	mY = static_cast<uint32_t>(position.y);
-//
-//	// update the heading if the vehicle has a velocity greater than a very small
-//	// value
-//	if (velocity.LengthSq() > 0.00000001)
-//	{
-//		heading = Vec2DNormalize(velocity);
-//
-//		side = heading.Perp();
-//	}
-//
-//	//treat the screen as a toroid. Current window resolution is 1300x700
-//	WrapAround(position, 1300, 700);
-//	if (isSmoothingOn())
-//	{
-//		smoothedHeading =headingSmoother->Update(Heading());
-//	}
-//}
-
-//void Vehicle::Draw()
-//{
-//	mApplication->DrawTexture(mTexture, mX, mY, 100, 100);
-//}

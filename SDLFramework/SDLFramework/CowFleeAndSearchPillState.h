@@ -4,9 +4,6 @@
 class CowFleeAndSearchPillState :
 	public State<Cow>
 {
-private:
-	void Start(Cow* cow);
-
 public:
 	CowFleeAndSearchPillState();
 	~CowFleeAndSearchPillState();

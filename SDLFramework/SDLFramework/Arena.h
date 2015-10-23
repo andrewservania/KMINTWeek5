@@ -11,6 +11,8 @@
 class Arena 
 {
 private:
+
+	
 	uint32_t seconds;
 	int runs;
 	bool applicationEnd;

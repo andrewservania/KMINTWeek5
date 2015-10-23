@@ -49,7 +49,7 @@ public:
 	Node* getCurrentNode() { return currentNode; };
 	StateMachine<Cow>* GetFSM() const { return stateMachine; }
 	std::string GetCurrentState() { return stateMachine->CurrentState()->GetStateName(); }
-	void PutOnRandomLocation();
+
 
 	//// Accessor methods
 	SteeringBehavior* Steering() const { return steeringBehavior; }

@@ -9,9 +9,26 @@
 #include "SDL_timer.h"
 #include <memory>
 
-Uint32 delay = 1000; // ms
+/// <summary>	delay threshold of 1000ms. Used to determine 1 (one) second when the timer starts. </summary>
+Uint32 delay = 1000;
+/// <summary>	Identifier for my timer. </summary>
 SDL_TimerID myTimerID;
+/// <summary>	The arena. </summary>
 std::shared_ptr<Arena> arena;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Timer call back function. </summary>
+///
+/// A function that is called every second.
+/// Used in order to create a timer on screen.
+/// 
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="interval">	The interval. </param>
+/// <param name="param">   	[in,out] If non-null, the parameter. </param>
+///
+/// <returns>	An Uint32. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Uint32 MyCallBackFunc(Uint32 interval, void *param)
 {
@@ -19,6 +36,17 @@ Uint32 MyCallBackFunc(Uint32 interval, void *param)
 	return interval;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Main entry-point for this application. </summary>
+///
+///  Initialize SDL, the arena, the dashboard and all game entities.
+///  
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="args">	Number of command-line arguments. </param>
+///
+/// <returns>	Exit-code for the process - 0 for success, else an error code. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int main(int args[])
 {
@@ -35,7 +63,7 @@ int main(int args[])
 
 	application->SetTargetFPS(60);
 	arena = std::make_shared<Arena>();
-	auto dashboard = new Dashboard();										// To show some statistics such as shortestPath, Cow state and rabbit state
+	auto dashboard = new Dashboard();										
 
 	myTimerID = SDL_AddTimer(delay, MyCallBackFunc, nullptr);
 	while (application->IsRunning())

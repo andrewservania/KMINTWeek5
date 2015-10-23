@@ -4,13 +4,37 @@
 
 using namespace std;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Default constructor. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 GeneticAlgorithm::GeneticAlgorithm()
 {
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Destructor. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 GeneticAlgorithm::~GeneticAlgorithm()
 {
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Determine most effective instance. </summary>
+///  
+///  Determine which instance was the most effective by checking which instance has the cow
+///  with the highest score.
+///  This is done by sorting a vector containing all the instances score by highest score to lowest.
+///  The highest instance score will be return.
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <returns>	An InstanceScore. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 InstanceScore GeneticAlgorithm::DetermineMostEffectiveInstance()
 {
@@ -19,6 +43,21 @@ InstanceScore GeneticAlgorithm::DetermineMostEffectiveInstance()
 	winningInstanceColor = instanceScores.at(0).instanceColor;
 	return instanceScores.at(0);
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Gets the next generation prob distribution. </summary>
+///
+/// The chances of the cow of the most effective instance in a given round will copied.
+/// The two choices with the highest probabilities will be passed unto the next generation offspring of cows.
+/// As it is for the two remaining choices, their probabilities will be me determined at random.
+/// A new probability value probability will be generated. This is a value between 10 and 30.
+/// This newly created set of probabilities will set into a Probability Distribution objects.
+/// The values will be normalized to a scale of 0 to 100% and lastly returned.
+/// 
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <returns>	null if it fails, else the next generation prob distribution. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ProbabilityDistribution* GeneticAlgorithm::GetNextGenerationProbDistribution()
 {

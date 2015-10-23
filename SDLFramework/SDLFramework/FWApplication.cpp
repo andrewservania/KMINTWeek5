@@ -10,6 +10,17 @@
 
 FWApplication * FWApplication::mInstance;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Constructor. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="offsetX">	The offset x coordinate. </param>
+/// <param name="offsetY">	The offset y coordinate. </param>
+/// <param name="width">  	The width. </param>
+/// <param name="height"> 	The height. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 FWApplication::FWApplication(int offsetX, int offsetY, int width, int height)
 	: mTargetDelayMS(1000 / 60),
 	mStartCycleTimeMS(0),
@@ -63,17 +74,15 @@ FWApplication::FWApplication(int offsetX, int offsetY, int width, int height)
 	SetFontSize(12);
 	SetFont("OpenSans-Regular.ttf");
 
-
-
-
-	// set timer
-
-
-
 	mInstance = this;
 	mGameObjects.reserve(32);
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Destructor. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 FWApplication::~FWApplication()
 {
@@ -84,10 +93,26 @@ FWApplication::~FWApplication()
 	SDL_Quit();
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Gets the window. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <returns>	null if it fails, else the window. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 SDL_Window * FWApplication::GetWindow() const
 {
 	return mWindow;
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Gets the instance. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <returns>	null if it fails, else the instance. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 FWApplication * FWApplication::GetInstance()
 {
@@ -99,18 +124,44 @@ FWApplication * FWApplication::GetInstance()
 	return mInstance;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Query if this object is running. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <returns>	true if running, false if not. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 bool FWApplication::IsRunning()
 {
 	return mIsRunning;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Gets relative path. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="path">	Full pathname of the file. </param>
+///
+/// <returns>	The relative path. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 std::string FWApplication::GetRelativePath(const std::string & path) const
 {
 	std::string basePath = SDL_GetBasePath();
 	return basePath + ".." + PATH_SEP + path; //  + PATH_SEP
-	//size_t pos = basePath.rfind("Debug");
-	//return basePath.substr(0, basePath.rfind("Debug")) + path + PATH_SEP; //  + "resources" + PATH_SEP
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Loads a texture. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="fileName">	Filename of the file. </param>
+///
+/// <returns>	null if it fails, else the texture. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 SDL_Texture * FWApplication::LoadTexture(const std::string & fileName)
 {
@@ -133,30 +184,15 @@ SDL_Texture * FWApplication::LoadTexture(const std::string & fileName)
 	return nullptr;
 }
 
-
-//SDL_Texture * FWApplication::LoadTexture(const std::string & fileName, SDL_Color _color)
-//{
-//	const std::string path = GetRelativePath("Resources" PATH_SEP + fileName);
-//	SDL_Surface * surface = IMG_Load(path.c_str());
-//	
-//	
-//	if (surface)
-//	{
-//		SDL_Texture * texture = SDL_CreateTextureFromSurface(mRenderer, surface);
-//		
-//		SDL_FreeSurface(surface);
-//
-//		if (!texture)
-//		{
-//			LOG("Couldn't load texture: " + path);
-//		}
-//		return texture;
-//	}
-//
-//	LOG("SDL Error, couldn't load BMP: " + path);
-//	return nullptr;
-//}
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Draw texture. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="texture">	[in,out] If non-null, the texture. </param>
+/// <param name="xOffset">	The offset. </param>
+/// <param name="yOffset">	The offset. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void FWApplication::DrawTexture(SDL_Texture * texture, int xOffset, int yOffset)
 {
@@ -166,6 +202,18 @@ void FWApplication::DrawTexture(SDL_Texture * texture, int xOffset, int yOffset)
 	SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
 	SDL_RenderCopy(mRenderer, texture, &rect, &rect);
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Draw texture. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="texture">	[in,out] If non-null, the texture. </param>
+/// <param name="xOffset">	The offset. </param>
+/// <param name="yOffset">	The offset. </param>
+/// <param name="width">  	The width. </param>
+/// <param name="height"> 	The height. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void FWApplication::DrawTexture(SDL_Texture * texture, int xOffset, int yOffset, int width, int height)
 {
@@ -177,6 +225,19 @@ void FWApplication::DrawTexture(SDL_Texture * texture, int xOffset, int yOffset,
 	SDL_RenderCopy(mRenderer, texture, NULL, &rect);
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Draw texture. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="texture">	[in,out] If non-null, the texture. </param>
+/// <param name="xOffset">	The offset. </param>
+/// <param name="yOffset">	The offset. </param>
+/// <param name="width">  	The width. </param>
+/// <param name="height"> 	The height. </param>
+/// <param name="_color"> 	The color. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void FWApplication::DrawTexture(SDL_Texture * texture, int xOffset, int yOffset, int width, int height, Color _color)
 {
 	SDL_Rect rect = { xOffset - (width / 2), yOffset - (height / 2), width, height };
@@ -187,21 +248,25 @@ void FWApplication::DrawTexture(SDL_Texture * texture, int xOffset, int yOffset,
 	SDL_RenderCopy(mRenderer, texture, NULL, &rect);
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Starts a tick. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void FWApplication::StartTick()
 {
 	SDL_RenderClear(mRenderer);
 	mStartCycleTimeMS = SDL_GetTicks();
 
-	//SDL_Event ev;
-	//while (SDL_PollEvent(&ev) != 0)
-	//{
-	//	if (ev.type == SDL_QUIT)
-	//	{
-	//		mIsRunning = false;
-	//	}
-	//}
+
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Ends a tick. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void FWApplication::EndTick()
 {
@@ -215,6 +280,12 @@ void FWApplication::EndTick()
 		SDL_Delay(mTargetDelayMS - mDeltaTimeMS);
 	}
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Updates the game objects. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void FWApplication::UpdateGameObjects()
 {
@@ -238,6 +309,12 @@ void FWApplication::UpdateGameObjects()
 	}
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Renders the game objects. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void FWApplication::RenderGameObjects()
 {
 	for (IGameObject * obj : mGameObjects)
@@ -246,21 +323,56 @@ void FWApplication::RenderGameObjects()
 	}
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Sets target FPS. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="target">	Target for the. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void FWApplication::SetTargetFPS(unsigned short target)
 {
 	//mTargetDelayMS = 1000 / target;
 	mFPS = static_cast<uint32_t>(target);
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Removes the texture described by texture. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="texture">	[in,out] If non-null, the texture. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void FWApplication::RemoveTexture(SDL_Texture * texture)
 {
 	SDL_DestroyTexture(texture);
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Draw line. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="startPosX">	The start position x coordinate. </param>
+/// <param name="startPosY">	The start position y coordinate. </param>
+/// <param name="endPosX">  	The end position x coordinate. </param>
+/// <param name="endPosY">  	The end position y coordinate. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void FWApplication::DrawLine(int startPosX, int startPosY, int endPosX, int endPosY)
 {
 	SDL_RenderDrawLine(mRenderer, startPosX, startPosY, endPosX, endPosY);
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Sets a color. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="color">	The color. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void FWApplication::SetColor(const Color & color)
 {
@@ -268,6 +380,18 @@ void FWApplication::SetColor(const Color & color)
 	SDL_SetRenderDrawColor(mRenderer, mColor.r, mColor.g, mColor.b, mColor.a);
 	
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Draw rectangle. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="startPosX">	The start position x coordinate. </param>
+/// <param name="startPosY">	The start position y coordinate. </param>
+/// <param name="width">		The width. </param>
+/// <param name="height">   	The height. </param>
+/// <param name="fill">			true to fill. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void FWApplication::DrawRect(int startPosX, int startPosY, int width, int height, bool fill)
 {
@@ -283,100 +407,41 @@ void FWApplication::DrawRect(int startPosX, int startPosY, int width, int height
 	}
 }
 
-//void FWApplication::DrawEllipse(int offsetX, int offsetY, int width, int height, bool fill)
-//{
-//	////
-//	//// http://sdl-draw.sourceforge.net/
-//	////
-//
-//	SDL_Rect rect = { offsetX, offsetY, width, height };
-//
-//	Sint32 x, y;
-//	Sint32 Xchange, Ychange;
-//	Sint32 EllipseError;
-//	Sint32 TwoASquare, TwoBSquare;
-//	Sint32 StoppingX, StoppingY;
-//
-//	TwoASquare = 2 * width*width;
-//	TwoBSquare = 2 * height*height;
-//
-//	/*1st set of points*/
-//	x = width - 1;  /*radius zero == draw nothing*/
-//	y = 0;
-//
-//	x += offsetX;
-//	y += offsetY;
-//
-//	Xchange = height*height*(1 - 2 * width);
-//	Ychange = width*width;
-//
-//	EllipseError = 0;
-//
-//	StoppingX = TwoBSquare*width;
-//	StoppingY = 0;
-//
-//	SDL_Surface * super = SDL_GetWindowSurface(mWindow);
-//	if (SDL_MUSTLOCK(super)) {
-//		if (SDL_LockSurface(super) < 0)  { return; }
-//	}
-//
-//	while (StoppingX > StoppingY)
-//	{
-//		SDL_DRAW_PUTPIXEL
-//		++y;
-//
-//		StoppingY += TwoASquare;
-//		EllipseError += Ychange;
-//		Ychange += TwoASquare;
-//		if ((2 * EllipseError + Xchange) > 0) {
-//			--x;
-//			StoppingX -= TwoBSquare;
-//			EllipseError += Xchange;
-//			Xchange += TwoBSquare;
-//		}
-//	}
-//
-//	/*2nd set of points*/
-//	x = 0;
-//	y = height - 1;
-//
-//	x += offsetX;
-//	y += offsetY;
-//
-//	Xchange = height*height;
-//	Ychange = width*width*(1 - 2 * height);
-//	EllipseError = 0;
-//	StoppingX = 0;
-//	StoppingY = TwoASquare*height;
-//
-//	while (StoppingX < StoppingY)
-//	{
-//		SDL_RenderDrawPoint(mRenderer, x, y);
-//
-//		++x;
-//		StoppingX += TwoBSquare;
-//		EllipseError += Xchange;
-//		Xchange += TwoBSquare;
-//		if ((2 * EllipseError + Ychange) > 0) {
-//			--y;
-//			StoppingY -= TwoASquare;
-//			EllipseError += Ychange;
-//			Ychange += TwoASquare;
-//		}
-//	}
-//
-//	if (SDL_MUSTLOCK(super))  { SDL_UnlockSurface(super); }
-//}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Adds a renderable. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="renderable">	[in,out] If non-null, the renderable. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void FWApplication::AddRenderable(IGameObject * renderable)
 {
 	mGameObjects.push_back(renderable);
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Gets time since started milliseconds. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <returns>	The time since started milliseconds. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 uint32_t FWApplication::GetTimeSinceStartedMS() const
 {
 	return mTimeMS;
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Draw text on screen. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="message">	The message. </param>
+/// <param name="offsetX">	The offset x coordinate. </param>
+/// <param name="offsetY">	The offset y coordinate. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void FWApplication::DrawTextOnScreen(const std::string & message, uint32_t offsetX, uint32_t offsetY)
 {
@@ -396,6 +461,14 @@ void FWApplication::DrawTextOnScreen(const std::string & message, uint32_t offse
 	}
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Sets font size. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="ptSize">	Size of the point. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void FWApplication::SetFontSize(int ptSize)
 {
 	mFontSize = ptSize;
@@ -405,6 +478,14 @@ void FWApplication::SetFontSize(int ptSize)
 		SetFont(mFontName);
 	}
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Sets a font. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="filename">	Filename of the file. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void FWApplication::SetFont(const std::string & filename)
 {
@@ -417,14 +498,15 @@ void FWApplication::SetFont(const std::string & filename)
 	mFont = TTF_OpenFont(GetRelativePath("Resources/" + filename).c_str(), mFontSize);
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Quits this object. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void FWApplication::Quit()
 {
 	mIsRunning = false;
 }
 
 
-
-//void FWApplication::AddOnEvent(std::function<void(SDL_Event*)> func)
-//{
-//	//SDL_Set
-//}

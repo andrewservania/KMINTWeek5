@@ -9,6 +9,18 @@
 
 using namespace std;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Default constructor. </summary>
+/// 
+/// 1) Create a cow, a rabbit, a weapon and a pill.
+/// 2) Put them on a random location on the arena.
+/// 3) Point the cow to the rabbit and vice versa in order for them to find/evade/flee eachother during
+/// the application
+/// 4) Point the cow to the pill and the weapon in order for to be able to determine their location and
+/// consume them.
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 InstanceOfGameEntities::InstanceOfGameEntities()
 {
 
@@ -48,10 +60,25 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Destructor. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 InstanceOfGameEntities::~InstanceOfGameEntities()
 {
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Sets a color. </summary>
+///   
+///   Set the color for the cow, the rabbit, the weapon and the pill.
+///   Used in order to assign a color all game entities of a given instance.
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <param name="_color">	[in,out] If non-null, the color. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void InstanceOfGameEntities::SetColor(Color* _color)
 {
@@ -60,6 +87,15 @@ void InstanceOfGameEntities::SetColor(Color* _color)
 	weapon->SetColor(_color);
 	pill->SetColor(_color);
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Resets this instance. </summary>
+/// 
+/// Reset the cow, the rabbit, the pill and the weapon and print the probabilities of the cow's 
+/// choices.
+/// 
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void InstanceOfGameEntities::Reset()
 {
@@ -72,6 +108,16 @@ void InstanceOfGameEntities::Reset()
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Ends the behavior of the cow </summary>
+/// 
+/// Set the rabbit and the cow to a Global State. The will not mobilize and do anything else
+/// while being in this state.
+/// Respawn the cow and the rabbit at a random location on the arena.
+///  
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void InstanceOfGameEntities::End()
 {
 	rabbit->GetFSM()->ChangeState(RabbitGlobalState::Instance());
@@ -81,6 +127,12 @@ void InstanceOfGameEntities::End()
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Print probabilities of the cow in the console window. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void InstanceOfGameEntities::PrintProbabilities()
 {
 	cout <<		"Flee: " + to_string(cow->GetProbabilityDistribution()->GetChoice1Probability()) + "%  " +
@@ -89,6 +141,14 @@ void InstanceOfGameEntities::PrintProbabilities()
 		"Hide: " + to_string(cow->GetProbabilityDistribution()->GetChoice4Probability()) + "% \n";	// Cow 1 probability
 	
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Gets the score, color and probability distribution of the cow in an instance. </summary>
+///
+/// <remarks>	Andrew Servania,. </remarks>
+///
+/// <returns>	The score. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 InstanceScore InstanceOfGameEntities::GetScore()
 {
