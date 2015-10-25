@@ -17,7 +17,7 @@ public:
 	void Draw() override;
 	void SetColor(Color* _color){ color = _color; }
 	void Respawn() { 
-		SetPos(Vector2D(200 + rand() % 600, rand() % 800));
+		SetPos(Vector2D(200 + rand() % 600, rand() % 700));
 		
 	
 	}

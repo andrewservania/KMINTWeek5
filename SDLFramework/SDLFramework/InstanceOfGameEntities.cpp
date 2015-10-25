@@ -24,11 +24,11 @@ using namespace std;
 InstanceOfGameEntities::InstanceOfGameEntities()
 {
 
-	weapon = new Weapon(200 + rand() % 600, rand() % 800);
-	pill = new Pill(200 + rand() % 600, rand() % 800);
+	weapon = new Weapon(200 + rand() % 800, rand() % 700);
+	pill = new Pill(200 + rand() % 800, rand() % 700);
 
 	cow =  new Cow(3,
-		Vector2D(200, rand() % 800),						//initial position
+		Vector2D(200, 200 + rand() % 200),					//initial position
 		RandFloat()*TwoPi,									//start rotation
 		Vector2D(200, 100),									//velocity
 		Parameters::Instance()->VehicleMass,				//mass
@@ -39,7 +39,7 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 		Parameters::Instance()->VehicleScale, rabbit);		//scale
 
 	rabbit = new Rabbit(4,
-		Vector2D(600, rand() % 800),						//initial position
+		Vector2D(600, 200 + rand() % 200),					//initial position
 		RandFloat()*TwoPi,									//start rotation
 		Vector2D(200, 100),									//velocity
 		Parameters::Instance()->VehicleMass,				//mass

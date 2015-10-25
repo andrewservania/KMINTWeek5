@@ -40,6 +40,8 @@ InstanceScore GeneticAlgorithm::DetermineMostEffectiveInstance()
 {
 	// sort vector grom greatest to smallest
 	sort(instanceScores.begin(), instanceScores.end(), greater<InstanceScore>());
+	scoreRankings.clear();
+	scoreRankings = instanceScores;
 	winningInstanceColor = instanceScores.at(0).instanceColor;
 	return instanceScores.at(0);
 }

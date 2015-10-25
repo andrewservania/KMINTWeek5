@@ -191,7 +191,7 @@ void Rabbit::OnRightClick()
 
 void Rabbit::Respawn()
 {
-	position = Vector2D(600, rand() % 800);
+	position = Vector2D(600, 200 + rand() % 200);
 	velocity = Vector2D(0, 0);
 	stateMachine->SetCurrentState(RabbitPursuitState::Instance());
 }
@@ -208,7 +208,7 @@ void Rabbit::Respawn()
 void Rabbit::Reset()
 {
 	SetScore(0);
-	position = Vector2D(600, rand() % 800);
+	position = Vector2D(600, 200 + rand() % 200);
 	velocity = Vector2D(200, 100);
 	stateMachine->SetCurrentState(RabbitPursuitState::Instance());
 }

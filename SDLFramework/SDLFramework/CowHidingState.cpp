@@ -64,7 +64,8 @@ void CowHidingState::Execute(Cow* cow)
 		if (cow->GetFSM()->PreviousState()->GetStateName() == "FleeAndSearchForPill")
 		{
 			cow->SetScore((cow->GetScore() + 1));
-			cow->SetPos(Vector2D(200, rand() % 800));
+			cow->SetPos(Vector2D(200, 200 + rand() % 200));
+			
 		}
 
 		if (cow->GetFSM()->PreviousState()->GetStateName() == "Wandering" ||
@@ -72,7 +73,7 @@ void CowHidingState::Execute(Cow* cow)
 		{
 			cow->GetFSM()->ChangeState(CowWanderingState::Instance());
 
-				cow->SetPos(Vector2D(200, rand() % 800));
+			cow->SetPos(Vector2D(200, 200 + rand() % 200));
 		}
 		cow->GetEnemy()->Respawn();
 	}

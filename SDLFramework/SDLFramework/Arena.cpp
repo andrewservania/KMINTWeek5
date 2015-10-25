@@ -71,7 +71,14 @@ void Arena::ResetInstances()
 	// Determine cow's most effective instance
 	ProbabilityDistribution* nextGenerationProbabilityDistribution = geneticAlgorithm->GetNextGenerationProbDistribution();
 	string winningInstanceColor = geneticAlgorithm->GetWinningInstanceColor();
-	cout << "The most effective instance was: instance " + winningInstanceColor;
+	cout << "\nThe most effective instance was: " + winningInstanceColor + "\n";
+	cout << "Score ranking of instances:\n";
+	int ranking = 1;
+	for (InstanceScore score : geneticAlgorithm->GetScoreRanking())
+	{
+		cout << to_string(ranking) + " " + score.instanceColor + " instance with a cow score of " + to_string(score.cowScore) + " points.\n";
+		ranking++;
+	}
 	// Pass the elitarian 'genes' to the next generation
 	if (winningInstanceColor == "Green")
 	{
@@ -159,7 +166,24 @@ void Arena::SecondTick()
 
 void Arena::EndProgram()
 {
-	
+	//Determine score of the current round
+	geneticAlgorithm->AddInstanceScores(instance1->GetScore());
+	geneticAlgorithm->AddInstanceScores(instance2->GetScore());
+	geneticAlgorithm->AddInstanceScores(instance3->GetScore());
+	geneticAlgorithm->AddInstanceScores(instance4->GetScore());
+
+
+	// Determine cow's most effective instance
+	ProbabilityDistribution* nextGenerationProbabilityDistribution = geneticAlgorithm->GetNextGenerationProbDistribution();
+	string winningInstanceColor = geneticAlgorithm->GetWinningInstanceColor();
+	cout << "\nThe most effective instance was: " + winningInstanceColor + "\n";
+	cout << "Score ranking of instances:\n";
+	int ranking = 1;
+	for (InstanceScore score : geneticAlgorithm->GetScoreRanking())
+	{
+		cout << to_string(ranking) + " " + score.instanceColor + " instance with a cow score of " + to_string(score.cowScore) + " points.\n";
+		ranking++;
+	}
 	instance1->End();
 	instance2->End();
 	instance3->End();

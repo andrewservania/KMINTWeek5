@@ -13,6 +13,7 @@ private:
 
 	std::vector<InstanceScore> instanceScores;
 	std::string winningInstanceColor;
+	std::vector<InstanceScore> scoreRankings;
 
 	// 1. determining the cow who has the highest score
 	bool static pairCompare(const std::pair<ProbabilityDistribution::Choice, int> firstPair,
@@ -30,6 +31,8 @@ public:
 	void AddInstanceScores(InstanceScore val){ instanceScores.push_back(val); };
 	ProbabilityDistribution* GetNextGenerationProbDistribution();
 	std::string GetWinningInstanceColor() { return winningInstanceColor; };
+	std::vector<InstanceScore> GetScoreRanking() { return scoreRankings; }
+
 
 };
 

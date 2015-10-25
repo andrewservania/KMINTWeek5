@@ -183,7 +183,7 @@ void Cow::Draw()
 
 void Cow::Respawn()
 {
-	position = Vector2D(200, rand() % 800);
+	position = Vector2D(200, 200 + rand() % 200);
 	velocity = Vector2D(0, 0);
 }
 
@@ -202,7 +202,7 @@ void Cow::Respawn()
 void Cow::Reset()
 {
 	SetScore(0);
-	position = Vector2D(200, rand() % 800);
+	position = Vector2D(200, 200 + rand() % 200);
 	velocity = Vector2D(200, 100);
 	stateMachine->SetCurrentState(CowWanderingState::Instance());
 	DoesNotMove_Off();
