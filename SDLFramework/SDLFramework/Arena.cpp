@@ -14,10 +14,10 @@ using namespace std;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Default constructor. </summary>
-/// 
+///
 ///  Call the initialization of 4 instances containing a rabbit, a cow, a weapon and a pill
 ///  Set the timer and amount of runs to 0.
-///  
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -26,7 +26,7 @@ Arena::Arena()
 	seconds = 0;
 	runs = 0;
 	applicationEnd = false;
-	cout << "\nRun # " + to_string(runs+1);
+	cout << "\nRun # " + to_string(runs + 1);
 	geneticAlgorithm = make_shared<GeneticAlgorithm>();
 
 	InitializeInstance1();
@@ -43,30 +43,26 @@ Arena::Arena()
 
 Arena::~Arena()
 {
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Resets the instances. </summary>
 ///
 ///  1) Reset all 4 instances
-///  2) Determine the most effective instances based on the cow's score using the genetic algorithm   
+///  2) Determine the most effective instances based on the cow's score using the genetic algorithm
 ///     class
-///  3) Pass the genes to the most effective cow unto the next generation of cows.  
+///  3) Pass the genes to the most effective cow unto the next generation of cows.
 ///  4) Reset the cow and rabbit's score and states.
 /// <remarks>	Andrew Servania,. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void Arena::ResetInstances()
 {
-
-
 	//Determine score of the current round
 	geneticAlgorithm->AddInstanceScores(instance1->GetScore());
 	geneticAlgorithm->AddInstanceScores(instance2->GetScore());
 	geneticAlgorithm->AddInstanceScores(instance3->GetScore());
 	geneticAlgorithm->AddInstanceScores(instance4->GetScore());
-
 
 	// Determine cow's most effective instance
 	ProbabilityDistribution* nextGenerationProbabilityDistribution = geneticAlgorithm->GetNextGenerationProbDistribution();
@@ -105,8 +101,7 @@ void Arena::ResetInstances()
 		instance3->cow->SetProbalitityOfChoices(nextGenerationProbabilityDistribution);
 	}
 
-	
-	cout << "\n\n Run # " + to_string(runs+1);
+	cout << "\n\n Run # " + to_string(runs + 1);
 	cout << "\nInstance 1 Green:\n";
 	instance1->Reset();
 	cout << "\nInstance 2 Blue:\n";
@@ -115,16 +110,15 @@ void Arena::ResetInstances()
 	instance3->Reset();
 	cout << "\nInstance 4 Yellow:\n";
 	instance4->Reset();
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Second tick. </summary>
-///  
+///
 ///  1) Update the dashboard timer every seconds
-///  2) Trigger an instance reset when the timer has reached 30 seconds.  
-///  3) End the application after 5 runs.  
-///  
+///  2) Trigger an instance reset when the timer has reached 30 seconds.
+///  3) End the application after 5 runs.
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -142,7 +136,7 @@ void Arena::SecondTick()
 				EndProgram();
 				applicationEnd = true;
 			}
-			else	
+			else
 			{
 				ResetInstances();
 			}
@@ -160,7 +154,7 @@ void Arena::SecondTick()
 ///
 /// The all activities in the Arena.
 /// This function is called when the amount of runs have reached 5 runs.
-/// 
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -171,7 +165,6 @@ void Arena::EndProgram()
 	geneticAlgorithm->AddInstanceScores(instance2->GetScore());
 	geneticAlgorithm->AddInstanceScores(instance3->GetScore());
 	geneticAlgorithm->AddInstanceScores(instance4->GetScore());
-
 
 	// Determine cow's most effective instance
 	ProbabilityDistribution* nextGenerationProbabilityDistribution = geneticAlgorithm->GetNextGenerationProbDistribution();
@@ -192,15 +185,15 @@ void Arena::EndProgram()
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Initializes the instance 1. </summary>
-/// 
+///
 /// 1) instantiate instance number 1 containing a cow, a rabbit a pill and a weapon.
-/// 2) Set all game entities of this instance to Green  
-/// 3) Give the dashboard a pointer to the cow and rabbit in order to monitor their statistics  
+/// 2) Set all game entities of this instance to Green
+/// 3) Give the dashboard a pointer to the cow and rabbit in order to monitor their statistics
 ///	   such as score and state.
 ///	4) Print the current probability distribution of the cow's strategic choices.
 ///	   Meaning (The percentage of chances distributed between the Fleeing Search For A Pill,
 ///	   Search For a Weapon and Hiding
-/// 
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -214,12 +207,11 @@ void Arena::InitializeInstance1()
 	Dashboard::Instance()->SetRabbit1(instance1->rabbit);
 	cout << "\nInstance 1 Green:\n";
 	instance1->PrintProbabilities();
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Initializes the instance 2. </summary>
-/// 
+///
 /// 1) instantiate instance number 2 containing a cow, a rabbit a pill and a weapon.
 /// 2) Set all game entities of this instance to Green
 /// 3) Give the dashboard a pointer to the cow and rabbit in order to monitor their statistics
@@ -227,7 +219,7 @@ void Arena::InitializeInstance1()
 ///	4) Print the current probability distribution of the cow's strategic choices.
 ///	   Meaning (The percentage of chances distributed between the Fleeing Search For A Pill,
 ///	   Search For a Weapon and Hiding
-///	   
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -253,13 +245,12 @@ void Arena::InitializeInstance2()
 ///	4) Print the current probability distribution of the cow's strategic choices.
 ///	   Meaning (The percentage of chances distributed between the Fleeing Search For A Pill,
 ///	   Search For a Weapon and Hiding
-/// 
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void Arena::InitializeInstance3()
 {
-
 	instance3 = make_shared<InstanceOfGameEntities>();
 	instance3->SetColor(new Color(255, 0, 0, 255));  // red instance
 	instance3->cow->SetInstanceColor("Red");
@@ -280,14 +271,14 @@ void Arena::InitializeInstance3()
 ///	4) Print the current probability distribution of the cow's strategic choices.
 ///	   Meaning (The percentage of chances distributed between the Fleeing Search For A Pill,
 ///	   Search For a Weapon and Hiding
-/// 
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void Arena::InitializeInstance4()
 {
 	instance4 = make_shared<InstanceOfGameEntities>();
-	instance4->SetColor(new Color(255, 0,255, 255)); // yellow instance
+	instance4->SetColor(new Color(255, 0, 255, 255)); // yellow instance
 	instance4->cow->SetInstanceColor("Yellow");
 	instance4->rabbit->SetInstanceColor("Yellow");
 	Dashboard::Instance()->SetCow4(instance4->cow);

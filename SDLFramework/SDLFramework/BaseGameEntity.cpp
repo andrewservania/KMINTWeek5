@@ -5,9 +5,9 @@ int BaseGameEntity::nextValidID = 0;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Constructor. </summary>
-///  
+///
 ///  Create a base game entity by providing an id, an entity type, a position and a radius
-///  
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ///
 /// <param name="id">		   	The identifier. </param>
@@ -34,7 +34,6 @@ tag(false)
 
 BaseGameEntity::~BaseGameEntity()
 {
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -10,16 +10,16 @@ using namespace std;
 /// <summary>	Constructor. Create a rabbit by providing the an ID, a position vector, a rotation
 /// 			value, a velocity vector, a mass value, a maximum force, a maximum speed, a maximum
 /// 			turn rate and a scale.
-/// 			
+///
 /// 			During the instantiation of rabbit the following actions will be taken:
 /// 			1) A picture of the rabbit will be created.
-/// 			2) pill and weapon pickup flags will be set to false.  
-/// 			3) score will be set to 0.  
-/// 			4) the rabbit will be given a steering behavior  
-/// 			5) the heading smoother will be instantiated  
-/// 			6) the rabbit will be added to items that must be shown on screen  
-/// 			7) the rabbit will be given a state machine   
-/// 			8) the rabbit's state will be set to a Global state  
+/// 			2) pill and weapon pickup flags will be set to false.
+/// 			3) score will be set to 0.
+/// 			4) the rabbit will be given a steering behavior
+/// 			5) the heading smoother will be instantiated
+/// 			6) the rabbit will be added to items that must be shown on screen
+/// 			7) the rabbit will be given a state machine
+/// 			8) the rabbit's state will be set to a Global state
 /// 			   the rabbit will not move or do anything else during while being in a Global state
 /// 		   10) the rabbit's color will be set to 0.
 /// 		     </summary>
@@ -47,21 +47,20 @@ Rabbit::Rabbit(int id,
 	double _max_speed,
 	double _max_turn_rate,
 	double _scale, Cow& _enemy) : Vehicle(id,
-					_position,
-					_rotation,
-					_velocity,
-					_mass,
-					_max_force,
-					_max_speed*1.7,
-					_max_turn_rate,
-					_scale),
-					enemy(_enemy)
+	_position,
+	_rotation,
+	_velocity,
+	_mass,
+	_max_force,
+	_max_speed*1.7,
+	_max_turn_rate,
+	_scale),
+	enemy(_enemy)
 {
 	mTexture = mApplication->LoadTexture("rabbit-3.png");
 	pickedUpPill = false;
 	pickedUpWeapon = false;
 	score = 0;
-
 
 	// set up the steering behavior class
 	steeringBehavior = new SteeringBehavior(this);
@@ -97,10 +96,10 @@ Rabbit::~Rabbit()
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	The rabbit will be updated
-/// 			
-/// 			1) The state of the rabbit will be updated.  
-/// 			2) The force-driven movement of the rabbit will be calculated, regulated and updated  
-/// 			3) The arena will be treated as toroid, therefore the movement of the rabbit will be  
+///
+/// 			1) The state of the rabbit will be updated.
+/// 			2) The force-driven movement of the rabbit will be calculated, regulated and updated
+/// 			3) The arena will be treated as toroid, therefore the movement of the rabbit will be
 /// 		       regulated to move accordingly. </summary>
 ///
 /// <remarks>	Andrew Servania,. </remarks>
@@ -129,7 +128,6 @@ void Rabbit::Update(float deltaTime)
 	// update the position
 	position += velocity * elapsedTime;
 
-
 	//update the heading if the cow has a velocity greater than a very small
 	//value
 	if (velocity.LengthSq() > 0.00000001)
@@ -140,8 +138,7 @@ void Rabbit::Update(float deltaTime)
 	}
 
 	// treat the screen as a toroid. Current window resolution is 1300x700
-	WrapAround(position,800,800);
-
+	WrapAround(position, 800, 800);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -160,7 +157,7 @@ void Rabbit::Draw()
 /// 		  Print in console window
 /// 		  </summary>
 ///
-/// 
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -197,7 +194,7 @@ void Rabbit::Respawn()
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-/// <summary>	Resets the rabbit. 
+/// <summary>	Resets the rabbit.
 /// 			The rabbit is put on a random location on the screen
 /// 			Set velocity to a vector of x=200 and y=100.
 /// 			Set the rabbit's state to Pursuit. </summary>

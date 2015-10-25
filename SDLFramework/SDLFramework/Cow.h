@@ -38,7 +38,7 @@ public:
 		double _max_force,
 		double _max_speed,
 		double _max_turn_rate,
-		double _scale, 
+		double _scale,
 		Rabbit* _enemy);
 
 	~Cow();
@@ -48,7 +48,6 @@ public:
 	Node* getCurrentNode() { return currentNode; };
 	StateMachine<Cow>* GetFSM() const { return stateMachine; }
 	std::string GetCurrentState() { return stateMachine->CurrentState()->GetStateName(); }
-
 
 	//// Accessor methods
 	SteeringBehavior* Steering() const { return steeringBehavior; }
@@ -71,5 +70,4 @@ public:
 	void SetProbalitityOfChoices(ProbabilityDistribution* val){ probabilityDistribution = val; };
 	std::string GetInstanceColor() { return instanceColor; }
 	void SetInstanceColor(std::string val){ instanceColor = val; }
-
 };

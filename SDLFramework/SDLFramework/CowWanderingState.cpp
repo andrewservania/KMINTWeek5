@@ -13,7 +13,6 @@
 
 CowWanderingState::CowWanderingState()
 {
-
 	hasStarted = false;
 }
 
@@ -25,7 +24,6 @@ CowWanderingState::CowWanderingState()
 
 CowWanderingState::~CowWanderingState()
 {
-	
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -46,7 +44,7 @@ void CowWanderingState::Enter(Cow* cow)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	If the cow is under threat, it choose one of its 4 choices
-/// 			
+///
 /// 			The speed of the cow is 'slowly' normalized to the default 50.0 after being coming
 /// 			from the Fleeing state. </summary>
 ///
@@ -66,7 +64,6 @@ void CowWanderingState::Execute(Cow* cow)
 	// Slowly normalize the speed of the cow after coming back from the Fleeing state
 	if (cow->MaxSpeed() > 50.0){
 		cow->SetMaxSpeed(cow->MaxSpeed() - 50.0);
-		
 	}
 	if (cow->MaxSpeed() < 50.0)
 	{
@@ -77,15 +74,15 @@ void CowWanderingState::Execute(Cow* cow)
 		// Choose next action
 		switch (cow->GetProbabilityDistribution()->GenerateRandomChoice())
 		{
-		case 1: 
+		case 1:
 			cow->GetFSM()->ChangeState(CowFleeingState::Instance());
 
 			break;
-		case 2: 
+		case 2:
 			cow->GetFSM()->ChangeState(CowFleeAndSearchWeaponState::Instance());
 
 			break;
-		case 3: 
+		case 3:
 			cow->GetFSM()->ChangeState(CowFleeAndSearchPillState::Instance());
 
 			break;
@@ -94,14 +91,12 @@ void CowWanderingState::Execute(Cow* cow)
 
 			break;
 		}
-		
 	}
-		
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Take action right before exiting the state.
-/// 			The cow will stop wandering around 
+/// 			The cow will stop wandering around
 /// 			hasStarted flag is set to false </summary>
 ///
 /// <remarks>	Andrew Servania,. </remarks>
@@ -128,14 +123,12 @@ void CowWanderingState::Exit(Cow* cow)
 
 void CowWanderingState::Start(Cow* cow)
 {
-
 	cow->Steering()->WanderOn();
 	cow->SetVelocity(Vector2D(200, 100));
-	
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-/// <summary>	Query if 'cow' is threat eminent. </summary>
+/// <summary>	Check if the rabbit is within 300 pixels from the cow. </summary>
 ///
 /// <remarks>	Andrew Servania,. </remarks>
 ///
@@ -151,6 +144,5 @@ bool CowWanderingState::IsThreatEminent(Cow* cow)
 	{
 		return true;
 	}
-	 return false;
-
+	return false;
 }

@@ -33,12 +33,11 @@ CowFleeAndSearchWeaponState::~CowFleeAndSearchWeaponState()
 
 void CowFleeAndSearchWeaponState::Enter(Cow* cow)
 {
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	The cow tries to pick a weapon by going after it.
-/// 			At the same time, the cow checks whether it is under threat by determining how close 
+/// 			At the same time, the cow checks whether it is under threat by determining how close
 /// 			the rabbit to the cow. If the rabbit is closer that 300 pixels from the cow, the cow
 /// 			tries to evade (flee) from the rabbit. Only when the cow has reached a safe place
 /// 			(Any location farther than 300 pixels from the rabbit) will it go after a weapon again.
@@ -51,7 +50,6 @@ void CowFleeAndSearchWeaponState::Enter(Cow* cow)
 
 void CowFleeAndSearchWeaponState::Execute(Cow* cow)
 {
-
 	float distanceDistanceBetweenCowAndRabbit = cow->DistanceBetween(cow->GetEnemy());
 	if (distanceDistanceBetweenCowAndRabbit < 300)
 	{
@@ -86,4 +84,3 @@ void CowFleeAndSearchWeaponState::Exit(Cow* cow)
 {
 	cow->Steering()->PursuitOff();
 }
-

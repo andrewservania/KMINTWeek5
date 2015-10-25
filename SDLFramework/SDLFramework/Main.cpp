@@ -20,7 +20,7 @@ std::shared_ptr<Arena> arena;
 ///
 /// A function that is called every second.
 /// Used in order to create a timer on screen.
-/// 
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ///
 /// <param name="interval">	The interval. </param>
@@ -39,7 +39,7 @@ Uint32 MyCallBackFunc(Uint32 interval, void *param)
 /// <summary>	Main entry-point for this application. </summary>
 ///
 ///  Initialize SDL, the arena, the dashboard and all game entities.
-///  
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ///
 /// <param name="args">	Number of command-line arguments. </param>
@@ -49,8 +49,6 @@ Uint32 MyCallBackFunc(Uint32 interval, void *param)
 
 int main(int args[])
 {
-	
-
 	srand(static_cast<unsigned int>(time(nullptr)));						// initialize random seed
 
 	auto application = new FWApplication();
@@ -62,7 +60,7 @@ int main(int args[])
 
 	application->SetTargetFPS(60);
 	arena = std::make_shared<Arena>();
-	auto dashboard = new Dashboard();										
+	auto dashboard = new Dashboard();
 
 	myTimerID = SDL_AddTimer(delay, MyCallBackFunc, nullptr);
 	while (application->IsRunning())
@@ -106,6 +104,3 @@ int main(int args[])
 
 	return EXIT_SUCCESS;
 }
-
-
-

@@ -258,8 +258,6 @@ void FWApplication::StartTick()
 {
 	SDL_RenderClear(mRenderer);
 	mStartCycleTimeMS = SDL_GetTicks();
-
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -378,7 +376,6 @@ void FWApplication::SetColor(const Color & color)
 {
 	mColor = color;
 	SDL_SetRenderDrawColor(mRenderer, mColor.r, mColor.g, mColor.b, mColor.a);
-	
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -508,5 +505,3 @@ void FWApplication::Quit()
 {
 	mIsRunning = false;
 }
-
-

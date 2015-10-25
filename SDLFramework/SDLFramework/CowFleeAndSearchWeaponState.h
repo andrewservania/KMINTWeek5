@@ -1,4 +1,4 @@
-#pragma 
+#pragma
 #include "State.h"
 #include "Cow.h"
 
@@ -17,5 +17,3 @@ public:
 		return &instance;
 	}
 };
-
-

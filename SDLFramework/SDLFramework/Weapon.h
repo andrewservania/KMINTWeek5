@@ -18,9 +18,6 @@ public:
 
 	~Weapon();
 
-
-
-
 	void Update(float deltaTime) override;
 	void Draw() override;
 	Node* GetCurrentNode() { return currentNode; }
@@ -30,7 +27,4 @@ public:
 	void Respawn() {
 		SetPos(Vector2D(200 + rand() % 600, rand() % 700));
 	}
-
-
-
 };

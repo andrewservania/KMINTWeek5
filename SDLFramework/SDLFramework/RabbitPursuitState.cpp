@@ -21,12 +21,11 @@ RabbitPursuitState::RabbitPursuitState()
 
 RabbitPursuitState::~RabbitPursuitState()
 {
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Take action right after entering the state
-/// 			
+///
 /// 			The Start() function is called.
 /// 			  </summary>
 ///
@@ -43,9 +42,9 @@ void RabbitPursuitState::Enter(Rabbit* rabbit)
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	The rabbit will pursuit the cow.
 /// 			If the rabbit catches the cow while the cow's in a Fleeing State, a FleeAndSearchForWeapon State,
-/// 			a FleeAndSearchForPill state: 
-/// 			1) The rabbit gets a 10 points.  
-/// 			2) Both the cow and the rabbit gets respawned at a random location on the Arena  
+/// 			a FleeAndSearchForPill state:
+/// 			1) The rabbit gets a 10 points.
+/// 			2) Both the cow and the rabbit gets respawned at a random location on the Arena
 /// 			3) The cow goes back to a Wandering state
 /// 			  </summary>
 ///
@@ -60,11 +59,10 @@ void RabbitPursuitState::Execute(Rabbit* rabbit)
 		Start(rabbit);
 		hasStarted = true;
 	}
-	
+
 	float distanceBetweenRabbitAndCow = rabbit->DistanceBetween(&rabbit->GetEnemy());
 	if (distanceBetweenRabbitAndCow <= 30)
 	{
-
 		if ((&rabbit->GetEnemy())->GetCurrentState() == "Fleeing" ||
 			(&rabbit->GetEnemy())->GetCurrentState() == "FleeAndSearchForWeapon" ||
 			(&rabbit->GetEnemy())->GetCurrentState() == "FleeAndSearchForPill")
@@ -104,4 +102,3 @@ void RabbitPursuitState::Start(Rabbit* rabbit)
 {
 	rabbit->Steering()->PursuitOn(&rabbit->GetEnemy());
 }
-

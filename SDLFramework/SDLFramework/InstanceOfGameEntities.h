@@ -8,15 +8,15 @@
 
 struct InstanceScore
 {
-	 int cowScore = 0;
-	 int rabbitScore = 0;
-	 std::string instanceColor;
-	 ProbabilityDistribution* probabilityDistribution;
+	int cowScore = 0;
+	int rabbitScore = 0;
+	std::string instanceColor;
+	ProbabilityDistribution* probabilityDistribution;
 
-	 bool operator > (const InstanceScore& instance) const
-	 {
-		 return  (cowScore > instance.cowScore);
-	 }
+	bool operator > (const InstanceScore& instance) const
+	{
+		return  (cowScore > instance.cowScore);
+	}
 };
 
 class InstanceOfGameEntities
@@ -37,6 +37,4 @@ public:
 	void PrintProbabilities();
 
 	InstanceScore GetScore();
-
 };
-

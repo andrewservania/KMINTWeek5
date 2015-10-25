@@ -1,8 +1,5 @@
 #pragma once
 
-
-
-
 #include <vector>
 
 #include "InstanceOfGameEntities.h"
@@ -22,17 +19,13 @@ private:
 		return (firstPair.second > secondPair.second);
 	}
 
-
 public:
 	GeneticAlgorithm();
 	~GeneticAlgorithm();
 	InstanceScore DetermineMostEffectiveInstance();
-	
+
 	void AddInstanceScores(InstanceScore val){ instanceScores.push_back(val); };
 	ProbabilityDistribution* GetNextGenerationProbDistribution();
 	std::string GetWinningInstanceColor() { return winningInstanceColor; };
 	std::vector<InstanceScore> GetScoreRanking() { return scoreRankings; }
-
-
 };
-

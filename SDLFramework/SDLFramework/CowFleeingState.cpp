@@ -13,7 +13,6 @@
 CowFleeingState::CowFleeingState()
 {
 	hasStarted = false;
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -108,7 +107,7 @@ bool CowFleeingState::NoThreat(Cow* cow)
 	float distanceBetweenCowAndRabbit = cow->DistanceBetween(cow->GetEnemy());
 	if (distanceBetweenCowAndRabbit > 300)
 	{
-		return true; 
-	}	
+		return true;
+	}
 	return false;
 }

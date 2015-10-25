@@ -29,8 +29,6 @@ protected:
 	//buffer for the vehicle shape
 	//std::vector<Vector2D> vehicleVB;
 
-
-
 public:
 	Vehicle(int id,
 		Vector2D _position,
@@ -43,18 +41,16 @@ public:
 		double _scale);
 
 	~Vehicle();
-	virtual void Update(float deltaTime)=0;
+	virtual void Update(float deltaTime) = 0;
 	//virtual void Draw()=0;
-	
+
 	//// Accessor methods
 	SteeringBehavior* Steering() const { return steering; }
 	Vector2D SmoothingHeading() const { return smoothedHeading; }
-	bool isSmoothingOn() const {return smoothingOn;}
+	bool isSmoothingOn() const { return smoothingOn; }
 	bool SmoothingOn() { smoothingOn = true; }
-	bool SmoothingOff() { smoothingOn = false;  }
+	bool SmoothingOff() { smoothingOn = false; }
 	bool ToggleSmoothing() { return !smoothingOn; }
 	double TimeElapsed() const { return timeElapsed; }
 	float DistanceBetween(Vehicle* _vehicle);
-	
 };
-

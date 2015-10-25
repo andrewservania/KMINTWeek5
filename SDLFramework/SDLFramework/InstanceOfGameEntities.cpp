@@ -11,7 +11,7 @@ using namespace std;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Default constructor. </summary>
-/// 
+///
 /// 1) Create a cow, a rabbit, a weapon and a pill.
 /// 2) Put them on a random location on the arena.
 /// 3) Point the cow to the rabbit and vice versa in order for them to find/evade/flee eachother during
@@ -23,11 +23,10 @@ using namespace std;
 
 InstanceOfGameEntities::InstanceOfGameEntities()
 {
-
 	weapon = new Weapon(200 + rand() % 800, rand() % 700);
 	pill = new Pill(200 + rand() % 800, rand() % 700);
 
-	cow =  new Cow(3,
+	cow = new Cow(3,
 		Vector2D(200, 200 + rand() % 200),					//initial position
 		RandFloat()*TwoPi,									//start rotation
 		Vector2D(200, 100),									//velocity
@@ -43,13 +42,12 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 		RandFloat()*TwoPi,									//start rotation
 		Vector2D(200, 100),									//velocity
 		Parameters::Instance()->VehicleMass,				//mass
-		(Parameters::Instance()->SteeringForce *			
+		(Parameters::Instance()->SteeringForce *
 		Parameters::Instance()->SteeringForceTweaker),		//max force
-		Parameters::Instance()->MaxSpeed *2,				//max velocity (double the speed of the cow)
+		Parameters::Instance()->MaxSpeed * 2,				//max velocity (double the speed of the cow)
 		Parameters::Instance()->MaxTurnRate,				//max turn rate
 		Parameters::Instance()->VehicleScale,				//scale
-		*cow);				
-
+		*cow);
 
 	rabbit->GetFSM()->ChangeState(RabbitPursuitState::Instance());
 
@@ -57,7 +55,6 @@ InstanceOfGameEntities::InstanceOfGameEntities()
 	cow->SetWeapon(weapon);
 	cow->SetPill(pill);
 	cow->GetFSM()->ChangeState(CowWanderingState::Instance());
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -72,7 +69,7 @@ InstanceOfGameEntities::~InstanceOfGameEntities()
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Sets a color. </summary>
-///   
+///
 ///   Set the color for the cow, the rabbit, the weapon and the pill.
 ///   Used in order to assign a color all game entities of a given instance.
 /// <remarks>	Andrew Servania,. </remarks>
@@ -90,31 +87,29 @@ void InstanceOfGameEntities::SetColor(Color* _color)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Resets this instance. </summary>
-/// 
-/// Reset the cow, the rabbit, the pill and the weapon and print the probabilities of the cow's 
+///
+/// Reset the cow, the rabbit, the pill and the weapon and print the probabilities of the cow's
 /// choices.
-/// 
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void InstanceOfGameEntities::Reset()
 {
-
 	cow->Reset();
 	rabbit->Reset();
 	weapon->Respawn();
 	pill->Respawn();
 	PrintProbabilities();
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Ends the behavior of the cow </summary>
-/// 
+///
 /// Set the rabbit and the cow to a Global State. The will not mobilize and do anything else
 /// while being in this state.
 /// Respawn the cow and the rabbit at a random location on the arena.
-///  
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -124,7 +119,6 @@ void InstanceOfGameEntities::End()
 	rabbit->SetPos(Vector2D(200 + rand() % 600, rand() % 800));
 	cow->GetFSM()->ChangeState(CowGlobalState::Instance());
 	cow->SetPos(Vector2D(200 + rand() % 600, rand() % 800));
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -135,11 +129,10 @@ void InstanceOfGameEntities::End()
 
 void InstanceOfGameEntities::PrintProbabilities()
 {
-	cout <<		"Flee: " + to_string(cow->GetProbabilityDistribution()->GetChoice1Probability()) + "%  " +
+	cout << "Flee: " + to_string(cow->GetProbabilityDistribution()->GetChoice1Probability()) + "%  " +
 		"FleeAndSearchWeapon: " + to_string(cow->GetProbabilityDistribution()->GetChoice2Probability()) + "% " +
 		"FleeAndSearchPill: " + to_string(cow->GetProbabilityDistribution()->GetChoice3Probability()) + "% " +
 		"Hide: " + to_string(cow->GetProbabilityDistribution()->GetChoice4Probability()) + "% \n";	// Cow 1 probability
-	
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -158,4 +151,3 @@ InstanceScore InstanceOfGameEntities::GetScore()
 	instanceScore.instanceColor = cow->GetInstanceColor();
 	return instanceScore;
 }
-

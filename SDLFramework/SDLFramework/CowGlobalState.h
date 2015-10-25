@@ -17,7 +17,4 @@ public:
 		static CowGlobalState instance;
 		return &instance;
 	}
-
-
 };
-

@@ -35,7 +35,7 @@ void RabbitGlobalState::Enter(Rabbit* rabbit)
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	The rabbit is put at x=600 and y=600 on the arena.
 /// 			The rabbit's velocity is set to zero.
-/// 			
+///
 /// 			The rabbit will do nothing while being in a Global state </summary>
 ///
 /// <remarks>	Andrew Servania,. </remarks>
@@ -60,6 +60,3 @@ void RabbitGlobalState::Execute(Rabbit* rabbit)
 void RabbitGlobalState::Exit(Rabbit* rabbit)
 {
 }
-
-
-

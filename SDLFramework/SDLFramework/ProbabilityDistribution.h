@@ -1,11 +1,7 @@
 #pragma once
 
-
-
-
 class ProbabilityDistribution
 {
-
 private:
 	// Probability is in percentages
 	const int totalProbability = 100;
@@ -25,8 +21,8 @@ public:
 	{
 		CHOICE1, CHOICE2, CHOICE3, CHOICE4
 	};
-	
-;
+
+	;
 
 	ProbabilityDistribution();
 	ProbabilityDistribution(int probabilityChoice1, int probabilityChoice2, int probabilityChoice3, int probabilityChoice4);

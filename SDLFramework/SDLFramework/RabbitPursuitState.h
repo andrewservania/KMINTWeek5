@@ -3,8 +3,6 @@
 #include "State.h"
 #include "Rabbit.h"
 
-
-
 class RabbitPursuitState : public State<Rabbit>
 {
 private:
@@ -24,4 +22,3 @@ public:
 		return &instance;
 	}
 };
-

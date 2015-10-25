@@ -2,13 +2,13 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Constructor.
-/// 			Create a weapon by providing an id, a location on the arena. 
-/// 			
-/// 			1) A picture of a weapon is loaded to screen.  
-/// 			2) The color of the weapon is set to "nothing"  
+/// 			Create a weapon by providing an id, a location on the arena.
+///
+/// 			1) A picture of a weapon is loaded to screen.
+/// 			2) The color of the weapon is set to "nothing"
 /// 			3) The weapon is added to items that must be shown on screen.
-/// 			
-/// 			
+///
+///
 /// 			Furthemore a couple of other parameters get set to 0 as they
 /// 			are not applicable for the weapon.</summary>
 ///
@@ -19,8 +19,8 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Weapon::Weapon(uint32_t _x, uint32_t _y) : Vehicle(1,
-	Vector2D(_x, _y),0,
-	Vector2D(0, 0),0,0,0,0,1)
+	Vector2D(_x, _y), 0,
+	Vector2D(0, 0), 0, 0, 0, 0, 1)
 {
 	mTexture = mApplication->LoadTexture("gun-metal.png");
 
@@ -51,7 +51,6 @@ Weapon::~Weapon()
 
 void Weapon::Update(float deltaTime)
 {
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -64,4 +63,3 @@ void Weapon::Draw()
 {
 	mApplication->DrawTexture(mTexture, static_cast<int>(position.x), static_cast<int>(position.y), 50, 50, Color(color->r, color->b, color->g, 255));
 };
-

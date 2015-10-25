@@ -28,10 +28,9 @@ protected:
 	//The length of this object's bounding radius
 	double boundingRadius;
 
-
 public:
 
-	enum{default_entity_type =-1};
+	enum{ default_entity_type = -1 };
 
 	BaseGameEntity(int id, int _entity_type, Vector2D _pos, double _r);
 

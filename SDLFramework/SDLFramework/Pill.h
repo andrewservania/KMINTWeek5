@@ -16,12 +16,9 @@ public:
 	void Update(float deltaTime) override;
 	void Draw() override;
 	void SetColor(Color* _color){ color = _color; }
-	void Respawn() { 
+	void Respawn() {
 		SetPos(Vector2D(200 + rand() % 600, rand() % 700));
-		
-	
 	}
-
 
 	Color* GetColor() { return color; }
 	Node* GetCurrentNode() { return currentNode; }

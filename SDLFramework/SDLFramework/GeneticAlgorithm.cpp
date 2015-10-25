@@ -26,7 +26,7 @@ GeneticAlgorithm::~GeneticAlgorithm()
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Determine most effective instance. </summary>
-///  
+///
 ///  Determine which instance was the most effective by checking which instance has the cow
 ///  with the highest score.
 ///  This is done by sorting a vector containing all the instances score by highest score to lowest.
@@ -55,7 +55,7 @@ InstanceScore GeneticAlgorithm::DetermineMostEffectiveInstance()
 /// A new probability value probability will be generated. This is a value between 10 and 30.
 /// This newly created set of probabilities will set into a Probability Distribution objects.
 /// The values will be normalized to a scale of 0 to 100% and lastly returned.
-/// 
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ///
 /// <returns>	null if it fails, else the next generation prob distribution. </returns>
@@ -63,7 +63,6 @@ InstanceScore GeneticAlgorithm::DetermineMostEffectiveInstance()
 
 ProbabilityDistribution* GeneticAlgorithm::GetNextGenerationProbDistribution()
 {
-
 	// Determine the winning instance
 	InstanceScore winningInstance = DetermineMostEffectiveInstance();
 
@@ -79,7 +78,7 @@ ProbabilityDistribution* GeneticAlgorithm::GetNextGenerationProbDistribution()
 	sort(choices.begin(), choices.end(), &GeneticAlgorithm::pairCompare);
 
 	// create a new probability distribution for next run's offspring
-	ProbabilityDistribution* nextGenerationProbDistribution = new ProbabilityDistribution(0,0,0,0);
+	ProbabilityDistribution* nextGenerationProbDistribution = new ProbabilityDistribution(0, 0, 0, 0);
 
 	// set the new probability values for the new offspring
 	// We take the probability of two of the cows strategies with the highest probability
@@ -88,35 +87,35 @@ ProbabilityDistribution* GeneticAlgorithm::GetNextGenerationProbDistribution()
 	// And we also increase the probability of the two most effective strategies of the cow in order to make it more adaptive
 	switch (choices.at(0).first)
 	{
-		case ProbabilityDistribution::CHOICE1:
-			nextGenerationProbDistribution->SetChoice1Probability(choices.at(0).second + 10);
-			break;
-		case ProbabilityDistribution::CHOICE2:
-			nextGenerationProbDistribution->SetChoice2Probability(choices.at(1).second + 10);
-			break;
-		case ProbabilityDistribution::CHOICE3:
-			nextGenerationProbDistribution->SetChoice3Probability(choices.at(2).second + 10);
-			break;
-		case ProbabilityDistribution::CHOICE4:
-			nextGenerationProbDistribution->SetChoice4Probability(choices.at(3).second + 10);
-			break;
+	case ProbabilityDistribution::CHOICE1:
+		nextGenerationProbDistribution->SetChoice1Probability(choices.at(0).second + 10);
+		break;
+	case ProbabilityDistribution::CHOICE2:
+		nextGenerationProbDistribution->SetChoice2Probability(choices.at(1).second + 10);
+		break;
+	case ProbabilityDistribution::CHOICE3:
+		nextGenerationProbDistribution->SetChoice3Probability(choices.at(2).second + 10);
+		break;
+	case ProbabilityDistribution::CHOICE4:
+		nextGenerationProbDistribution->SetChoice4Probability(choices.at(3).second + 10);
+		break;
 	}
 
 	// Transfer a second choice from parent to next generation offspring
 	switch (choices.at(1).first)
 	{
-		case ProbabilityDistribution::CHOICE1:
-			nextGenerationProbDistribution->SetChoice1Probability(choices.at(0).second + 10);
-			break;
-		case ProbabilityDistribution::CHOICE2:
-			nextGenerationProbDistribution->SetChoice2Probability(choices.at(1).second + 10);
-			break;
-		case ProbabilityDistribution::CHOICE3:
-			nextGenerationProbDistribution->SetChoice3Probability(choices.at(2).second + 10);
-			break;
-		case ProbabilityDistribution::CHOICE4:
-			nextGenerationProbDistribution->SetChoice4Probability(choices.at(3).second + 10);
-			break;
+	case ProbabilityDistribution::CHOICE1:
+		nextGenerationProbDistribution->SetChoice1Probability(choices.at(0).second + 10);
+		break;
+	case ProbabilityDistribution::CHOICE2:
+		nextGenerationProbDistribution->SetChoice2Probability(choices.at(1).second + 10);
+		break;
+	case ProbabilityDistribution::CHOICE3:
+		nextGenerationProbDistribution->SetChoice3Probability(choices.at(2).second + 10);
+		break;
+	case ProbabilityDistribution::CHOICE4:
+		nextGenerationProbDistribution->SetChoice4Probability(choices.at(3).second + 10);
+		break;
 	}
 
 	// For the two other remaining choices we generate random probability values

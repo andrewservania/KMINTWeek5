@@ -1,9 +1,7 @@
-
 #include "Dashboard.h"
 #include "FWApplication.h"
 #include "Arena.h"
 #include "ProbabilityDistribution.h"
-
 
 /// <summary>	Information describing the dashboard application. </summary>
 std::string Dashboard::applicationInformation;
@@ -29,7 +27,6 @@ std::string Dashboard::rabbit2Score;
 std::string Dashboard::rabbit3Score;
 /// <summary>	The score of the rabbit from instance 4. </summary>
 std::string Dashboard::rabbit4Score;
-
 
 /// <summary>	The dashboard cow 1 state label. </summary>
 std::string Dashboard::cow1StateLabel;
@@ -67,7 +64,7 @@ using namespace std;
 /// <summary>	Default constructor. </summary>
 ///
 ///  initialize all parameters that are to be displayed on the dashboard
-/// 
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -103,21 +100,20 @@ Dashboard::Dashboard()
 
 Dashboard::~Dashboard()
 {
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Updates the dashboard. </summary>
 ///
 ///  Updates the dashboard with in realtime with the following statistics:
-///  1) Instance color  
-///  2) The state of the cow of all instances  
-///  3) Application information  
-///  4) The time that has passed  
-///  5) The amount of runs  
-///  6) The state of the rabbit of all instances  
-///  7) Some additional description regarding the probability development of the cow's choices  
-///  8) 
+///  1) Instance color
+///  2) The state of the cow of all instances
+///  3) Application information
+///  4) The time that has passed
+///  5) The amount of runs
+///  6) The state of the rabbit of all instances
+///  7) Some additional description regarding the probability development of the cow's choices
+///  8)
 /// <remarks>	Andrew Servania,. </remarks>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -169,7 +165,7 @@ void Dashboard::Update()
 	FWApplication::GetInstance()->DrawTextOnScreen(applicationInformation, 400, 50);
 	FWApplication::GetInstance()->DrawTextOnScreen(timePassed, 400, 70);   // Now indicates the amount of time passed.
 	FWApplication::GetInstance()->DrawTextOnScreen(amountOfRuns, 400, 90); // Amount of runs
-	
+
 	//KMINT Week 5
 
 	// Instance1
@@ -196,6 +192,4 @@ void Dashboard::Update()
 	FWApplication::GetInstance()->DrawTextOnScreen(stateOfAllRabbitsLabel + rabbit1->GetCurrentState(), 350, 700);	// State of the rabbit of all 4 instances
 
 	FWApplication::GetInstance()->DrawTextOnScreen("Please check the console window for realtime developments on the cow's choices", 350, 730);	// State of the rabbit of all 4 instances
-
-
 }

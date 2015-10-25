@@ -47,10 +47,9 @@ public:
 
 	void SetTimePassed(uint32_t val) {
 		if (val <= 9){ timePassed = "Time passed: 00:0" + std::to_string(val); }
-		else{ timePassed = "Time passed: 00:" +std::to_string(val); }
+		else{ timePassed = "Time passed: 00:" + std::to_string(val); }
 	}
-	void SetAmountOfRuns(int val){ amountOfRuns = "Amount of runs: "+ std::to_string(val); }
-
+	void SetAmountOfRuns(int val){ amountOfRuns = "Amount of runs: " + std::to_string(val); }
 
 	// Accessors
 
@@ -80,11 +79,9 @@ public:
 	void SetRabbit3(Rabbit* val){ rabbit3 = val; }
 	void SetRabbit4(Rabbit* val){ rabbit4 = val; }
 
-	
 	static Dashboard* Instance()
 	{
 		static Dashboard instance;
 		return &instance;
 	}
-
 };

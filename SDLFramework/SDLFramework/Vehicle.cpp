@@ -5,7 +5,7 @@
 /// <summary>	Constructor. </summary>
 ///
 ///  Create a vehicle that will be traveling on the arena.
-///  
+///
 /// <remarks>	Andrew Servania,. </remarks>
 ///
 /// <param name="id">			 	The identifier. </param>
@@ -27,22 +27,21 @@ Vehicle::Vehicle(int id,
 	double _max_force,
 	double _max_speed,
 	double _max_turn_rate,
-	double _scale) : 
-						MovingEntity(id,
-						_position,
-						_scale,
-						_velocity,
-						_max_speed,
-						Vector2D(sin(_rotation), -cos(_rotation)),
-						_mass,
-						Vector2D(_scale, _scale),
-						_max_turn_rate,
-						_max_force),
-	smoothedHeading(Vector2D(0,0)),
+	double _scale) :
+	MovingEntity(id,
+	_position,
+	_scale,
+	_velocity,
+	_max_speed,
+	Vector2D(sin(_rotation), -cos(_rotation)),
+	_mass,
+	Vector2D(_scale, _scale),
+	_max_turn_rate,
+	_max_force),
+	smoothedHeading(Vector2D(0, 0)),
 	smoothingOn(false),
 	timeElapsed(0.0)
 {
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

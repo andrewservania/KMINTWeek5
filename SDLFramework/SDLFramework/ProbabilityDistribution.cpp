@@ -34,13 +34,10 @@ ProbabilityDistribution::ProbabilityDistribution()
 
 ProbabilityDistribution::ProbabilityDistribution(int probabilityChoice1, int probabilityChoice2, int probabilityChoice3, int probabilityChoice4)
 {
-
 	choice1Probability = probabilityChoice1;
 	choice2Probability = probabilityChoice2;
 	choice3Probability = probabilityChoice3;
 	choice4Probability = probabilityChoice4;
-
-	
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -65,13 +62,13 @@ int ProbabilityDistribution::GenerateRandomChoice()
 {
 	int randomNumber = rand() % 100 + 1; // number between 0 and 100
 
-	if (randomNumber >= 0 && randomNumber <= choice1Probability) 
+	if (randomNumber >= 0 && randomNumber <= choice1Probability)
 		return 1;
-	if (randomNumber > choice1Probability && randomNumber <= (choice1Probability + choice2Probability)) 
+	if (randomNumber > choice1Probability && randomNumber <= (choice1Probability + choice2Probability))
 		return 2;
 	if (randomNumber > (choice1Probability + choice2Probability) && randomNumber <= (choice1Probability + choice2Probability + choice3Probability))
 		return 3;
-	if (randomNumber > (choice1Probability + choice2Probability + choice3Probability)) 
+	if (randomNumber > (choice1Probability + choice2Probability + choice3Probability))
 		return 4;
 	return 0; // If the random number does not fall within the above-declared ranges, return 0
 }
@@ -89,12 +86,12 @@ void ProbabilityDistribution::DistributeProbabilityAtRandom()
 	// hopw big the probability space is, because it will always be 100%.
 
 	// Step 1: Generate 4 random numbers between 10 and 30.
-	int randomNumber1 = 10 + rand() % 21; 
+	int randomNumber1 = 10 + rand() % 21;
 	int randomNumber2 = 10 + rand() % 21;
 	int randomNumber3 = 10 + rand() % 21;
 	int randomNumber4 = 10 + rand() % 21;
 
-	// Step 2: Calculate the sum of these 4 random numbers 
+	// Step 2: Calculate the sum of these 4 random numbers
 	int sum = randomNumber1 + randomNumber2 + randomNumber3 + randomNumber4;
 
 	// Step 3: Normalize the random numbers to a total of 100% and
@@ -104,11 +101,6 @@ void ProbabilityDistribution::DistributeProbabilityAtRandom()
 	choice2Probability = (randomNumber2 * 100) / sum;
 	choice3Probability = (randomNumber3 * 100) / sum;
 	choice4Probability = (randomNumber4 * 100) / sum;
-
-
-
-
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

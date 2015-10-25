@@ -1,8 +1,5 @@
 #include "Parameters.h"
 
-
-
-
 /// <summary>	The parameters number agents. </summary>
 double Parameters::NumAgents = 1;
 
@@ -17,7 +14,6 @@ double Parameters::MaxObstacleRadius = 30;
 double Parameters::NumCellsX = 7;
 /// <summary>	number of vertical cells used for spatial partitioning. </summary>
 double Parameters::NumCellsY = 7;
-
 
 /// <summary>	how many samples the smoother will use to average a value. </summary>
 int Parameters::NumSamplesForSmoothing = 10;
@@ -91,36 +87,36 @@ double Parameters::MinDetectionBoxLength = 40.0;
 /// <summary>	used in wall avoidance. </summary>
 double Parameters::WallDetectionFeelerLength = 40.0;
 
- ////////////////////////////////////////////////////////////////////////////////////////////////////
- /// <summary>
- /// these are the probabilities that a steering behavior will be used when the Prioritized Dither
- /// calculate method is used to sum combined behaviors.
- /// </summary>
- ////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>
+/// these are the probabilities that a steering behavior will be used when the Prioritized Dither
+/// calculate method is used to sum combined behaviors.
+/// </summary>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
- float Parameters::prWallAvoidance = 0.5;
- /// <summary>	The parameters pr obstacle avoidance. </summary>
- double Parameters::prObstacleAvoidance = 0.5;
- /// <summary>	The parameters pr separation. </summary>
- double Parameters::prSeparation = 0.2;
- /// <summary>	The parameters pr alignment. </summary>
- double Parameters::prAlignment = 0.3;
- /// <summary>	The parameters pr cohesion. </summary>
- double Parameters::prCohesion = 0.6;
- /// <summary>	The parameters pr wander. </summary>
- double Parameters::prWander = 0.8;
- /// <summary>	The parameters pr seek. </summary>
- double Parameters::prSeek = 0.8;
- /// <summary>	The parameters pr flee. </summary>
- double Parameters::prFlee = 0.6;
- /// <summary>	The parameters pr evade. </summary>
- double Parameters::prEvade = 1.0;
- /// <summary>	The parameters pr hide. </summary>
- double Parameters::prHide = 0.8;
- /// <summary>	The parameters pr arrive. </summary>
- double Parameters::prArrive = 0.5;
- /// <summary>	add PI as max turn rate. </summary>
- double Parameters::MaxTurnRate = 3.14159;
+float Parameters::prWallAvoidance = 0.5;
+/// <summary>	The parameters pr obstacle avoidance. </summary>
+double Parameters::prObstacleAvoidance = 0.5;
+/// <summary>	The parameters pr separation. </summary>
+double Parameters::prSeparation = 0.2;
+/// <summary>	The parameters pr alignment. </summary>
+double Parameters::prAlignment = 0.3;
+/// <summary>	The parameters pr cohesion. </summary>
+double Parameters::prCohesion = 0.6;
+/// <summary>	The parameters pr wander. </summary>
+double Parameters::prWander = 0.8;
+/// <summary>	The parameters pr seek. </summary>
+double Parameters::prSeek = 0.8;
+/// <summary>	The parameters pr flee. </summary>
+double Parameters::prFlee = 0.6;
+/// <summary>	The parameters pr evade. </summary>
+double Parameters::prEvade = 1.0;
+/// <summary>	The parameters pr hide. </summary>
+double Parameters::prHide = 0.8;
+/// <summary>	The parameters pr arrive. </summary>
+double Parameters::prArrive = 0.5;
+/// <summary>	add PI as max turn rate. </summary>
+double Parameters::MaxTurnRate = 3.14159;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Default constructor. </summary>

@@ -18,11 +18,9 @@ public:
 	void Exit(Cow* cow) override;
 	std::string GetStateName() override { return "Wandering"; }
 
-
 	static CowWanderingState* Instance()
 	{
 		static CowWanderingState instance;
 		return &instance;
 	}
 };
-

@@ -2,11 +2,11 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>	Constructor.
-/// 			1) Create a pill and put it to items that have to be shown on screen.  
-/// 			2) load a pill picture  
-/// 			3) give the pill some coordinates on the arena.    
+/// 			1) Create a pill and put it to items that have to be shown on screen.
+/// 			2) load a pill picture
+/// 			3) give the pill some coordinates on the arena.
 /// 			4) Set the color of the pill to "nothing"
-/// 			
+///
 /// 			The pill automatically gets an ID of two, some parameters are set to zero as they
 /// 			are not relevant for the pill. </summary>
 ///
@@ -17,13 +17,13 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Pill::Pill(uint32_t _x, uint32_t _y) :
-	Vehicle(2,
-	Vector2D(_x, _y), 0,
-	Vector2D(0, 0),0,0,0,0,1)
+Vehicle(2,
+Vector2D(_x, _y), 0,
+Vector2D(0, 0), 0, 0, 0, 0, 1)
 {
 	mTexture = mApplication->LoadTexture("pill.png");
 
-	position = Vector2D( _x,_y);
+	position = Vector2D(_x, _y);
 
 	// Initialize with 'no' color
 	color = new Color(0, 0, 0, 255);
@@ -53,7 +53,6 @@ Pill::~Pill()
 
 void Pill::Update(float deltaTime)
 {
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -64,6 +63,5 @@ void Pill::Update(float deltaTime)
 
 void Pill::Draw()
 {
-	mApplication->DrawTexture(mTexture, static_cast<int>(position.x), static_cast<int>(position.y), 50, 50,Color(color->r, color->b, color->g, 255));
-	
+	mApplication->DrawTexture(mTexture, static_cast<int>(position.x), static_cast<int>(position.y), 50, 50, Color(color->r, color->b, color->g, 255));
 };

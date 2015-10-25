@@ -25,9 +25,6 @@ protected:
 	// the maximum rate (radians per second) this vehicle can rotate
 	double maxTurnRate;
 
-
-
-
 public:
 	MovingEntity(int id,
 		Vector2D _position,
@@ -42,7 +39,6 @@ public:
 
 	~MovingEntity();
 	virtual void Update(float deltaTime) = 0;
-
 
 	Vector2D Velocity()const{ return velocity; }
 	void SetVelocity(const Vector2D& NewVel){ velocity = NewVel; }
@@ -67,6 +63,4 @@ public:
 
 	double MaxTurnRate()const{ return maxTurnRate; }
 	void SetMaxTurnRate(double val){ maxTurnRate = val; }
-
 };
-

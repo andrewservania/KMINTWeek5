@@ -36,7 +36,7 @@ public:
 		double _max_force,
 		double _max_speed,
 		double _max_turn_rate,
-		double _scale, 
+		double _scale,
 		Cow& enemy);
 
 	~Rabbit();
@@ -65,5 +65,4 @@ public:
 
 	std::string GetInstanceColor() { return instanceColor; }
 	void SetInstanceColor(std::string val){ instanceColor = val; }
-
 };

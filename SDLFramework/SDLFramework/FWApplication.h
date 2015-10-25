@@ -4,7 +4,6 @@
 #include <cstdint>
 #include <vector>
 
-
 class IGameObject;
 struct SDL_Renderer;
 struct SDL_Window;
@@ -117,11 +116,8 @@ public:
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	void DrawTexture(SDL_Texture * texture, int xOffset, int yOffset, int width, int height);
 
-
 	// Andrew: Method that draws a texture on screen with a color shade
 	void DrawTexture(SDL_Texture * texture, int xOffset, int yOffset, int width, int height, Color _color);
-
-
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>	Draws a line from position to position </summary>
@@ -172,7 +168,6 @@ public:
 	/// <remarks>	Joris, 21-10-2014. </remarks>
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	void EndTick();
-
 
 	void ResetTicks() { mStartCycleTimeMS = 0; }
 	////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -238,8 +233,6 @@ public:
 	void Quit();
 	//void AddOnEvent(std::function<void(SDL_Event*)> func);
 
-
-
 private:
 	std::vector<IGameObject *> mGameObjects;
 	static FWApplication * mInstance;
@@ -260,13 +253,4 @@ private:
 	std::string mFontName;
 	uint32_t mFontSize;
 	//uint32_t mColor;
-
-
-
-
-
-
-
-
-
 };

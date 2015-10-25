@@ -8,11 +8,10 @@
 #include "SDL_timer.h"
 #include "GeneticAlgorithm.h"
 
-class Arena 
+class Arena
 {
 private:
 
-	
 	uint32_t seconds;
 	int runs;
 	bool applicationEnd;
@@ -36,4 +35,3 @@ public:
 	~Arena();
 	void SecondTick();
 };
-
